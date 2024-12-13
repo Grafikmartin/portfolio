@@ -1,11 +1,14 @@
 const overlay = document.getElementById('overlay');
 const videoText = document.getElementById('video-text');
-
-// Video-Element auswählen
 const video = overlay.querySelector('video');
 
 // Wiedergabegeschwindigkeit einstellen
 video.playbackRate = 0.8;
+
+// Video nach 5 Sekunden einblenden
+setTimeout(() => {
+    video.style.opacity = 1; // Sichtbar machen
+}, 5000);
 
 document.addEventListener('mousemove', (e) => {
     const rect = overlay.getBoundingClientRect();
@@ -22,7 +25,7 @@ document.addEventListener('mousemove', (e) => {
 
     if (isInsideOverlay) {
         // Großer Kreis innerhalb von `.overlay`
-        overlay.style.clipPath = `circle(10vh at ${x}px ${y}px)`;
+        overlay.style.clipPath = `circle(12vh at ${x}px ${y}px)`;
     } else {
         // Kleiner Kreis außerhalb von `.overlay`
         overlay.style.clipPath = `circle(1vh at ${x}px ${y}px)`;
