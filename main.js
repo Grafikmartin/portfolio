@@ -8,7 +8,7 @@ video.playbackRate = 0.8;
 // Video nach 5 Sekunden einblenden
 setTimeout(() => {
     video.style.opacity = 1; // Sichtbar machen
-}, 5000);
+}, 100);
 
 document.addEventListener('mousemove', (e) => {
     const rect = overlay.getBoundingClientRect();
@@ -34,3 +34,11 @@ document.addEventListener('mousemove', (e) => {
     // Ändern Sie die Opazität des Video-Textes je nach Position
     videoText.style.opacity = isInsideOverlay ? 1 : 0.5;
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+    const backgroundH1 = document.querySelector(".background h1");
+  
+    setTimeout(() => {
+      backgroundH1.classList.add("animate"); // Klasse hinzufügen
+    }, 1000); // Startet 1 Sekunde nach Laden der Seite
+  });
