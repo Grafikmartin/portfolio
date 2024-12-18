@@ -44,6 +44,6 @@ document.body.addEventListener('touchmove', function (e) {
     e.preventDefault();
   }, { passive: false });
   
-  // Setzt die Scrollposition zurück, falls notwendig
+  // Setzt die c zurück, falls notwendig
   window.scrollTo(0, 0);
   
