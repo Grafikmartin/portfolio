@@ -8,7 +8,9 @@ html, body {
     font-family:Arial, Helvetica, sans-serif
 }
 
-
+body {
+  overflow-x: hidden;
+}
 
 header {
     position: absolute;
@@ -107,7 +109,7 @@ header {
     transform: translateX(-50%); /* Korrekte Zentrierung */
     font-size: 0.95rem; /* Schriftgröße anpassen */
     color: #ffffff; /* Weiß für bessere Lesbarkeit */
-   
+    user-select: none;
     padding: 4px 8px; /* Abstand innerhalb des H2 */
     border-radius: 5px; /* Abgerundete Ecken */
     text-align: center;

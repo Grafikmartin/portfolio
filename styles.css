@@ -11,6 +11,7 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  overflow-x: hidden;
 }
 
 header {
@@ -109,7 +110,6 @@ header {
   text-align: center;
 }
 
-
 .background h1.animate {
   animation: fadeInColorChange 0.7s ease forwards; /* Animation starten */
 }
@@ -138,7 +138,8 @@ header {
   color: rgba(255, 255, 255, 0.5);
   z-index: 4;
 }
-.overlay h1, .background h1 {
+.overlay h1,
+.background h1 {
   user-select: none; /* Verhindert das Auswählen von Text */
   cursor: default; /* Setzt den Standardcursor */
 }
@@ -160,12 +161,11 @@ header {
   }
   66% {
     color: rgba(255, 255, 255, 1);
-  } 
+  }
   100% {
     color: chocolate;
   }
 }
-
 
 @keyframes slide-in-top-left {
   0% {
@@ -262,6 +262,4 @@ footer {
   font-size: 1.5vh;
   color: rgba(255, 255, 255, 0.6);
   padding: 5px 10px;
- 
-  
 }
