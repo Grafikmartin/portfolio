@@ -1,0 +1,204 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  html, body {
+    overflow: hidden;
+    height: 100%;
+  }
+  
+  
+  header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: flex-end;
+    z-index: 5; /* Menü bleibt oben sichtbar */
+  }
+ 
+  
+  
+  .corner-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+  }
+  
+  .corner-button {
+    position: absolute;
+    width: 7vh;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.6s ease, transform 0.9s ease;
+    opacity: 1;
+    z-index: 10;
+  
+    /* Hinzufügen der Farbwechsel-Animation */
+    animation: button-color-pulse 3s infinite alternate;
+  }
+  @keyframes button-color-pulse {
+    0% {
+      opacity: 0.5;
+    }
+    100% {
+      opacity: 1;
+    }
+  }
+  @keyframes fadeInColorChange {
+    0% {
+      opacity: 0; /* Startet unsichtbar */
+      color: chocolate; /* Ursprüngliche Farbe */
+    }
+    100% {
+      opacity: 1; /* Sichtbar */
+      color: white; /* Ziel-Farbe */
+    }
+  }
+  
+  /* Hover-Effekte für die Buttons */
+  .corner-button:hover {
+    transform: scale(1.7) rotate(90deg);
+    box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+      5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
+    opacity: 1;
+  }
+  
+  /* Ecken-Positionierung und Animationen */
+  .top-left {
+    top: 7vw;
+    left: 7vw;
+    transform: rotate(0deg);
+    transform-origin: center;
+    animation: slide-in-top-left 2s ease;
+  }
+  
+  .top-right {
+    top: 7vw;
+    right: 7vw;
+    transform: rotate(0deg);
+    transform-origin: center;
+    line-height: 1;
+    animation: slide-in-top-right 2s ease;
+  }
+  
+  footer {
+    position: absolute;
+    bottom: 3vh;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+    font-size: 1.5vh;
+    color: rgba(255, 255, 255, 0.6);
+    padding: 5px 10px;
+  }
+  .main-image {
+    position: absolute;
+    top: 28vh; /* Position leicht höher */
+    left: 50%;
+    transform: translateX(-50%); /* Exakt zentriert */
+    width: 70vw; /* Größeres Hauptbild */
+    height: 44vw; /* Höhe passend */
+    z-index: 1;
+    border: 1px solid rgba(255, 255, 255, 0.6);
+    border-radius: 10px;
+  }
+  
+  .main-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
+  
+  /* Slider Container */
+  .slider-container {
+    position: absolute;
+    bottom: 17vh; /* Slider etwas höher */
+    right: 10vw; /* Weiter nach rechts verschoben */
+    width: 60vw; /* Breite des Sliders */
+    height: 19vh; /* Höhe des Sliders */
+    display: flex;
+    align-items: center;
+    z-index: 2;
+  }
+  
+  /* Slider Controls (Pfeile links neben dem Slider) */
+  .slider-controls {
+    position: absolute;
+    left: -10rem; /* Links neben dem Slider */
+    display: flex;
+    align-items: flex-end; /* Pfeile unten bündig mit dem Slider */
+    gap: 2rem; /* Abstand zwischen den Pfeilen */
+  }
+  
+  .arrow {
+    font-size: 2.5rem;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 50%;
+    background-color: rgba(255, 255, 255, 0.6); /* Halbtransparenter Hintergrund */
+    color: black;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3;
+    transition: background-color 0.3s ease;
+  }
+  
+  .arrow:hover {
+    background-color: rgba(255, 255, 255, 0.8); /* Weniger transparent beim Hover */
+  }
+  
+  /* Slider Styling */
+  .slider {
+    overflow: hidden;
+    width: calc(100% - 26vh); /* Breite, die das rechte Bild teilweise abschneidet */
+    height: 19vh; /* Höhe des Sliders */
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+  }
+  
+  .slider-images {
+    display: flex;
+    transition: transform 0.5s ease-in-out; /* Sanfter Übergang */
+  }
+  
+  .slider-img {
+    width: 25vh; /* Breite jedes Bildes */
+    height: 15vh; /* Höhe jedes Bildes */
+    object-fit: cover; /* Verhindert Verzerrung */
+    margin-right: 1vh; /* Abstand zwischen den Bildern */
+    cursor: pointer;
+    border-radius: 10px; /* Abgerundete Ecken */
+    transition: transform 0.3s ease, border-color 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.6); /* Unsichtbarer Rahmen */
+  }
+  
+  .slider-img:hover {
+    transform: scale(1.05); /* Leichter Vergrößerungseffekt */
+    border-color: white;
+  }
