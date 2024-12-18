@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+}
+
+html,
+body {
+  overflow: hidden;
+  height: 100%;
+}
+
+header {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  padding: 10px 20px;
+  display: flex;
+  justify-content: flex-end;
+  z-index: 5; /* Menü bleibt oben sichtbar */
+}
+
+.corner-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.corner-button {
+  position: absolute;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.6s ease, transform 0.9s ease;
+  opacity: 1;
+  z-index: 10;
+
+  /* Hinzufügen der Farbwechsel-Animation */
+  animation: button-color-pulse 3s infinite alternate;
+}
+@keyframes button-color-pulse {
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+@keyframes fadeInColorChange {
+  0% {
+    opacity: 0; /* Startet unsichtbar */
+    color: chocolate; /* Ursprüngliche Farbe */
+  }
+  100% {
+    opacity: 1; /* Sichtbar */
+    color: white; /* Ziel-Farbe */
+  }
+}
+
+/* Hover-Effekte für die Buttons */
+.corner-button:hover {
+  transform: scale(1.7) rotate(90deg);
+  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  opacity: 1;
+}
+
+/* Ecken-Positionierung und Animationen */
+.top-left {
+  top: 7vw;
+  left: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  animation: slide-in-top-left 2s ease;
+}
+
+.top-right {
+  top: 7vw;
+  right: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  line-height: 1;
+  animation: slide-in-top-right 2s ease;
+}
+
+footer {
+  position: absolute;
+  bottom: 3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5vh;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 5px 10px;
+  z-index: -1;
+}
+/* Wrapper für die zentrale Platzierung */
+.wrapper {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  perspective: 1000px; /* 3D-Perspektive für das Karussell */
+}
+
+/* Inneres Element für die Karten-Rotation */
+.inner {
+  --w: 100px; /* Breite der Karten */
+  --h: 150px; /* Höhe der Karten */
+  --translateZ: calc(
+    (var(--w) + var(--h)) + 20px
+  ); /* Abstand der Karten von der Mitte */
+  --rotateX: -15deg; /* Schrägstellung der Ansicht */
+  --perspective: 1000px;
+  position: absolute;
+  width: var(--w);
+  height: var(--h);
+  z-index: 2;
+  transform-style: preserve-3d;
+  transform: perspective(var(--perspective));
+  animation: rotating 20s linear infinite;
+}
+
+@keyframes rotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+      rotateY(0);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
+      rotateY(1turn);
+  }
+}
+
+/* Karte für das Karussell */
+.card {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 2px solid rgba(var(--color-card), 1); /* Randfarbe aus der Variable */
+  border-radius: 12px;
+  background-color: rgba(var(--color-card), 0.6);
+  transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
+    translateZ(var(--translateZ));
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+}
+.card:hover {
+  box-shadow: 0 0 4px 2px rgba(255, 255, 250, 0.3),
+    /* Weicher innerer Glow */ 0 0 4px 2px rgba(255, 215, 155, 0.3),
+    /* Mittlerer Glow */ 0 0 4px 2px rgba(255, 215, 155, 0.3); /* Äußerer Glow */
+}
+
+/* Inhalt der Karte */
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px;
+  background: radial-gradient(
+    circle,
+    rgba(var(--color-card), 0.2) 0%,
+    rgba(var(--color-card), 0.6) 80%,
+    rgba(var(--color-card), 0.9) 100%
+  );
+}
+.img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover; /* Skaliert das Bild, ohne das Seitenverhältnis zu verändern */
+  border-radius: 10px; /* Abgerundete Ecken */
+}
+.card h2 {
+  position: absolute; /* Absolut positioniert relativ zur Karte */
+  top: +150px; /* Hebt die Überschrift leicht nach oben */
+  left: 50%; /* Zentriert horizontal */
+  transform: translateX(-50%); /* Korrekte Zentrierung */
+  font-size: 0.95rem; /* Schriftgröße anpassen */
+  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  user-select: none;
+  padding: 4px 8px; /* Abstand innerhalb des H2 */
+  border-radius: 5px; /* Abgerundete Ecken */
+  text-align: center;
+  white-space: nowrap;
+  z-index: 10; /* Sicherstellen, dass das H2 über dem Bild liegt */
+  font-weight: 200;
+}
