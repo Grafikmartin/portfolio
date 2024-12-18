@@ -35,3 +35,15 @@ window.addEventListener("load", function () {
     // Entferne die Ladeanzeige
     removeLoadingScreen();
 });
+// Verhindert Scrollen auf der Seite
+document.body.addEventListener('touchmove', function (e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  document.body.addEventListener('scroll', function (e) {
+    e.preventDefault();
+  }, { passive: false });
+  
+  // Setzt die Scrollposition zurück, falls notwendig
+  window.scrollTo(0, 0);
+  
