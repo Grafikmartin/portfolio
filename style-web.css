@@ -186,18 +186,33 @@ header {
 }
 
 /* Text-Container */
+/* Text-Container */
 .text-container {
   position: absolute;
   bottom: 30vh;
-  left: 7vw; /* Abstand von 7vw vom linken Rand */
+  left: -50vw; /* Startposition außerhalb des Sichtbereichs */
   color: white;
   text-align: left;
-  z-index: 4; /* Über dem Hauptbild */
+  z-index: 4;
   width: 40vw;
   display: flex;
   align-items: flex-start;
   flex-direction: column;
+  opacity: 0; /* Unsichtbar am Anfang */
+  animation: slide-in-left 1.5s ease-out 1.5s forwards; /* Animation starten */
 }
+
+@keyframes slide-in-left {
+  0% {
+    left: -50vw; /* Start außerhalb */
+    opacity: 0; /* Unsichtbar */
+  }
+  100% {
+    left: 7vw; /* Endposition */
+    opacity: 1; /* Sichtbar */
+  }
+}
+
 
 .text-container h1 {
   font-size: 5vh;
