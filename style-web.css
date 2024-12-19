@@ -179,3 +179,25 @@ header {
 .slider-img:hover {
   transform: scale(1.05);
 }
+
+/* Text-Container */
+.text-container {
+  position: absolute;
+  top: 55vh;
+  left: 7vw; /* Abstand von 7vw vom linken Rand */
+  color: white;
+  text-align: left;
+  z-index: 4; /* Über dem Hauptbild */
+  width: 40vw;
+}
+
+.text-container h1 {
+  font-size: 3vh;
+  margin-bottom: 1vh;
+}
+
+.text-container p {
+  font-size: 2vh;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 1);
+}

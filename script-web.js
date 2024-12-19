@@ -27,3 +27,36 @@ nextBtn.addEventListener("click", () => {
   if (currentIndex < maxIndex) currentIndex++;
   updateSliderPosition();
 });
+
+// Hauptbild, Titel und Beschreibung
+document.addEventListener("DOMContentLoaded", () => {
+  // Hauptbild, Titel und Beschreibung
+  const mainImage = document.getElementById("main-image");
+  const imageTitle = document.getElementById("image-title");
+  const imageDescription = document.getElementById("image-description");
+  const sliderImages = document.querySelectorAll(".slider-img");
+
+  // Debugging: Überprüfen, ob die Elemente gefunden werden
+  console.log("Hauptbild:", mainImage);
+  console.log("Titel:", imageTitle);
+  console.log("Beschreibung:", imageDescription);
+  console.log("Slider-Bilder:", sliderImages);
+
+  // Beim Klick auf ein Bild im Slider
+  sliderImages.forEach((img) => {
+    console.log("Bild gefunden:", img); // Debugging: Bild gefunden
+    img.addEventListener("click", () => {
+      console.log("Geklicktes Bild:", img.src); // Debugging: Bild geklickt
+
+      // Hauptbild aktualisieren
+      mainImage.src = img.src;
+
+      // Titel und Beschreibung aus den Datenattributen des Bildes
+      console.log("Title:", img.dataset.title); // Debugging: Titel prüfen
+      console.log("Description:", img.dataset.description); // Debugging: Beschreibung prüfen
+
+      imageTitle.textContent = img.dataset.title || "Kein Titel verfügbar";
+      imageDescription.textContent = img.dataset.description || "Keine Beschreibung verfügbar";
+    });
+  });
+});
