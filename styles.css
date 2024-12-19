@@ -158,13 +158,13 @@ header {
 /* Keyframes für die Animation */
 @keyframes color-pulse {
   0% {
-    color: rgba(255, 255, 255, 0.5);
-  }
-  33% {
     color: rgb(0, 189, 214);
   }
+  33% {
+    color: chocolate;
+  }
   66% {
-    color: rgba(255, 255, 255, 1);
+    color: rgb(0, 189, 214);
   }
   100% {
     color: chocolate;

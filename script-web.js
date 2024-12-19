@@ -60,3 +60,34 @@ document.addEventListener("DOMContentLoaded", () => {
     });
   });
 });
+document.addEventListener("DOMContentLoaded", () => {
+  const mainImage = document.getElementById("main-image");
+  const imageTitle = document.getElementById("image-title");
+  const imageDescription = document.getElementById("image-description");
+  const imageLink = document.getElementById("image-link");
+  const sliderImages = document.querySelectorAll(".slider-img");
+
+  sliderImages.forEach((img) => {
+    img.addEventListener("click", () => {
+      mainImage.src = img.src;
+      imageTitle.textContent = img.dataset.title;
+      imageDescription.textContent = img.dataset.description;
+
+      if (img.dataset.url) {
+        imageLink.setAttribute("data-url", img.dataset.url); // URL im Button speichern
+        imageLink.style.display = "inline-block"; // Button anzeigen
+      } else {
+        imageLink.style.display = "none"; // Button verstecken
+      }
+    });
+  });
+
+  // Klick auf den Button
+  imageLink.addEventListener("click", () => {
+    const url = imageLink.getAttribute("data-url");
+    if (url) {
+      window.open(url, "_blank"); // Öffne die URL in einem neuen Tab
+    }
+  });
+});
+
