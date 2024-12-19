@@ -120,7 +120,7 @@ header {
 .slider-controls {
   display: flex;
   flex-direction: row;
-  gap: 2vh;
+  gap: 1.0vh;
   margin-right: 1vh;
 }
 
@@ -132,7 +132,7 @@ header {
   align-items: center;
   border-radius: 50%;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   color: black;
   border: none;
   cursor: pointer;
@@ -152,7 +152,7 @@ header {
   width: 65vw;
   height: 20vh;
   background-color: rgba(255, 255, 255, 0.3);
-  backdrop-filter: blur(10px);
+  backdrop-filter: blur(5px);
   border-radius: 15px 0 0 15px;
   display: flex;
   align-items: center;
@@ -292,3 +292,5 @@ header {
   background-color:chocolate;
   transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }
+
+

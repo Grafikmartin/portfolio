@@ -123,8 +123,8 @@ footer {
 
 /* Inneres Element für die Karten-Rotation */
 .inner {
-  --w: 100px; /* Breite der Karten */
-  --h: 150px; /* Höhe der Karten */
+  --w: 10vh; /* Breite der Karten */
+  --h: 15vh; /* Höhe der Karten */
   --translateZ: calc(
     (var(--w) + var(--h)) + 20px
   ); /* Abstand der Karten von der Mitte */
@@ -190,7 +190,7 @@ footer {
 }
 .card h2 {
   position: absolute; /* Absolut positioniert relativ zur Karte */
-  top: +150px; /* Hebt die Überschrift leicht nach oben */
+  top: 15vh; /* Hebt die Überschrift leicht nach oben */
   left: 50%; /* Zentriert horizontal */
   transform: translateX(-50%); /* Korrekte Zentrierung */
   font-size: 0.95rem; /* Schriftgröße anpassen */

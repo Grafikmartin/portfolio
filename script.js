@@ -6,7 +6,7 @@ window.addEventListener("load", function () {
     const content = document.getElementById("content");
 
     // Minimum-Anzeigedauer (3 Sekunden)
-    const minimumLoadingTime = 3000; // in Millisekunden
+    const minimumLoadingTime = 2000; // in Millisekunden
 
     // Startzeitpunkt des Ladens
     const startTime = performance.now();
