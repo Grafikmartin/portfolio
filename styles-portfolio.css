@@ -123,7 +123,7 @@ footer {
 
 /* Inneres Element für die Karten-Rotation */
 .inner {
-  --w: 10vh; /* Breite der Karten */
+  --w: 12vh; /* Breite der Karten */
   --h: 15vh; /* Höhe der Karten */
   --translateZ: calc(
     (var(--w) + var(--h)) + 20px
@@ -155,18 +155,19 @@ footer {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 2px solid chocolate; /* Randfarbe aus der Variable */
+  border: 0.2vh ridge rgb(255, 255, 255); /* Randfarbe aus der Variable */
   border-radius: 12px;
   background-color: rgba(var(--color-card), 0.6);
   transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
     translateZ(var(--translateZ));
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0vh 0px rgba(255, 255, 255, 0.9);
   cursor: pointer;
 }
 .card:hover {
-  box-shadow: 0 0 4px 2px rgba(255, 255, 250, 0.3),
-    /* Weicher innerer Glow */ 0 0 4px 2px rgba(255, 215, 155, 0.3),
-    /* Mittlerer Glow */ 0 0 4px 2px rgba(255, 215, 155, 0.3); /* Äußerer Glow */
+  border: 0.3vh ridge chocolate;
+  box-shadow: 0 0vh 2px 0px chocolate,
+  
+   
 }
 
 /* Inhalt der Karte */
@@ -190,18 +191,22 @@ footer {
 }
 .card h2 {
   position: absolute; /* Absolut positioniert relativ zur Karte */
-  top: 15vh; /* Hebt die Überschrift leicht nach oben */
+  width: 12vh;
+  top: -3.0vh; /* Hebt die Überschrift leicht nach oben */
   left: 50%; /* Zentriert horizontal */
   transform: translateX(-50%); /* Korrekte Zentrierung */
-  font-size: 0.95rem; /* Schriftgröße anpassen */
+  font-size: 0.65rem; /* Schriftgröße anpassen */
   color: #ffffff; /* Weiß für bessere Lesbarkeit */
   user-select: none;
   padding: 4px 8px; /* Abstand innerhalb des H2 */
-  border-radius: 5px; /* Abgerundete Ecken */
+  border-radius: 10px; /* Abgerundete Ecken */
   text-align: center;
   white-space: nowrap;
   z-index: 10; /* Sicherstellen, dass das H2 über dem Bild liegt */
   font-weight: 200;
+  background-color: rgba(0, 0, 0, 0.8); /* Hintergrundfarbe */
+  border: 0.2vh ridge rgb(255, 255, 255);
+  
 }
 
 /* Wrapper für das Wort mit Perspektive */

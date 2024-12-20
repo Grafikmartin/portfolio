@@ -96,7 +96,7 @@ header {
   -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
   mask-size: 100%;
   -webkit-mask-size: 100%;
-  border: 1px solid chocolate;
+  border: 0.5vh ridge chocolate;
   border-radius: 10px;
   background-color: chocolate;
 }
@@ -185,7 +185,7 @@ header {
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s;
-  border: 1px solid chocolate;
+  border: 3px ridge chocolate;
 }
 
 .slider-img:hover {
