@@ -15,7 +15,8 @@ body {
   height: 100vh;
   overflow: hidden;
 }
-html, body {
+html,
+body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -30,7 +31,6 @@ html, body {
   object-fit: cover;
   border-radius: 10px;
 }
-
 .corner-button {
   position: absolute;
   width: 7vh;
@@ -43,19 +43,24 @@ html, body {
   opacity: 1;
   z-index: 10;
   border-radius: 10px;
-
-  /* Hinzufügen der Farbwechsel-Animation */
-  animation: button-color-pulse 3s infinite alternate;
 }
-@keyframes button-color-pulse {
+
+@keyframes slide-in-top-left {
   0% {
-    opacity: 0.5;
+    transform: rotate(-90deg) translateX(100%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 /* Hover-Effekte für die Buttons */
 .corner-button:hover {
   transform: scale(1.7) rotate(90deg);
@@ -86,17 +91,20 @@ html, body {
   border-radius: 10px;
 }
 
-
 .main-image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) perspective(600px) rotateY(-20deg);
-  width: 130vw; 
+  width: 130vw;
   height: auto;
   z-index: 2;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1));
-  -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
+  -webkit-mask-image: linear-gradient(
+    to right,
+    rgba(0, 0, 0, 0.3),
+    rgba(0, 0, 0, 1)
+  );
   mask-size: 100%;
   -webkit-mask-size: 100%;
   border: 0.3vh ridge rgb(255, 255, 255);
@@ -110,7 +118,6 @@ html, body {
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
 }
-
 
 /* Slider-Wrapper */
 
@@ -130,7 +137,7 @@ html, body {
 .slider-controls {
   display: flex;
   flex-direction: row;
-  gap: 1.0vh;
+  gap: 1vh;
   margin-right: 1vh;
 }
 
@@ -152,7 +159,7 @@ html, body {
 }
 
 .arrow:hover {
-  background-color: chocolate ;
+  background-color: chocolate;
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
@@ -168,7 +175,6 @@ html, body {
   align-items: center;
   overflow: hidden;
   padding: 2vh;
-
 }
 
 /* Bilder im Slider */
@@ -178,7 +184,6 @@ html, body {
   display: flex;
   gap: 1vh;
   transition: transform 0.5s ease-in-out;
-  
 }
 
 .slider-img {
@@ -190,9 +195,6 @@ html, body {
   transition: transform 0.3s;
   border: 2px ridge rgb(255, 255, 255);
 }
-
-
-
 
 /* Text-Container */
 .text-container {
@@ -208,6 +210,7 @@ html, body {
   flex-direction: column;
   opacity: 0; /* Unsichtbar am Anfang */
   animation: slide-in-left 1.5s ease-out 1.5s forwards; /* Animation starten */
+  user-select: none;
 }
 
 @keyframes slide-in-left {
@@ -225,12 +228,14 @@ html, body {
   font-size: 5vh;
   margin-bottom: 1vh;
   justify-content: start;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8); /* Schriftschatten für bessere Lesbarkeit */
 }
 
 .text-container p {
   font-size: 2vh;
   line-height: 1.5;
   color: rgba(255, 255, 255, 1);
+  text-shadow: 2px 2px 3px rgba(0, 0, 0, 0.8); /* Schriftschatten für bessere Lesbarkeit */
 }
 
 /* Anpassungen für Hochformat */
@@ -250,7 +255,6 @@ html, body {
 #image-link {
   display: none; /* Versteckt den Button standardmäßig */
 }
-
 
 .btn {
   display: inline-block;
@@ -311,6 +315,6 @@ html, body {
 
 .btn:hover:after {
   top: -45%;
-  background-color:chocolate;
+  background-color: chocolate;
   transform: translateX(-50%) scaleY(1.3) scaleX(0.8);
 }

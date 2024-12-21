@@ -38,19 +38,24 @@ body {
   opacity: 1;
   z-index: 10;
   border-radius: 10px;
-
-  /* Hinzufügen der Farbwechsel-Animation */
-  animation: button-color-pulse 3s infinite alternate;
 }
-@keyframes button-color-pulse {
+
+@keyframes slide-in-top-left {
   0% {
-    opacity: 0.5;
+    transform: rotate(-90deg) translateX(100%);
   }
   100% {
-    opacity: 1;
+    transform: translateX(0);
   }
 }
-
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
 /* Hover-Effekte für die Buttons */
 .corner-button:hover {
   transform: scale(1.7) rotate(90deg);
@@ -232,6 +237,7 @@ footer {
   transform-style: preserve-3d; /* Aktiviert 3D-Rendering */
   animation: rotateY 20s linear infinite; /* Langsame Y-Achsen-Rotation */
   transform-origin: center; /* Rotiert um die eigene Mitte */
+  user-select: none;
 }
 
 /* Keyframes für die Rotation */

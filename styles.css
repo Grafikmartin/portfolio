@@ -246,6 +246,7 @@ header {
   transform: rotate(0deg);
   transform-origin: center;
   animation: slide-in-top-left 2s ease;
+  animation-delay: 2s;
 }
 
 .top-right {
@@ -255,6 +256,7 @@ header {
   transform-origin: center;
   line-height: 1;
   animation: slide-in-top-right 2s ease;
+  animation-delay: 2s;
 }
 
 footer {
