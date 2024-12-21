@@ -43,13 +43,6 @@ document.addEventListener("DOMContentLoaded", () => {
     }, 1000); // Startet 1 Sekunde nach Laden der Seite
   });
   
-  // Portfolio-wrapper
-  document.addEventListener("DOMContentLoaded", () => {
-    const textElement = document.querySelector(".portfolio-text");
-    const text = textElement.textContent;
-    textElement.innerHTML = [...text]
-      .map((letter) => `<span>${letter}</span>`)
-      .join("");
-  });
+
   
   

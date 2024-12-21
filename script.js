@@ -46,4 +46,3 @@ document.body.addEventListener('touchmove', function (e) {
   
   // Setzt die c zurück, falls notwendig
   window.scrollTo(0, 0);
-  

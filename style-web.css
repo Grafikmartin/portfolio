@@ -119,9 +119,7 @@ body {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
 }
 
-/* Slider-Wrapper */
 
-/* Slider-Wrapper */
 /* Slider-Wrapper */
 .slider-wrapper {
   position: absolute;
@@ -194,6 +192,11 @@ body {
   cursor: pointer;
   transition: transform 0.3s;
   border: 2px ridge rgb(255, 255, 255);
+}
+
+.slider-img:hover {
+  transform: scale(1.05); /* Vergrößert das Bild */
+
 }
 
 /* Text-Container */
