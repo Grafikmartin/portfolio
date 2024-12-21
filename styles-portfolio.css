@@ -194,7 +194,7 @@ footer {
 .card h2 {
   position: absolute; /* Absolut positioniert relativ zur Karte */
   width: 12vh;
-  height: 4vh;
+  height: 16.8vh;
   top: -2.0vh; /* Hebt die Überschrift leicht nach oben */
   left: 50%; /* Zentriert horizontal */
   transform: translateX(-50%); /* Korrekte Zentrierung */
@@ -202,8 +202,7 @@ footer {
   color: #ffffff; /* Weiß für bessere Lesbarkeit */
   user-select: none;
   padding: 4px 8px; /* Abstand innerhalb des H2 */
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;/* Abgerundete Ecken */
+  border-radius: 10px;
   text-align: center;
   white-space: nowrap;
   z-index: -10; /* Sicherstellen, dass das H2 über dem Bild liegt */
