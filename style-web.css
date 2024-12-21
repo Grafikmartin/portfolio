@@ -23,15 +23,6 @@ html, body {
   height: 100%; /* Vollständige Höhe einhalten */
   width: 100%; /* Vollständige Breite einhalten */
 }
-header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 5;
-}
 
 .corner-button img {
   width: 100%;
@@ -51,54 +42,66 @@ header {
   transition: background-color 0.6s ease, transform 0.9s ease;
   opacity: 1;
   z-index: 10;
+  border-radius: 10px;
+
+  /* Hinzufügen der Farbwechsel-Animation */
   animation: button-color-pulse 3s infinite alternate;
 }
-
 @keyframes button-color-pulse {
-  0% { opacity: 0.5; }
-  100% { opacity: 1; }
+  0% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
+/* Hover-Effekte für die Buttons */
 .corner-button:hover {
   transform: scale(1.7) rotate(90deg);
   box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
-              5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
+  opacity: 1;
+  border-radius: 10px;
 }
 
+/* Ecken-Positionierung und Animationen */
 .top-left {
   top: 7vw;
   left: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
   animation: slide-in-top-left 2s ease;
+  border-radius: 10px;
 }
 
 .top-right {
   top: 7vw;
   right: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  line-height: 1;
   animation: slide-in-top-right 2s ease;
+  border-radius: 10px;
 }
 
-/* Main-Image Styling */
-/* Main-Image bleibt an der ursprünglichen Position */
 
-/* Hauptbild */
-/* Hauptbild */
-/* Hauptbild */
 .main-image {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%) perspective(600px) rotateY(-20deg);
-  width: 70vw; /* Größer als vorher */
+  width: 130vw; 
   height: auto;
   z-index: 2;
   mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 1));
   -webkit-mask-image: linear-gradient(to right, rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 1));
   mask-size: 100%;
   -webkit-mask-size: 100%;
-  border: 0.5vh ridge chocolate;
+  border: 0.3vh ridge rgb(255, 255, 255);
   border-radius: 10px;
-  background-color: chocolate;
+  background-color: rgb(255, 255, 255);
 }
 
 .main-image img {
@@ -185,14 +188,12 @@ header {
   border-radius: 10px;
   cursor: pointer;
   transition: transform 0.3s;
-  border: 3px ridge chocolate;
+  border: 2px ridge rgb(255, 255, 255);
 }
 
-.slider-img:hover {
-  transform: scale(1.05);
-}
 
-/* Text-Container */
+
+
 /* Text-Container */
 .text-container {
   position: absolute;
@@ -220,7 +221,6 @@ header {
   }
 }
 
-
 .text-container h1 {
   font-size: 5vh;
   margin-bottom: 1vh;
@@ -228,9 +228,24 @@ header {
 }
 
 .text-container p {
-  font-size: 2.5vh;
+  font-size: 2vh;
   line-height: 1.5;
   color: rgba(255, 255, 255, 1);
+}
+
+/* Anpassungen für Hochformat */
+@media (orientation: portrait) {
+  .text-container {
+    width: 65vw; /* Breite auf 65% der Viewport-Breite ändern */
+  }
+
+  .text-container h1 {
+    font-size: 3vh; /* Schriftgröße für h1 auf 3vh setzen */
+  }
+
+  .text-container p {
+    font-size: 1.5vh; /* Schriftgröße für p auf 1.5vh setzen */
+  }
 }
 #image-link {
   display: none; /* Versteckt den Button standardmäßig */

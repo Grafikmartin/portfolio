@@ -19,16 +19,6 @@ body {
   height: 100%;
 }
 
-header {
-  position: absolute;
-  top: 0;
-  width: 100%;
-  padding: 10px 20px;
-  display: flex;
-  justify-content: flex-end;
-  z-index: 5; /* Menü bleibt oben sichtbar */
-}
-
 .corner-button img {
   width: 100%;
   height: 100%;
@@ -47,6 +37,7 @@ header {
   transition: background-color 0.6s ease, transform 0.9s ease;
   opacity: 1;
   z-index: 10;
+  border-radius: 10px;
 
   /* Hinzufügen der Farbwechsel-Animation */
   animation: button-color-pulse 3s infinite alternate;
@@ -59,16 +50,6 @@ header {
     opacity: 1;
   }
 }
-@keyframes fadeInColorChange {
-  0% {
-    opacity: 0; /* Startet unsichtbar */
-    color: chocolate; /* Ursprüngliche Farbe */
-  }
-  100% {
-    opacity: 1; /* Sichtbar */
-    color: white; /* Ziel-Farbe */
-  }
-}
 
 /* Hover-Effekte für die Buttons */
 .corner-button:hover {
@@ -77,6 +58,7 @@ header {
     5px -5px 15px -3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   opacity: 1;
+  border-radius: 10px;
 }
 
 /* Ecken-Positionierung und Animationen */
@@ -86,6 +68,7 @@ header {
   transform: rotate(0deg);
   transform-origin: center;
   animation: slide-in-top-left 2s ease;
+  border-radius: 10px;
 }
 
 .top-right {
@@ -95,17 +78,20 @@ header {
   transform-origin: center;
   line-height: 1;
   animation: slide-in-top-right 2s ease;
+  border-radius: 10px;
 }
 
 footer {
   position: absolute;
   bottom: 3vh;
+  width: 100vw;
   left: 50%;
   transform: translateX(-50%);
   text-align: center;
   font-size: 1.5vh;
   color: rgba(255, 255, 255, 0.2);
   padding: 5px 10px;
+  margin-bottom: 2vh;
   z-index: -1;
 }
 /* Wrapper für die zentrale Platzierung */

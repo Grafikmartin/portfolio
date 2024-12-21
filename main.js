@@ -52,4 +52,21 @@ document.addEventListener("DOMContentLoaded", () => {
       .join("");
   });
   
+  function updateViewportVariables() {
+    if (window.innerHeight > window.innerWidth) {
+      // Hochformat: Breite und Höhe tauschen
+      document.documentElement.style.setProperty('--viewport-height', '1vw');
+      document.documentElement.style.setProperty('--viewport-width', '1vh');
+    } else {
+      // Querformat: Standard
+      document.documentElement.style.setProperty('--viewport-height', '1vh');
+      document.documentElement.style.setProperty('--viewport-width', '1vw');
+    }
+  }
+  
+  // Beim Laden der Seite ausführen
+  updateViewportVariables();
+  
+  // Überwachung der Größenänderung
+  window.addEventListener('resize', updateViewportVariables);
   
