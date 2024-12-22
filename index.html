@@ -4,15 +4,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Landingpage</title>
-    <link rel="stylesheet" href="styles.css" />
+    <link rel="stylesheet" href="styles-portfolio.css" />
   </head>
   <body>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <header>
       <nav>
-        <a href="portfolio.html">
+        <a href="index.html">
           <div class="corner-button top-left">
-            <img src="./assets/portfolio-button.png" alt="Portfolio" />
+            <img src="./assets/home-button.png" alt="Portfolio" />
           </div>
         </a>
         <a href="uebermich.html">
@@ -23,27 +23,79 @@
       </nav>
     </header>
 
-    <div class="overlay" id="overlay">
-      <video src="videos/Hintergrundvideo.mp4" autoplay muted loop></video>
-      <h1 id="video-text">explore<br />my<br />site!</h1>
+    <div class="portfolio-wrapper">
+      <h1 class="portfolio-text" data-text="PORTFOLIO">PORTFOLIO</h1>
     </div>
-    <div class="background" id="background">
-      <h1>Welcome<br />to my corner<br />of the web!</h1>
+    <div class="wrapper">
+      <div class="inner" style="--quantity: 10">
+        <div class="card" style="--index: 0; --color-card: 142, 249, 252">
+          <h2>Layouts</h2>
+          <div class="img">
+            <img src="./kunst/abstract-2681021_1920.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 1; --color-card: 142, 252, 204">
+          <h2>Logodesign</h2>
+          <div class="img">
+            <img src="./kunst/ai-generated-8510983_1920.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 2; --color-card: 142, 252, 157">
+          <div class="img">
+            <h2>Sonstiges</h2>
+            <img src="./kunst/nature-6756974_1280.png" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 3; --color-card: 215, 252, 142">
+          <h2>Fotographie</h2>
+          <div class="img">
+            <img src="./kunst/ai-generated-8879311_1280.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 4; --color-card: 252, 252, 142">
+          <h2>Weindegustation</h2>
+          <div class="img">
+            <img src="./kunst/art-4412523_1280.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 5; --color-card: 252, 208, 142">
+          <h2>Magazine</h2>
+          <div class="img">
+            <img src="./kunst/Baco,_por_Caravaggio.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 6; --color-card: 252, 142, 142">
+          <div class="img">
+            <h2>CI-Design</h2>
+            <img src="./kunst/circle-5816819_1280.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 7; --color-card: 252, 142, 239">
+          <div class="rubrik"><h2>Merchandise</h2></div>
+          <div class="img">
+            <img src="./kunst/flamingo-656422_1920.jpg" alt="" />
+          </div>
+        </div>
+        <div class="card" style="--index: 8; --color-card: 204, 142, 252">
+          <h2>Grafiken</h2>
+          <div class="img"><img src="./kunst/eule.png" alt="" /></div>
+        </div>
+        <div class="card" style="--index: 9; --color-card: 142, 202, 252">
+          <h2>Webdesign</h2>
+          <div class="img">
+            <a href="web.html">
+              <img src="./assets/Webdesign.jpg" alt="Webdesign" />
+            </a>
+          </div>
+        </div>
+      </div>
     </div>
-    <!-- Ladeanzeige -->
-    <div id="loading-screen">
-      <div class="loader"></div>
-      <p>Wird geladen...</p>
-    </div>
-
     <!-- Inhalt deiner bestehenden Webseite -->
-    <div id="content" style="display: none">
-     
-    </div>
+    <div id="content" style="display: none"></div>
 
     <footer>
-        <p>&copy; 2024 Martin Borth (Webseite ohne HTTP-Cookies!)</p>
-      </footer>
+      <p>&copy; 2024 Martin Borth (Webseite ohne HTTP-Cookies!)</p>
+    </footer>
     <script src="script.js"></script>
     <script src="./main.js"></script>
   </body>

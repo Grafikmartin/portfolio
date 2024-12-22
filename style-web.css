@@ -268,7 +268,7 @@ body {
 @media (max-width: 768px) {
   .slider-wrapper {
     left: 1vw; /* Weniger Abstand bei kleineren Bildschirmen */
-    bottom: 5vh; /* Slider etwas höher platzieren */
+    bottom: 4vh; /* Slider etwas höher platzieren */
   }
 }
 .btn {
