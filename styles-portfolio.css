@@ -1,4 +1,3 @@
-
 * {
   margin: 0;
   padding: 0;
@@ -130,7 +129,7 @@ footer {
   transform-style: preserve-3d;
   transform: perspective(var(--perspective));
   animation: rotating 20s linear infinite;
-  border: 0.0vh ridge rgb(255, 255, 255); 
+  border: 0vh ridge rgb(255, 255, 255);
   border-radius: 5px;
 }
 
@@ -150,7 +149,7 @@ footer {
   position: absolute;
   width: 100%;
   height: 100%;
-  border: 0.2vh ridge rgb(255, 255, 255); 
+
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   background-color: rgba(var(--color-card), 0.6);
@@ -158,12 +157,10 @@ footer {
     translateZ(var(--translateZ));
   box-shadow: 0 0vh 0px rgba(255, 255, 255, 0.9);
   cursor: pointer;
+ 
 }
 .card:hover {
-  
-  box-shadow: 0 0vh 2px 5px #ffe3cf,
-  
-   
+  box-shadow: 0 0vh 2px 5px #ffe3cf;
 }
 
 /* Inhalt der Karte */
@@ -204,17 +201,41 @@ footer {
   font-size: 0.6rem; /* Schriftgröße anpassen */
   color: #ffffff; /* Weiß für bessere Lesbarkeit */
   user-select: none;
-  padding: 4px 8px; /* Abstand innerhalb des H2 */
+  padding: 5px 8px; /* Abstand innerhalb des H2 */
   border-radius: 10px;
   text-align: center;
   white-space: nowrap;
   z-index: -10; /* Sicherstellen, dass das H2 über dem Bild liegt */
   font-weight: 200;
-  background-color: rgba(0, 0, 0, 0.8); /* Hintergrundfarbe */
-  border: 0.2vh ridge rgb(255, 255, 255); 
+  background-color: rgba(0, 0, 0, 0.8);
+
+}
+@media screen and (max-width: 400px) {
+  .card h2 {
+    font-size: 0.45rem; /* Kleinere Schriftgröße */
+    padding: 4px 8px;
+  }
+}
+.card h3 {
+  position: absolute; /* Absolut positioniert relativ zur Karte */
+  width: 100%; /* Volle Breite */
+  height: 17.3vh;
+  top: -2.5vh; /* Hebt die Überschrift leicht nach oben */
+  left: 50%; /* Zentriert horizontal */
+  transform: translateX(-50%); /* Korrekte Zentrierung */
+  font-size: 0.6rem; /* Schriftgröße anpassen */
+  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  user-select: none;
+  padding: 4px 8px; /* Abstand innerhalb des H2 */
+  border-radius: 10px;
+  text-align: center;
+  white-space: nowrap;
+  z-index: 3000; /* Sicherstellen, dass das H2 über dem Bild liegt */
+  font-weight: 200;
+  pointer-events: none;
+  border: 0.2vh ridge rgb(255, 255, 255);
   margin-bottom: 1vh;
 }
-
 /* Wrapper für das Wort mit Perspektive */
 .portfolio-wrapper {
   perspective: 800px; /* Perspektive für die 3D-Rotation */
@@ -240,6 +261,7 @@ footer {
   animation: rotateY 20s linear infinite; /* Langsame Y-Achsen-Rotation */
   transform-origin: center; /* Rotiert um die eigene Mitte */
   user-select: none;
+  margin-left: 5px;
 }
 
 /* Keyframes für die Rotation */
@@ -254,11 +276,11 @@ footer {
 
 /* Keyframes für die Farbänderung */
 @keyframes colorChange {
-  0%, 50% {
+  0%,
+  50% {
     color: rgb(255, 255, 255); /* Weiß */
   }
   100% {
     color: chocolate; /* Chocolate */
   }
 }
-
