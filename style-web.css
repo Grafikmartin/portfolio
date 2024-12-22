@@ -21,8 +21,7 @@ body {
   padding: 0;
   box-sizing: border-box;
   overflow: hidden; /* Scrollen deaktivieren */
-  height: 100%; /* Vollständige Höhe einhalten */
-  width: 100%; /* Vollständige Breite einhalten */
+  height: 100%;
 }
 
 .corner-button img {
@@ -90,7 +89,12 @@ body {
   animation: slide-in-top-right 2s ease;
   border-radius: 10px;
 }
-
+.main-image-wrapper {
+  position: relative;
+  width: 100vw; /* Begrenzt auf die Breite des Viewports */
+  height: 100vh; /* Begrenzt auf die Höhe des Viewports */
+  overflow: hidden; /* Schneidet überstehende Bereiche ab */
+}
 .main-image {
   position: absolute;
   top: 50%;
@@ -118,7 +122,6 @@ body {
   border-radius: 10px;
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.5); /* Schatteneffekt */
 }
-
 
 /* Slider-Wrapper */
 .slider-wrapper {
@@ -161,7 +164,12 @@ body {
   color: white;
   border: 1px solid rgba(255, 255, 255, 0.3);
 }
-
+.slider-controls {
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 2vh;
+  border-radius: 70px;
+}
 /* Slider Container */
 .slider-container {
   width: 65vw;
@@ -196,7 +204,6 @@ body {
 
 .slider-img:hover {
   transform: scale(1.05); /* Vergrößert das Bild */
-
 }
 
 /* Text-Container */
@@ -258,7 +265,12 @@ body {
 #image-link {
   display: none; /* Versteckt den Button standardmäßig */
 }
-
+@media (max-width: 768px) {
+  .slider-wrapper {
+    left: 1vw; /* Weniger Abstand bei kleineren Bildschirmen */
+    bottom: 5vh; /* Slider etwas höher platzieren */
+  }
+}
 .btn {
   display: inline-block;
   padding: 1vh 2vh;
