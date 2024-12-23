@@ -157,7 +157,6 @@ footer {
     translateZ(var(--translateZ));
   box-shadow: 0 0vh 0px rgba(255, 255, 255, 0.9);
   cursor: pointer;
- 
 }
 
 /* Inhalt der Karte */
@@ -205,7 +204,6 @@ footer {
   z-index: -10; /* Sicherstellen, dass das H2 über dem Bild liegt */
   font-weight: 200;
   background-color: rgba(0, 0, 0, 0.8);
-
 }
 @media screen and (max-width: 400px) {
   .card h2 {
