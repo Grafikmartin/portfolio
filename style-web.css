@@ -112,10 +112,14 @@ body {
   mask-size: 100%;
   -webkit-mask-size: 100%;
   border: 0.3vh ridge rgb(255, 255, 255);
-  border-radius: 10px;
+  border-radius: 10px;  
   background-color: rgb(255, 255, 255);
 }
-
+@media (max-width: 1500px     ) {
+  .slider-wrapper {
+    width: 10ss0vw;
+    height: auto;
+  }}
 .main-image img {
   width: 100%;
   height: auto;
