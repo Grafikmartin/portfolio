@@ -159,9 +159,6 @@ footer {
   cursor: pointer;
  
 }
-.card:hover {
-  box-shadow: 0 0vh 2px 5px #ffe3cf;
-}
 
 /* Inhalt der Karte */
 .img {
