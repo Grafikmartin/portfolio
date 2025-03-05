@@ -111,6 +111,7 @@ footer {
   overflow: hidden;
   perspective: 1000px; /* 3D-Perspektive für das Karussell */
   z-index: 1;
+
 }
 
 /* Inneres Element für die Karten-Rotation */
@@ -118,7 +119,7 @@ footer {
   --w: 12vh; /* Breite der Karten */
   --h: 15vh; /* Höhe der Karten */
   --translateZ: calc(
-    (var(--w) + var(--h)) + 20px
+    (var(--w) + var(--h)) * 0.85
   ); /* Abstand der Karten von der Mitte */
   --rotateX: -15deg; /* Schrägstellung der Ansicht */
   --perspective: 1000px;
@@ -140,9 +141,10 @@ footer {
   }
   to {
     transform: perspective(var(--perspective)) rotateX(var(--rotateX))
-      rotateY(1turn);
+      rotateY(-1turn);
   }
 }
+
 
 /* Karte für das Karussell */
 .card {
@@ -263,20 +265,10 @@ footer {
 /* Keyframes für die Rotation */
 @keyframes rotateY {
   0% {
-    transform: rotateY(0deg);
+    transform: rotateY(360deg);
   }
   100% {
-    transform: rotateY(360deg);
+    transform: rotateY(0deg);
   }
 }
 
-/* Keyframes für die Farbänderung */
-@keyframes colorChange {
-  0%,
-  50% {
-    color: rgb(255, 255, 255); /* Weiß */
-  }
-  100% {
-    color: chocolate; /* Chocolate */
-  }
-}
