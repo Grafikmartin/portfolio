@@ -27,21 +27,20 @@
       /* Jahreszahlen-Positionierung */
       .year-marker {
         position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        color: white;
+        color: white; /* Zurück auf weiß */
         font-weight: bold;
         font-size: 1rem;
-        text-align: center;
-        width: 60px;
+        text-align: left;
+        left: 52%; /* Gleicher Abstand wie die Karten */
+        margin-left: 20px; /* Gleicher Abstand wie die Karten */
       }
       
       .year-2025 {
-        top: -35px; /* Angepasst für die Pfeilspitze */
+        top: 0;
       }
       
       .year-1977 {
-        bottom: -25px;
+        bottom: 0;
       }
       
       /* Pfeilspitze und Querstrich */
@@ -68,6 +67,19 @@
         height: 4px;
         background-color: white;
         border-radius: 2px;
+      }
+      
+      /* Jahreszahlen auf den Karten in chocolate */
+      .timeline-card h2 {
+        color: chocolate;
+      }
+      
+      /* Für Mobilgeräte */
+      @media (max-width: 768px) {
+        .year-marker {
+          left: 55%;
+          margin-left: 10px;
+        }
       }
     </style>
   </head>
@@ -180,13 +192,24 @@
           );
         }
         
-        // Funktion zum Anzeigen der Karten, wenn sie im Viewport sind
+        // Letzte bekannte Scroll-Position
+        let lastScrollTop = 0;
+        
+        // Funktion zum Anzeigen oder Ausblenden der Karten, je nach Scroll-Richtung
         function checkCards() {
+          const st = window.pageYOffset || document.documentElement.scrollTop;
+          
           cards.forEach(card => {
             if (isElementInViewport(card)) {
               card.style.opacity = '1';
+            } else {
+              // Karte ausblenden, wenn sie nicht mehr im Viewport ist
+              card.style.opacity = '0';
             }
           });
+          
+          // Aktuelle Scroll-Position für den nächsten Aufruf speichern
+          lastScrollTop = st <= 0 ? 0 : st;
         }
         
         // Event-Listener für das Scrollen

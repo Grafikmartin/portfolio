@@ -191,7 +191,7 @@ footer {
 
 .year-marker {
   position: absolute;
-  color: white;
+  color: white; /* Zurück auf weiß */
   font-weight: bold;
   font-size: 1rem;
   text-align: left;
@@ -216,7 +216,7 @@ footer {
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.3s ease, opacity 1s ease;
+  transition: transform 0.3s ease, opacity 0.5s ease;
   opacity: 0;
 }
 
@@ -230,7 +230,7 @@ footer {
 }
 
 .timeline-card h2 {
-  color: white;
+  color: chocolate; /* Jahreszahlen auf den Karten in chocolate */
   margin-bottom: 10px;
   font-size: 1.3rem;
 }
