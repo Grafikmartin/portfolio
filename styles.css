@@ -147,26 +147,26 @@ header {
   cursor: default; /* Setzt den Standardcursor */
 }
 #video-text {
-  font-size: 8vh;
+  font-size: 8.1vh;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.5); /* Startfarbe */
   text-align: center;
-  animation: color-pulse 10s infinite alternate; /* Animation aktivieren */
+  animation: color-pulse 3s infinite alternate; /* Animation aktivieren */
 }
 
 /* Keyframes für die Animation */
 @keyframes color-pulse {
   0% {
-    color: rgb(0, 189, 214);
+    color: black;
   }
   33% {
-    color: rgb(255, 255, 255);
+    color: rgba(2, 3, 70, 0.55);
   }
   66% {
-    color: rgb(0, 189, 214);
+    color: black;
   }
   100% {
-    color: rgb(255, 255, 255);
+    color: rgba(141, 0, 0, 0.55);
   }
 }
 

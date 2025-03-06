@@ -1,238 +1,269 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Über mich</title>
     <link rel="stylesheet" href="about.css">
     <style>
-      /* Direkte Überschreibung der Kartenbreite */
-      .timeline-card-fixed {
-        width: 280px !important;
-        max-width: 280px !important;
-      }
-      
-      .card-left {
-        right: 52%;
-        margin-right: 20px;
-        text-align: right !important;
-      }
-      
-      .card-right {
-        left: 52%;
-        margin-left: 20px;
-        text-align: left !important;
-      }
-      
-      /* Jahreszahlen-Positionierung */
-      .year-marker {
-        position: absolute;
-        color: white;
-        font-weight: bold;
-        font-size: 1rem;
-        text-align: left;
-        left: 52%; /* Gleicher Abstand wie die Karten */
-        margin-left: 20px; /* Gleicher Abstand wie die Karten */
-      }
-      
-      .year-2025 {
-        top: 0;
-      }
-      
-      .year-1977 {
-        bottom: 0;
-      }
-      
-      /* Pfeilspitze und Querstrich */
-      .timeline::before {
-        content: "";
-        position: absolute;
-        top: -15px;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 0;
-        height: 0;
-        border-left: 10px solid transparent;
-        border-right: 10px solid transparent;
-        border-bottom: 15px solid white;
-      }
-      
-      .timeline::after {
-        content: "";
-        position: absolute;
-        bottom: 0;
-        left: 50%;
-        transform: translateX(-50%);
-        width: 16px;
-        height: 4px;
-        background-color: white;
-        border-radius: 2px;
-      }
-      
-      /* Jahreszahlen auf den Karten in chocolate */
-      .timeline-card h2 {
-        color: chocolate;
-      }
-      
-      /* Farbverlauf am unteren Rand */
-      .bottom-gradient {
-        position: fixed;
-        bottom: 0;
-        left: 0;
-        width: 100%;
-        height: 100px;
-        background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-        pointer-events: none; /* Damit man durch den Verlauf hindurch klicken kann */
-        z-index: 50; /* Höherer z-index, damit es über allen Elementen liegt */
-      }
-      
-      /* Für Mobilgeräte */
-      @media (max-width: 768px) {
-        .year-marker {
-          left: 55%;
-          margin-left: 10px;
+        /* Direkte Überschreibung der Kartenbreite */
+        .timeline-card-fixed {
+            width: 280px !important;
+            max-width: 280px !important;
         }
-      }
+
+        .card-left {
+            right: 52%;
+            margin-right: 20px;
+            text-align: right !important;
+        }
+
+        .card-right {
+            left: 52%;
+            margin-left: 20px;
+            text-align: left !important;
+        }
+
+        /* Jahreszahlen-Positionierung */
+        .year-marker {
+            position: absolute;
+            color: white;
+            font-weight: bold;
+            font-size: 1rem;
+            text-align: left;
+            left: 52%;
+            /* Gleicher Abstand wie die Karten */
+            margin-left: 20px;
+            /* Gleicher Abstand wie die Karten */
+        }
+
+        .year-2025 {
+            top: 0;
+        }
+
+        .year-1977 {
+            bottom: 0;
+        }
+
+        /* Pfeilspitze und Querstrich */
+        .timeline::before {
+            content: "";
+            position: absolute;
+            top: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 15px solid white;
+        }
+
+        .timeline::after {
+            content: "";
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 16px;
+            height: 4px;
+            background-color: white;
+            border-radius: 2px;
+        }
+
+       
+        .timeline-card h2 {
+            color: chocolate;
+        }
+
+        /* Farbverlauf am unteren Rand */
+        .bottom-gradient {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 100px;
+            background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+            pointer-events: none;
+            /* Damit man durch den Verlauf hindurch klicken kann */
+            z-index: 50;
+            /* Höherer z-index, damit es über allen Elementen liegt */
+        }
+
+        /* Für Mobilgeräte */
+        @media (max-width: 768px) {
+            .year-marker {
+                left: 55%;
+                margin-left: 10px;
+            }
+        }
     </style>
-  </head>
-  <body>
+</head>
+
+<body>
     <header>
-      <nav>
-        <a href="index.html">
-          <div class="corner-button top-left">
-            <img src="./assets/home-button.png" alt="Home" />
-          </div>
-        </a>
-        <a href="portfolio.html">
-          <div class="corner-button top-right">
-            <img src="./assets/portfolio-button.png" alt="Portfolio" />
-          </div>
-        </a>
-      </nav>
+        <nav>
+            <a href="index.html">
+                <div class="corner-button top-left">
+                    <img src="./assets/home-button.png" alt="Home" />
+                </div>
+            </a>
+            <a href="portfolio.html">
+                <div class="corner-button top-right">
+                    <img src="./assets/portfolio-button.png" alt="Portfolio" />
+                </div>
+            </a>
+        </nav>
     </header>
 
     <div class="about-header">
-      <img src="./assets/siluette.png" alt="Silhouette" />
-      <h2>Über mich</h2>
-      <h3>Martin Borth</h3>
-      <p>Willkommen auf meiner persönlichen Zeitreise. Hier finden Sie wichtige Stationen meines Lebens von 1977 bis heute.</p>
+        <img src="./assets/siluette.png" alt="Silhouette" />
+        <h2>Kreativität trifft Code</h2>
+        <p>Hallo, ich bin Martin Borth, Grafiker mit Schwerpunkt Printmedien und leidenschaftlicher Gestalter. Nach vielen Jahren als Art Director in einem Verlag und Erfahrungen in Marketing und klassischen Werbeagenturen, erweitere ich derzeit mein Wissen mit einer Ausbildung zum Web Developer an der DCI.
+</p>
+            <p>
+                Mein Ziel ist es, Design und Technologie zu verbinden – mit einem geschulten Blick für Ästhetik, Typografie und Markenkommunikation, aber auch mit einem wachsenden Verständnis für interaktive und digitale Lösungen.
+                
+                </p>
+                <p> Mehr über meinen Werdegang findest du direkt unten in der Zeitskala, die meine wichtigsten Stationen zeigt.</p>
+                
     </div>
 
     <div class="timeline-container">
-      <div class="timeline">
-        <div class="year-marker year-2025">heute</div>
-        <div class="year-marker year-1977">1977</div>
-        
-        <!-- Karten auf der linken Seite -->
-        <div class="timeline-card timeline-card-fixed card-left card-1" style="width: 280px;">
-          <h2>2025</h2>
-          <p>Aktuelle Projekte und Zukunftspläne</p>
+        <div class="timeline">
+            <div class="year-marker year-2025">heute</div>
+            <div class="year-marker year-1977">1977</div>
+
+            <!-- Karten auf der linken Seite -->
+            <div class="timeline-card timeline-card-fixed card-left card-1" style="width: 280px;">
+                <h2>2025</h2>
+                <p>Aktuelle Projekte und Zukunftspläne Lorem ipsum dolor sit amet consectetur adipisicing elit. Expedita
+                    voluptatibus, repellat consequuntur rerum dolor, error et, cupiditate ex quisquam sunt reiciendis
+                    officiis earum nisi corrupti. Exercitationem consequatur maxime ut modi.</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-left card-3" style="width: 280px;">
+                <h2>2015</h2>
+                <p>Wichtiger beruflicher Meilenstein Lorem ipsum dolor, sit amet consectetur adipisicing elit. Voluptas
+                    est nulla cumque ducimus odio, nobis ipsam, eligendi eius aperiam consequuntur quibusdam. Illum
+                    pariatur mollitia quod eum magnam, omnis non animi!</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-left card-5" style="width: 280px;">
+                <h2>2005</h2>
+                <p>Karrierewechsel und neue Herausforderungen Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Ad libero, voluptatem, ex nam, tenetur doloribus consectetur ratione aliquam ipsum delectus labore
+                    placeat a reprehenderit excepturi assumenda ipsa eius rem tempore!</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-left card-7" style="width: 280px;">
+                <h2>1995</h2>
+                <p>Ausbildung und erste berufliche Schritte Lorem, ipsum dolor sit amet consectetur adipisicing elit.
+                    Qui fugit ducimus sint debitis magnam excepturi doloremque optio, maiores cum ratione voluptatibus
+                    atque rem doloribus laborum recusandae officia, saepe accusantium soluta?</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-left card-9" style="width: 280px;">
+                <h2>1980</h2>
+                <p>Kindheit und prägende Erlebnisse Lorem ipsum dolor sit amet consectetur adipisicing elit. Praesentium
+                    recusandae illum animi dolorem similique saepe, ut reprehenderit quasi voluptatem hic magni nam
+                    repellendus vero facere quod error provident. Quod, ratione.</p>
+            </div>
+
+            <!-- Karten auf der rechten Seite -->
+            <div class="timeline-card timeline-card-fixed card-right card-2" style="width: 280px;">
+                <h2>2020</h2>
+                <p>Besondere Projekte während der Pandemie Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Quisquam aut eum quos rerum, corrupti provident est odit. Architecto molestias, atque velit corporis
+                    autem, soluta ut ullam repellat sunt odio obcaecati?</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-right card-4" style="width: 280px;">
+                <h2>2010</h2>
+                <p>Wichtige persönliche Entwicklungen Lorem ipsum, dolor sit amet consectetur adipisicing elit. Repellat
+                    aspernatur tempore voluptate minima beatae odio nobis voluptatem aperiam sed esse ducimus quas
+                    perferendis voluptatum id dicta maiores saepe, cum rerum?</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-right card-6" style="width: 280px;">
+                <h2>2000</h2>
+                <p>Jahrtausendwende und neue Perspektiven Lorem ipsum dolor sit amet consectetur adipisicing elit. Iure
+                    iste placeat in blanditiis nulla animi distinctio illum, quaerat ullam non nisi voluptas. Aliquid
+                    reprehenderit culpa possimus at eos. Quod, nam?</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-right card-8" style="width: 280px;">
+                <h2>1990</h2>
+                <p>Jugend und wichtige Entscheidungen Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestiae
+                    cupiditate aliquid amet id quasi doloribus impedit eligendi laudantium modi eius ea a, fuga tempora
+                    adipisci vitae officiis dolorum, voluptate accusantium.</p>
+            </div>
+
+            <div class="timeline-card timeline-card-fixed card-right card-10" style="width: 280px;">
+                <h2>1977</h2>
+                <p>Geboren in eine spannende Zeit</p>
+            </div>
         </div>
-        
-        <div class="timeline-card timeline-card-fixed card-left card-3" style="width: 280px;">
-          <h2>2015</h2>
-          <p>Wichtiger beruflicher Meilenstein</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-left card-5" style="width: 280px;">
-          <h2>2005</h2>
-          <p>Karrierewechsel und neue Herausforderungen</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-left card-7" style="width: 280px;">
-          <h2>1995</h2>
-          <p>Ausbildung und erste berufliche Schritte</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-left card-9" style="width: 280px;">
-          <h2>1980</h2>
-          <p>Kindheit und prägende Erlebnisse</p>
-        </div>
-        
-        <!-- Karten auf der rechten Seite -->
-        <div class="timeline-card timeline-card-fixed card-right card-2" style="width: 280px;">
-          <h2>2020</h2>
-          <p>Besondere Projekte während der Pandemie</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-right card-4" style="width: 280px;">
-          <h2>2010</h2>
-          <p>Wichtige persönliche Entwicklungen</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-right card-6" style="width: 280px;">
-          <h2>2000</h2>
-          <p>Jahrtausendwende und neue Perspektiven</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-right card-8" style="width: 280px;">
-          <h2>1990</h2>
-          <p>Jugend und wichtige Entscheidungen</p>
-        </div>
-        
-        <div class="timeline-card timeline-card-fixed card-right card-10" style="width: 280px;">
-          <h2>1977</h2>
-          <p>Geboren in eine spannende Zeit</p>
-        </div>
-      </div>
     </div>
-    
+
     <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
     <div class="bottom-gradient"></div>
 
     <script>
-      document.addEventListener('DOMContentLoaded', function() {
-        const cards = document.querySelectorAll('.timeline-card');
-        
-        // Erzwinge die Breite für alle Karten
-        cards.forEach(card => {
-          card.style.width = '280px';
-          if (card.classList.contains('card-left')) {
-            card.style.textAlign = 'right';
-          } else {
-            card.style.textAlign = 'left';
-          }
-        });
-        
-        // Nur die ersten beiden Karten initial anzeigen
-        cards[0].style.opacity = '1';
-        cards[1].style.opacity = '1';
-        
-        // Funktion zum Überprüfen, ob ein Element im Viewport ist
-        function isElementInViewport(el) {
-          const rect = el.getBoundingClientRect();
-          return (
-            rect.top >= 0 &&
-            rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
-          );
-        }
-        
-        // Letzte bekannte Scroll-Position
-        let lastScrollTop = 0;
-        
-        // Funktion zum Anzeigen oder Ausblenden der Karten, je nach Scroll-Richtung
-        function checkCards() {
-          const st = window.pageYOffset || document.documentElement.scrollTop;
-          
-          cards.forEach(card => {
-            if (isElementInViewport(card)) {
-              card.style.opacity = '1';
-            } else {
-              // Karte ausblenden, wenn sie nicht mehr im Viewport ist
-              card.style.opacity = '0';
+        document.addEventListener('DOMContentLoaded', function () {
+            const cards = document.querySelectorAll('.timeline-card');
+
+            // Erzwinge die Breite für alle Karten
+            cards.forEach(card => {
+                card.style.width = '280px';
+                if (card.classList.contains('card-left')) {
+                    card.style.textAlign = 'right';
+                } else {
+                    card.style.textAlign = 'left';
+                }
+            });
+
+            // Nur die ersten beiden Karten initial anzeigen
+            cards[0].style.opacity = '1';
+            cards[1].style.opacity = '1';
+
+            // Funktion zum Überprüfen, ob ein Element im Viewport ist
+            function isElementInViewport(el) {
+                const rect = el.getBoundingClientRect();
+                return (
+                    rect.top >= 0 &&
+                    rect.top <= (window.innerHeight || document.documentElement.clientHeight) * 0.8
+                );
             }
-          });
-          
-          // Aktuelle Scroll-Position für den nächsten Aufruf speichern
-          lastScrollTop = st <= 0 ? 0 : st;
-        }
-        
-        // Event-Listener für das Scrollen
-        window.addEventListener('scroll', checkCards);
-        
-        // Initial prüfen
-        checkCards();
-      });
+
+            // Letzte bekannte Scroll-Position
+            let lastScrollTop = 0;
+
+            // Funktion zum Anzeigen oder Ausblenden der Karten, je nach Scroll-Richtung
+            function checkCards() {
+                const st = window.pageYOffset || document.documentElement.scrollTop;
+
+                cards.forEach(card => {
+                    if (isElementInViewport(card)) {
+                        card.style.opacity = '1';
+                    } else {
+                        // Karte ausblenden, wenn sie nicht mehr im Viewport ist
+                        card.style.opacity = '0';
+                    }
+                });
+
+                // Aktuelle Scroll-Position für den nächsten Aufruf speichern
+                lastScrollTop = st <= 0 ? 0 : st;
+            }
+
+            // Event-Listener für das Scrollen
+            window.addEventListener('scroll', checkCards);
+
+            // Initial prüfen
+            checkCards();
+        });
     </script>
-  </body>
+</body>
+
 </html>

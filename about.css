@@ -125,12 +125,14 @@ footer {
   width: 120px;
   height: auto;
   margin-bottom: 15px;
+  margin-top: 100px;
 }
 
 .about-header h2 {
   font-size: 2.5rem;
   margin-bottom: 10px;
   color: white;
+
 }
 
 .about-header h3 {
@@ -143,6 +145,7 @@ footer {
   font-size: 1.2rem;
   max-width: 600px;
   color: white;
+  margin-top: 10px;
 }
 
 /* Timeline Bereich */
@@ -346,4 +349,54 @@ footer {
   .timeline-card p {
     font-size: 0.9rem;
   }
+}
+.timeline {
+    position: relative;
+    width: 4px;
+    background-color: white;
+    margin: 0 auto;
+    height: 2500px;
+    z-index: 1; /* Niedrigerer z-index */
+    margin-top: 200px
+}
+
+.timeline::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid white;
+    z-index: 1;
+}
+
+.timeline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 4px;
+    background-color: white;
+    border-radius: 2px;
+    z-index: 1;
+}
+
+.timeline-card {
+    position: absolute;
+    width: 280px !important;
+    max-width: 280px !important;
+    background-color: black;
+    border: 2px solid white;
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+    transition: transform 0.3s ease, opacity 0.5s ease;
+    opacity: 0;
+    z-index: 10; /* Höherer z-index als die Timeline */
 }
