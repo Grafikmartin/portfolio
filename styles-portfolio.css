@@ -119,7 +119,7 @@ footer {
   --w: 12vh; /* Breite der Karten */
   --h: 15vh; /* Höhe der Karten */
   --translateZ: calc(
-    (var(--w) + var(--h)) * 0.85
+    (var(--w) + var(--h)) * 0.95
   ); /* Abstand der Karten von der Mitte */
   --rotateX: -15deg; /* Schrägstellung der Ansicht */
   --perspective: 1000px;
