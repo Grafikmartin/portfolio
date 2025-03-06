@@ -324,6 +324,7 @@ footer {
   
   .about-header h2 {
     font-size: 2rem;
+    
   }
   
   .about-header h3 {
@@ -334,7 +335,9 @@ footer {
     font-size: 1rem;
   }
 }
-
+h2{
+    color: chocolate;
+}
 /* Für sehr kleine Bildschirme */
 @media (max-width: 480px) {
   .timeline-card, .timeline-card-fixed {
@@ -400,3 +403,121 @@ footer {
     opacity: 0;
     z-index: 10; /* Höherer z-index als die Timeline */
 }
+/* Container für die Silhouette mit relativer Positionierung */
+.about-header {
+    position: relative;
+  }
+  
+  /* Basis-Styling für die Icons */
+.creative-icon {
+    position: absolute;
+    color: chocolate;
+    font-size: 18px;
+    opacity: 0;
+    z-index: 5;
+    top: 22px; /* Startposition vom oberen Rand des Bildes */
+    left: 52%; /* Horizontale Mitte des Bildes */
+    transform: translateX(-50%);
+    animation-duration: 2s; /* Schnellere Animation */
+    animation-fill-mode: forwards;
+  }
+  
+  /* Verschiedene Animationen für die Icons */
+  @keyframes bubble-up-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(80px, -120px) rotate(45deg) scale(1.2);
+    }
+  }
+  
+  @keyframes bubble-up-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-100px, -100px) rotate(-60deg) scale(1.3);
+    }
+  }
+  
+  @keyframes bubble-up-center {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -150px) scale(1.4);
+    }
+  }
+  
+  @keyframes bubble-up-far-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(120px, -80px) rotate(30deg) scale(1.1);
+    }
+  }
+  
+  @keyframes bubble-up-far-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-130px, -70px) rotate(-30deg) scale(1.2);
+    }
+  }
+  
+  @keyframes bubble-diagonal-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(100px, -130px) rotate(60deg) scale(1.3);
+    }
+  }
+  
+  @keyframes bubble-diagonal-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-110px, -140px) rotate(-50deg) scale(1.1);
+    }
+  }
+  
