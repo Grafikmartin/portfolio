@@ -125,7 +125,7 @@ footer {
   width: 120px;
   height: auto;
   margin-bottom: 15px;
-  margin-top: 100px;
+  margin-top: 200px;
 }
 
 .about-header h2 {
@@ -300,59 +300,10 @@ footer {
   top: 95%;
 }
 
-/* Für Mobilgeräte */
-@media (max-width: 768px) {
-  .timeline-card, .timeline-card-fixed {
-    width: 250px !important;
-    max-width: 250px !important;
-  }
-  
-  .card-left {
-    right: 55%;
-    margin-right: 10px;
-  }
-  
-  .card-right {
-    left: 55%;
-    margin-left: 10px;
-  }
-  
-  .year-marker {
-    left: 55%;
-    margin-left: 10px;
-  }
-  
-  .about-header h2 {
-    font-size: 2rem;
-    
-  }
-  
-  .about-header h3 {
-    font-size: 1.2rem;
-  }
-  
-  .about-header p {
-    font-size: 1rem;
-  }
-}
 h2{
     color: chocolate;
 }
-/* Für sehr kleine Bildschirme */
-@media (max-width: 480px) {
-  .timeline-card, .timeline-card-fixed {
-    width: 200px !important;
-    max-width: 200px !important;
-  }
-  
-  .timeline-card h2 {
-    font-size: 1.1rem;
-  }
-  
-  .timeline-card p {
-    font-size: 0.9rem;
-  }
-}
+
 .timeline {
     position: relative;
     width: 4px;
@@ -360,7 +311,7 @@ h2{
     margin: 0 auto;
     height: 2500px;
     z-index: 1; /* Niedrigerer z-index */
-    margin-top: 200px
+    margin-top: 300px
 }
 
 .timeline::before {
