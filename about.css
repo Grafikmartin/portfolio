@@ -130,8 +130,7 @@ footer {
 
 .about-header h2 {
   font-size: 2.5rem;
-  margin-bottom: 10px;
-  color: white;
+  margin-bottom: 50px;
 
 }
 
@@ -145,7 +144,7 @@ footer {
   font-size: 1.2rem;
   max-width: 600px;
   color: white;
-  margin-top: 10px;
+  margin-top: 15px;
 }
 
 /* Timeline Bereich */
@@ -300,14 +299,10 @@ footer {
   top: 95%;
 }
 
-h2{
-    color: chocolate;
-}
-
 .timeline {
     position: relative;
-    width: 4px;
-    background-color: white;
+    width: 2px;
+    background-color: chocolate;
     margin: 0 auto;
     height: 2500px;
     z-index: 1; /* Niedrigerer z-index */
@@ -350,7 +345,7 @@ h2{
     border-radius: 10px;
     padding: 15px;
     box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-    transition: transform 0.3s ease, opacity 0.5s ease;
+    transition: transform 0.8s ease, opacity 1.8s ease;
     opacity: 0;
     z-index: 10; /* Höherer z-index als die Timeline */
 }
@@ -366,7 +361,7 @@ h2{
     font-size: 18px;
     opacity: 0;
     z-index: 5;
-    top: 22px; /* Startposition vom oberen Rand des Bildes */
+    top: 35px; /* Startposition vom oberen Rand des Bildes */
     left: 52%; /* Horizontale Mitte des Bildes */
     transform: translateX(-50%);
     animation-duration: 2s; /* Schnellere Animation */
@@ -471,4 +466,32 @@ h2{
       transform: translate(-110px, -140px) rotate(-50deg) scale(1.1);
     }
   }
-  
+  /* Deine bestehenden Styles bleiben unverändert */
+  .text1, .text2, .text3 {
+    /* Hier können alle deine bestehenden Stile bleiben */
+    opacity: 0; /* Startposition: unsichtbar */
+}
+
+/* Nur die Animation hinzufügen */
+.text1 {
+    animation: fadeIn 1s forwards;
+    animation-delay: 2s;
+}
+
+.text2 {
+    animation: fadeIn 1s forwards;
+    animation-delay: 7s;
+}
+
+.text3 {
+    animation: fadeIn 1s forwards;
+    animation-delay: 10s;
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
+
+@keyframes fadeIn {
+    to { opacity: 1; }
+}
