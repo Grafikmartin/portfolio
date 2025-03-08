@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: rgb(5, 5, 5);
   color: white;
   font-family: Arial, sans-serif;
   position: relative;
@@ -384,7 +384,7 @@ ul li a:hover span {
 
 /* Icon-Farbe beim Hovern */
 ul li:hover i {
-  color: #333; /* Dunkle Farbe für das Icon beim Hovern */
+  color: #000000; /* Dunkle Farbe für das Icon beim Hovern */
 }
 
 /* Keine vertikale Verschiebung beim Hovern */
