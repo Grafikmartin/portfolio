@@ -1,0 +1,233 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+}
+
+body {
+  background-color: rgb(5, 5, 5);
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+}
+
+/* Versteckt den Scrollbalken für Chrome, Safari und Opera */
+body::-webkit-scrollbar {
+  display: none;
+}
+
+html {
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none; /* IE and Edge */
+
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+.corner-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+.corner-button {
+  position: fixed;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.6s ease, transform 0.9s ease;
+  opacity: 1;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+@keyframes slide-in-top-left {
+  0% {
+    transform: rotate(-90deg) translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Hover-Effekte für die Buttons */
+.corner-button:hover {
+  transform: scale(1.7) rotate(90deg);
+  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+  opacity: 1;
+  border-radius: 10px;
+}
+
+/* Ecken-Positionierung und Animationen */
+.top-left {
+  top: 7vw;
+  left: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  animation: slide-in-top-left 2s ease;
+  border-radius: 10px;
+}
+
+.top-right {
+  top: 7vw;
+  right: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  line-height: 1;
+  animation: slide-in-top-right 2s ease;
+  border-radius: 10px;
+}
+
+/* Über mich Bereich */
+.wetter-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+
+  color: chocolate !important;
+}
+.wetter-h2 {
+  text-align: center;
+  color: chocolate;
+  font-size: 2rem;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 16/9; /* Legt ein festes Seitenverhältnis fest */
+  margin: 0 auto;
+  margin-top: 0px;
+  overflow: hidden;
+  position: relative;
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* oder "fill", wenn das Video gedehnt werden soll */
+  display: block;
+  border: 0.2vh ridge rgb(255, 255, 255);
+border-radius: 15px;
+  opacity: 0;
+  animation: videoFadeIn 1s forwards;
+  animation-delay: 1.5s;
+  margin-bottom: 25px;
+}
+@keyframes videoFadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+.about-header h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+}
+
+.text1 {
+  font-size: 1.2rem;
+  max-width: 600px;
+  color: white;
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+footer {
+  position: fixed;
+  bottom: 3vh;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5vh;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  z-index: 100;
+}
+.Technologie {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  margin-top: 50px;
+}
+
+.Technologie:hover {
+  gap: 0;
+}
+
+.Technologie .box {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 0.1) 0px, transparent 50%),
+                    radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%),
+                   ;
+  border: 2px solid #0005;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: default;
+  transition: 0.5s;
+  transform-origin: bottom center;
+  -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+}
+
+.Technologie .box span {
+  font-size: 4em;
+  font-weight: 700;
+}
+
+.Technologie .box.prev,
+.Technologie.box.next {
+  background: rgba(122, 147, 148, 0.25);
+  margin: 0 -20px;
+  filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
+  z-index: -1;
+  transform: perspective(500px) scale(0.95);
+}
+
+.Technologie.box.prev {
+  transform: perspective(500px) rotateY(45deg) scale(0.95);
+}
+
+.Technologie .box.next {
+  transform: perspective(500px) rotateY(-45deg) scale(0.95);
+}
+
+.Technologie .box.hovered {
+  transform: perspective(500px) rotateY(0deg) scale(1.5);
+  z-index: 1000;
+  
+  color: #000000;
+  -webkit-text-stroke: 1px #333;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+}

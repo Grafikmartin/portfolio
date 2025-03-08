@@ -6,7 +6,7 @@
 }
 
 body {
-  background-color: black;
+  background-color: rgb(5, 5, 5);
   color: white;
   font-family: Arial, sans-serif;
   position: relative;
@@ -23,6 +23,7 @@ body::-webkit-scrollbar {
 html {
   scrollbar-width: none; /* Firefox */
   -ms-overflow-style: none; /* IE and Edge */
+  scroll-behavior: smooth;
 }
 
 html::-webkit-scrollbar {

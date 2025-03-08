@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Wetter</title>
+    <link rel="stylesheet" href="wetter.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="64x64">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <div class="corner-button top-left">
+                    <img src="./assets/home-button.png" alt="Home" />
+                </div>
+            </a>
+            <a href="portfolio.html">
+                <div class="corner-button top-right">
+                    <img src="./assets/portfolio-button.png" alt="Portfolio" />
+                </div>
+            </a>
+        </nav>
+    </header>
+    <div class="wetter-header">
+        <h2 class="wetter-h2">Projekt WetterFrosch 2.0</h2>
+        <div class="video-container">
+            <video 
+            src="./videos/wetter.mkv" 
+            autoplay 
+            loop 
+            muted
+        
+          ></video>
+        </div>
+
+        
+        
+        
+        <div class="Technologie">
+            <div class="box" id="Logo1"><span>1</span></div>
+            <div class="box" id="Logo2"><span>2</span></div>
+            <div class="box" id="Logo3"><span><img src="./assets/JavaScript-Logo.png" alt=""></span></div>
+            <div class="box" id="Logo4"><span><img src="./assets/HTML5_logo_and_wordmark.svg.png" alt=""></span></div>
+            <div class="box" id="Logo5"><span><img src="./assets/css3-logo-png-transparent.png" alt=""></span></div>
+            <div class="box" id="Logo5"><span>6</span></div>
+            <div class="box" id="Logo5"><span>7</span></div>
+        </div>
+        <p class="text1">Technologie
+        </p>
+        <script>
+            document.querySelectorAll('.box').forEach((box, index, boxes) => {
+                box.addEventListener('mouseover', () => {
+                    boxes.forEach((b, i) => {
+                        const className = i < index ? 'prev' : i === index ? 'hovered' : 'next';
+                        b.classList.remove('prev', 'next', 'hovered');
+                        b.classList.add(className);
+                    });
+                });
+                box.addEventListener('mouseleave', () => {
+                    boxes.forEach((b) => b.classList.remove('prev', 'next', 'hovered'));
+                });
+            });
+        </script>
+
+
+    <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
+    <div class="bottom-gradient"></div>
+
+    
+</body>
+
+</html>
