@@ -360,11 +360,11 @@ footer {
   /* Basis-Styling für die Icons */
 .creative-icon {
     position: absolute;
-    color: chocolate;
+    color: rgb(255, 106, 0);
     font-size: 18px;
     opacity: 0;
     z-index: 5;
-    top: 80px; /* Startposition vom oberen Rand des Bildes */
+    top: 72px; /* Startposition vom oberen Rand des Bildes */
     left: 51.5%; /* Horizontale Mitte des Bildes */
     transform: translateX(-50%);
     animation-duration: 2.5s; /* Schnellere Animation */
