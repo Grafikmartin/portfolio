@@ -330,7 +330,7 @@ ul li a span:nth-child(2):before
     position: absolute;
     width: 100%;
     height: 100%;
-    background: rgba(240, 240, 240, 0.1);
+    background: rgba(95, 95, 95, 0.1);
      -webkit-box-reflect: below 1px
     linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
 }
@@ -366,15 +366,15 @@ ul li a i
 
 /* Hover-Stile mit unterschiedlichen Weißtönen für jede Seite */
 ul li a:hover span:nth-child(1) {
-  background: #ffffff; /* Reinweiß für die Hauptfläche */
+  background: #cacaca; /* Reinweiß für die Hauptfläche */
 }
 
 ul li a:hover span:nth-child(2) {
-  background: #c0c0c0; /* Hellgrau für die Seitenfläche */
+  background: #d1d1d1; /* Hellgrau für die Seitenfläche */
 }
 
 ul li a:hover span:nth-child(3) {
-  background: #a09f9f; /* Mittelgrau für die untere Fläche */
+  background: #d3d3d3; /* Mittelgrau für die untere Fläche */
 }
 
 /* Überschreibt die ursprüngliche Hover-Regel */

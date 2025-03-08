@@ -272,13 +272,13 @@ footer {
 
 /* Karten-Positionen */
 .card-1 {
-  top: 5%;
+  top: 0%;
 }
 .card-2 {
-  top: 15%;
+  top: 10%;
 }
 .card-3 {
-  top: 25%;
+  top: 20%;
 }
 .card-4 {
   top: 35%;
@@ -296,10 +296,10 @@ footer {
   top: 75%;
 }
 .card-9 {
-  top: 85%;
+  top: 83%;
 }
 .card-10 {
-  top: 95%;
+  top: 91%;
 }
 
 .timeline {
