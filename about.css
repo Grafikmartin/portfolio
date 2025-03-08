@@ -162,7 +162,7 @@ footer {
   width: 4px;
   background-color: chocolate !important;
   margin: 0 auto;
-  height: 2500px;
+  height: 3500px;
 }
 
 /* Pfeilspitze am oberen Ende der Timeline */
@@ -228,7 +228,7 @@ footer {
   width: 280px !important; /* Wichtig, um andere Stile zu überschreiben */
   max-width: 280px !important;
   background-color: black;
-  border: 2px solid white;
+  border: 0.2vh ridge rgb(255, 255, 255);
   border-radius: 10px;
   padding: 15px;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
