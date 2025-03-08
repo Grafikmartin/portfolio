@@ -184,6 +184,7 @@ footer {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px; /* Abgerundete Ecken */
   transition: transform 0.5s ease;
+  border-top: 0.2vh ridge rgb(255, 255, 255);
 }
 
 .img:hover img {
@@ -194,7 +195,7 @@ footer {
   position: absolute; /* Absolut positioniert relativ zur Karte */
   width: 100%; /* Volle Breite */
   height: 17.3vh;
-  top: -2.5vh; /* Hebt die Überschrift leicht nach oben */
+  top: -2.3vh; /* Hebt die Überschrift leicht nach oben */
   left: 50%; /* Zentriert horizontal */
   transform: translateX(-50%); /* Korrekte Zentrierung */
   font-size: 0.6rem; /* Schriftgröße anpassen */
