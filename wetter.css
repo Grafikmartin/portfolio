@@ -332,6 +332,7 @@ footer {
 
 .description-container {
   margin-top: 40px;
+  margin-bottom: 150px;
   text-align: center;
   min-height: 100px;
   opacity: 0;
