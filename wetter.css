@@ -168,8 +168,8 @@ html::-webkit-scrollbar {
 }
 #livedemo 
 {  position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 15px;
+  right: 13px;
   z-index: 2; /* Stellt sicher, dass der Button über dem Video erscheint */
   padding: 10px 20px;
   font-size: 0.8em;
@@ -242,14 +242,8 @@ footer {
   align-items: center;
   transform-style: preserve-3d;
   margin-top: 50px;
-  gap: 17px;
   margin-bottom: 20px;
   flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.Technologie:hover {
   gap: 10px;
 }
 
@@ -258,16 +252,12 @@ footer {
   width: 82px;
   height: 60px;
   background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%),
-  ;
-
+    radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%);
   display: flex;
   justify-content: center;
   align-items: center;
-  cursor: default;
   cursor: pointer;
-  transition: transform 0.5s;
-
+  transition: transform 0.5s, filter 0.5s;
 }
 
 .Technologie .box span {
@@ -283,29 +273,23 @@ footer {
 
 .Technologie .box span:hover {
   background-color: rgba(0, 0, 0, 0.5);
-
 }
 
-
-
+/* Korrekte Selektoren und symmetrische Transformationen */
 .Technologie .box.prev,
-.Technologie.box.next {
-
-  margin: 0 -20px;
+.Technologie .box.next {
   filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
   z-index: -1;
-  transform: perspective(500px) scale(1);
   transition: 0.5s;
-  
+  border: 0.2vh ridge rgba(255, 255, 255, 0.3);
 }
 
-.Technologie.box.prev {
-  transform: perspective(500px) rotateY(45deg) scale(1);
+.Technologie .box.prev {
+  transform: perspective(500px) rotateY(45deg) scale(0.8);
 }
 
 .Technologie .box.next {
-  transform: perspective(500px) rotateY(-45deg) scale(1);
- 
+  transform: perspective(500px) rotateY(-45deg) scale(0.8);
 }
 
 .Technologie .box.hovered {
@@ -314,21 +298,6 @@ footer {
   color: #000000;
   -webkit-text-stroke: 1px #333;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
-}
-.Technologie {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 10px;
-}
-
-.box {
-  cursor: pointer;
-  transition: transform 0.3s;
-}
-
-.box:hover {
-  transform: scale(1.05);
 }
 
 .description-container {
