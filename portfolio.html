@@ -27,74 +27,98 @@
 
     <div class="portfolio-wrapper">
       <h1 class="portfolio-text" data-text="PORTFOLIO">PORTFOLIO</h1>
+      <p class="portfolio-text-klein">Webseiten</p>
     </div>
     <div class="wrapper">
       <div class="inner" style="--quantity: 10">
-        <div class="card" style="--index: 0; --color-card: 142, 249, 252">
-          
+        <!-- Calculator -->
+        <div class="card" style="--index: 0; --color-card: 142, 249, 252; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/calculator/', '_blank')">
           <h2>Calulator</h2>
           <h3></h3>
           <div class="img">
-            <img src="./assets/Calulator/Borth-Taschenrecher.png" alt="" />
+            <img src="./assets/Calulator/Borth-Taschenrecher.png" alt="Calculator" />
           </div>
         </div>
-        <div class="card" style="--index: 1; --color-card: 142, 252, 204">
+        
+        <!-- Pokémon -->
+        <div class="card" style="--index: 1; --color-card: 142, 252, 204; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/pokemon/', '_blank')">
           <h2>Pokémon Search</h2>
           <h3></h3>
           <div class="img">
-            <img
-              src="./assets/Pokemon/pokemon.png" alt="" />
+            <img src="./assets/Pokemon/pokemon.png" alt="Pokémon Search" />
           </div>
         </div>
-        <div class="card" style="--index: 2; --color-card: 142, 252, 157; cursor: pointer;" onclick="window.location.href='wetter.html'">
+        
+        <!-- WetterFrosch - interne Verlinkung bleibt im selben Fenster -->
+        <div class="card" style="--index: 2; --color-card: 142, 252, 157; cursor: pointer;" 
+             onclick="window.location.href='wetter.html'">
           <div class="img">
             <h2>WetterFrosch</h2>
             <h3></h3>
             <div class="randdiv"></div>
-            <img src="./assets/wetter/wetter.png" alt="" />
+            <img src="./assets/wetter/wetter.png" alt="WetterFrosch" />
           </div>
         </div>
-        <div class="card" style="--index: 3; --color-card: 215, 252, 142">
+        
+        <!-- ToDo-Liste -->
+        <div class="card" style="--index: 3; --color-card: 215, 252, 142; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/todo/', '_blank')">
           <h2>ToDo-Liste</h2>
           <h3></h3>
           <div class="img">
-            <img src="./assets/ToDo/ToDo-Liste.png" alt="" />
+            <img src="./assets/ToDo/ToDo-Liste.png" alt="ToDo-Liste" />
           </div>
         </div>
-        <div class="card" style="--index: 4; --color-card: 252, 252, 142">
+        
+        <!-- Vier gewinnt -->
+        <div class="card" style="--index: 4; --color-card: 252, 252, 142; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/viergewinnt/', '_blank')">
           <h2>Vier gewinnt</h2>
           <h3></h3>
           <div class="img">
-            <img src="./assets/VierGewinnt/viergewinnt.png" alt="" />
+            <img src="./assets/VierGewinnt/viergewinnt.png" alt="Vier gewinnt" />
           </div>
         </div>
-        <div class="card" style="--index: 5; --color-card: 252, 208, 142">
+        
+        <!-- Countdown -->
+        <div class="card" style="--index: 5; --color-card: 252, 208, 142; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/countdown/', '_blank')">
           <h2>Countdown</h2>
           <h3></h3>
           <div class="img">
-            <img src="./assets/countdown/countdown.png" alt="" />
+            <img src="./assets/countdown/countdown.png" alt="Countdown" />
           </div>
         </div>
+        
+        <!-- CI-Design - keine Verlinkung -->
         <div class="card" style="--index: 6; --color-card: 252, 142, 142">
           <div class="img">
             <h2>CI-Design</h2>
             <h3></h3>
-            <img src="./kunst/circle-5816819_1280.jpg" alt="" />
+            <img src="./kunst/circle-5816819_1280.jpg" alt="CI-Design" />
           </div>
         </div>
-        <div class="card" style="--index: 7; --color-card: 252, 142, 239">
-          
+        
+        <!-- Poker -->
+        <div class="card" style="--index: 7; --color-card: 252, 142, 239; cursor: pointer;" 
+             onclick="window.open('https://grafikmartin.github.io/poker/', '_blank')">
           <h3></h3>
           <div class="rubrik"><h2>Poker</h2></div>
           <div class="img">
-            <img src="./assets/Poker/poker.png" alt="" />
+            <img src="./assets/Poker/poker.png" alt="Poker" />
           </div>
         </div>
+        
+        <!-- Grafiken - keine Verlinkung -->
         <div class="card" style="--index: 8; --color-card: 204, 142, 252">
           <h2>Grafiken</h2>
           <h3></h3>
-          <div class="img"><img src="./kunst/eule.png" alt="" /></div>
+          <div class="img"><img src="./kunst/eule.png" alt="Grafiken" /></div>
         </div>
+        
+        <!-- Webdesign - bestehende Verlinkung beibehalten -->
         <div class="card" style="--index: 9; --color-card: 142, 202, 252">
           <h2>Webdesign</h2>
           <h3></h3>
@@ -112,7 +136,7 @@
     </div>
 
     <ul class="social-icons">
-      <li style="--clr:#ffffff;"><!-- Farbe auf Weiß geändert für den Hover-Effekt -->
+      <li style="--clr:#ffffff;">
         <a href="https://github.com/Grafikmartin" target="_blank">
           <span><i class="fa-brands fa-github"></i></span>
           <span><i class="fa-brands fa-github"></i></span>
@@ -122,7 +146,7 @@
     </ul>
     <footer>
         <p>&copy; 2024 Martin Borth (Webseite ohne HTTP-Cookies!)</p>
-      </footer>
+    </footer>
     <script src="script.js"></script>
     <script src="./main.js"></script>
   </body>

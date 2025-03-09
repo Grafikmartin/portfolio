@@ -264,6 +264,16 @@ footer {
   margin-left: 5px;
 }
 
+.portfolio-text-klein {
+  position: relative;
+  font-size: 1.1rem; /* Kleinere Schriftgröße als portfolio-text */
+  animation: rotateY 20s linear infinite; 
+  text-align: center;
+ 
+  color: white;
+  margin-bottom: 20px;
+}
+
 /* Keyframes für die Rotation */
 @keyframes rotateY {
   0% {
