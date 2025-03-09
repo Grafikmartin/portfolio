@@ -10,7 +10,7 @@
     <link rel="icon" type="image/png" href="assets/favicon.png" sizes="64x64">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 
-    
+
 </head>
 
 <body>
@@ -31,29 +31,23 @@
     <div class="wetter-header">
         <h2 class="wetter-h2">Projekt WetterFrosch 2.0</h2>
         <div class="video-container">
-            <video 
-            src="./videos/wetter.mkv" 
-            autoplay 
-            loop 
-            muted
-        
-          ></video>
+            <video src="./videos/wetter.mkv" autoplay loop muted></video>
         </div>
 
-        
-        
+
+
         <h3 class="text1">Technologien & Framworks</h3>
         <div class="Technologie">
             <div class="box" id="Logo1"><span><img src="./assets/techniken/html.png" alt="html"></span></div>
             <div class="box" id="Logo2"><span><img src="./assets/techniken/css.png" alt="css"></span></div>
             <div class="box" id="Logo3"><span><img src="./assets/techniken/Javascript.png" alt="javascript"></span></div>
-            <div class="box" id="Logo5"><span><img src="./assets/techniken/PirateWeather.png" alt="Pirate Weather"></span></div>
-            <div class="box" id="Logo4"><span><img src="./assets/techniken/Leaflet.png" alt=""></span>leaflet</div>
-                        <div class="box" id="Logo5"><span><img src="./assets/techniken/OpenStreetMap-NominatimAPI.png" alt="Nominatim"></span></div>
-            
+            <div class="box" id="Logo4"><span><img src="./assets/techniken/PirateWeather.png" alt="Pirate Weather"></span></div>
+            <div class="box" id="Logo5"><span><img src="./assets/techniken/Leaflet.png" alt="Leaflet"></span></div>
+            <div class="box" id="Logo6"><span><img src="./assets/techniken/OpenStreetMap-NominatimAPI.png" alt="Nominatim"></span></div>
         </div>
         
-    
+        <!-- Container für die Beschreibungstexte -->
+        <div id="description-container" class="description-container"></div>
         <script>
             document.querySelectorAll('.box').forEach((box, index, boxes) => {
                 box.addEventListener('mouseover', () => {
@@ -67,13 +61,62 @@
                     boxes.forEach((b) => b.classList.remove('prev', 'next', 'hovered'));
                 });
             });
+            document.addEventListener('DOMContentLoaded', function() {
+    // Beschreibungstexte für jedes Logo mit fett formatierten Überschriften
+    const descriptions = {
+        'Logo1': '<strong>HTML (HyperText Markup Language)</strong><br>Die Grundlage des Webs und wird verwendet, um die Struktur von Webseiten zu definieren. Es arbeitet mit Tags, die den Browser anweisen, wie Inhalte darzustellen sind.',
+        'Logo2': '<strong>CSS (Cascading Style Sheets)</strong><br>Zuständig für das Styling von Webseiten. Es macht Webseiten optisch ansprechend durch Farben, Layouts, Schriftarten und Animationen.',
+        'Logo3': '<strong>JavaScript</strong><br>Eine Programmiersprache, die Webseiten interaktiv macht. Es ermöglicht Funktionen wie dynamische Inhalte, Benutzereingaben und Animationen.',
+        'Logo4': '<strong>PirateWeather API</strong><br>Ein Wetterdaten-API, das umfassende Wetterdaten für Vorhersagen und aktuelle Bedingungen bereitstellt.',
+        'Logo5': '<strong>Leaflet</strong><br>Eine Open-Source-JavaScript-Bibliothek für interaktive Karten. Es ist leichtgewichtig und funktionsreich für mobile und Desktop-Anwendungen.',
+        'Logo6': '<strong>Nominatim OpenStreetMap API</strong><br>Der Geocoding-Dienst von OpenStreetMap, der Ortssuche und Adresskonvertierung ermöglicht.'
+    };
+
+    const boxes = document.querySelectorAll('.box');
+    const descriptionContainer = document.getElementById('description-container');
+    let hoverTimeout;
+
+    boxes.forEach(box => {
+        // Wenn die Maus über ein Logo fährt
+        box.addEventListener('mouseenter', function() {
+            const logoId = this.id;
+            const description = descriptions[logoId];
+            
+            // Vorherigen Timeout löschen, falls vorhanden
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            
+            // Nach 500ms den Text anzeigen
+            hoverTimeout = setTimeout(() => {
+                descriptionContainer.innerHTML = description; // Verwende innerHTML statt textContent für HTML-Tags
+                descriptionContainer.classList.add('visible');
+            }, 500);
+        });
+        
+        // Wenn die Maus das Logo verlässt
+        box.addEventListener('mouseleave', function() {
+            // Vorherigen Timeout löschen, falls vorhanden
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            
+            // Text ausblenden
+            descriptionContainer.classList.remove('visible');
+            
+            // Nach der Übergangszeit den Text leeren
+            setTimeout(() => {
+                if (!descriptionContainer.classList.contains('visible')) {
+                    descriptionContainer.innerHTML = '';
+                }
+            }, 500);
+        });
+    });
+});
+
         </script>
 
 
-    <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
-    <div class="bottom-gradient"></div>
+        <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
+        <div class="bottom-gradient"></div>
 
-    
+
 </body>
 
 </html>
