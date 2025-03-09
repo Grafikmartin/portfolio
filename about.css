@@ -650,10 +650,12 @@ ul li a:hover {
   
   .about-header h2 {
     font-size: 1.8rem;
+    
   }
   
   .head2 {
     font-size: 1.2rem !important;
+    color: rgba(255, 255, 255, 0.25)!important;
   }
   
   .head3 {
