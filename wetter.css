@@ -127,6 +127,8 @@ html::-webkit-scrollbar {
   margin-top: 0px;
   overflow: hidden;
   position: relative;
+  transform-origin: bottom center;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
 }
 
 .video-container video {
@@ -143,6 +145,7 @@ border-radius: 15px;
   animation: videoFadeIn 1s forwards;
   animation-delay: 1.5s;
   margin-bottom: 25px;
+ 
 }
 @keyframes videoFadeIn {
   from { opacity: 0; }
@@ -178,41 +181,56 @@ footer {
   align-items: center;
   transform-style: preserve-3d;
   margin-top: 50px;
+  gap: 17px;
+  margin-bottom: 20px;
+  
 }
 
 .Technologie:hover {
-  gap: 0;
+  gap: 20px;
 }
 
 .Technologie .box {
   position: relative;
   width: 120px;
-  height: 120px;
+  height: 100px;
   background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 0.1) 0px, transparent 50%),
                     radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%),
                    ;
-  border: 2px solid #0005;
+ 
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: default;
   transition: 0.5s;
-  transform-origin: bottom center;
-  -webkit-box-reflect: below 1px linear-gradient(transparent, #0002);
+  
 }
 
 .Technologie .box span {
+height: 150px;
   font-size: 4em;
   font-weight: 700;
+  border: 0.2vh ridge rgb(255, 255, 255);
+  border-radius: 15px;
+ 
+  transform-origin: bottom center;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
 }
+.Technologie .box span:hover{
+  background-color:rgba(0, 0, 0, 0.5);
+  
+}
+
+
 
 .Technologie .box.prev,
 .Technologie.box.next {
-  background: rgba(122, 147, 148, 0.25);
+
   margin: 0 -20px;
   filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
   z-index: -1;
   transform: perspective(500px) scale(0.95);
+  transition: 0.5s;
 }
 
 .Technologie.box.prev {
@@ -226,7 +244,6 @@ footer {
 .Technologie .box.hovered {
   transform: perspective(500px) rotateY(0deg) scale(1.5);
   z-index: 1000;
-  
   color: #000000;
   -webkit-text-stroke: 1px #333;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
