@@ -31,7 +31,8 @@
     <div class="wetter-header">
         <h2 class="wetter-h2">Projekt WetterFrosch 2.0</h2>
         <div class="video-container">
-            <video src="./videos/wetter.mkv" autoplay loop muted></video>
+            <video src="./videos/WetterFrosch.mkv" autoplay loop muted></video>
+            <button id="livedemo">Zur Webseite</button>
         </div>
 
 
@@ -109,7 +110,45 @@
         });
     });
 });
+let btn = document.getElementById('livedemo');
+btn.addEventListener('click',function(e){
+    // Bestehender Partikel-Code
+    let rect = btn.getBoundingClientRect();
+    let x = e.clientX - rect.left;
+    let y = e.clientY - rect.top;
 
+    let numParticles = 20;
+    for(let i=0;i<numParticles;i++){
+        createParticle(x,y);
+    }
+    
+    // Nach einer kurzen Verzögerung zur Website weiterleiten
+    setTimeout(function() {
+        window.open('https://grafikmartin.github.io/wetter/', '_blank');
+    }, 800); // 800ms Verzögerung, damit der Nutzer die Animation sieht
+});
+
+		function createParticle(x,y){
+			let particle = document.createElement('div');
+			particle.classList.add('particle');
+
+			particle.style.left = x+'px';
+			particle.style.top = y+'px';
+
+			let angle = Math.random() * 2 * Math.PI;
+			let distance = Math.random() * 80 + 20;
+			let tx = Math.cos(angle) * distance;
+			let ty = Math.sin(angle) * distance;
+
+			particle.style.setProperty('--tx',tx + 'px');
+			particle.style.setProperty('--ty',ty + 'px');
+
+			btn.appendChild(particle);
+
+			setTimeout(() =>{
+				particle.remove()
+			},1000);
+		}
         </script>
 
 
