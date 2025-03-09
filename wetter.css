@@ -124,7 +124,7 @@ html::-webkit-scrollbar {
   color: chocolate;
   font-size: 2rem;
   margin-top: 100px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 .video-container {
@@ -220,6 +220,7 @@ html::-webkit-scrollbar {
   max-width: 600px;
   color: chocolate;
   margin-top: 25px;
+  margin-bottom: -10px;
   line-height: 1.6;
   margin-top: 50px;
 }
