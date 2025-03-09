@@ -3,6 +3,7 @@
   padding: 0;
   box-sizing: border-box;
   max-width: 100%;
+  user-select: none; 
 }
 
 body {
@@ -167,8 +168,8 @@ html::-webkit-scrollbar {
 }
 #livedemo 
 {  position: absolute;
-  top: 10px;
-  left: 10px;
+  bottom: 10px;
+  right: 10px;
   z-index: 2; /* Stellt sicher, dass der Button über dem Video erscheint */
   padding: 10px 20px;
   font-size: 0.8em;
@@ -245,17 +246,17 @@ footer {
   margin-bottom: 20px;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .Technologie:hover {
-  gap: 20px;
+  gap: 10px;
 }
 
 .Technologie .box {
   position: relative;
-  width: 120px;
-  height: 100px;
+  width: 82px;
+  height: 60px;
   background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 0.1) 0px, transparent 50%),
     radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%),
   ;
@@ -270,7 +271,7 @@ footer {
 }
 
 .Technologie .box span {
-  height: 150px;
+  height: 100px;
   font-size: 4em;
   font-weight: 700;
   border: 0.2vh ridge rgb(255, 255, 255);
@@ -293,22 +294,22 @@ footer {
   margin: 0 -20px;
   filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
   z-index: -1;
-  transform: perspective(500px) scale(0.95);
+  transform: perspective(500px) scale(1);
   transition: 0.5s;
   
 }
 
 .Technologie.box.prev {
-  transform: perspective(500px) rotateY(45deg) scale(0.95);
+  transform: perspective(500px) rotateY(45deg) scale(1);
 }
 
 .Technologie .box.next {
-  transform: perspective(500px) rotateY(-45deg) scale(0.95);
+  transform: perspective(500px) rotateY(-45deg) scale(1);
  
 }
 
 .Technologie .box.hovered {
-  transform: perspective(500px) rotateY(0deg) scale(1.5);
+  transform: perspective(500px) rotateY(0deg) scale(1.4);
   z-index: 1000;
   color: #000000;
   -webkit-text-stroke: 1px #333;
@@ -318,7 +319,7 @@ footer {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
+  gap: 10px;
 }
 
 .box {
