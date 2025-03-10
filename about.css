@@ -161,8 +161,7 @@ ul.social-icons {
   position: fixed !important; /* überschreibt position:relative */
   bottom: 120px !important; /* Höher positionieren - Wert nach Bedarf anpassen */
   right: 10vw !important; /* horizontale Position */
-  
-  z-index: 1000 !important; /* über anderen Elementen anzeigen */
+   z-index: 1000 !important; /* über anderen Elementen anzeigen */
 }
 ul
 {

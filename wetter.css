@@ -126,7 +126,14 @@ html::-webkit-scrollbar {
   margin-top: 100px;
   margin-bottom: 30px;
 }
+.beschreibung {
+  color: white;
+  font-size: .9rem;
+  width: 65vw;
+  margin-bottom: 30px;
+  line-height: 1.4;
 
+}
 .video-container {
   width: 100%;
   max-width: 800px;
@@ -315,6 +322,10 @@ footer {
   margin-left: auto;
   margin-right: auto;
   color: white;
+  font-size: .9rem;
+  width: 65vw;
+  margin-bottom: 30px;
+  line-height: 1.4;
 }
 
 .description-container.visible {
