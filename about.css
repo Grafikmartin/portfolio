@@ -163,6 +163,32 @@ ul.social-icons {
   right: 10vw !important; /* horizontale Position */
    z-index: 1000 !important; /* über anderen Elementen anzeigen */
 }
+#skillsbtn {
+    position: absolute;
+bottom: -540px;
+margin-bottom: 150px;
+  right: auto;
+  z-index: 2; /* Stellt sicher, dass der Button über dem Video erscheint */
+  padding: 10px 20px;
+  font-size: 0.8em;
+  color: #fff;
+  background: rgb(5, 5, 5);
+  letter-spacing: 0.1em;
+  outline: none;
+  border: none;
+  border-radius: 55px;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: 0.25s;
+  overflow: hidden;
+  border: 0.2vh ridge rgb(255, 255, 255); 
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+#skillsbtn:hover 
+{
+    background: chocolate;
+}
+
 ul
 {
     position: relative;
@@ -286,7 +312,7 @@ ul li a:hover {
   padding-top: 20px;
   padding-bottom: 100px;
   overflow: hidden;
-  margin-bottom: 350px;
+  margin-bottom: 200px;
   margin-top: 100px;
 }
 
@@ -489,6 +515,7 @@ ul li a:hover {
 /* Container für die Silhouette mit relativer Positionierung */
 .about-header {
     position: relative;
+    
   }
   
   /* Basis-Styling für die Icons */
@@ -498,7 +525,7 @@ ul li a:hover {
     font-size: 18px;
     opacity: 0;
     z-index: 5;
-    top: 72px; /* Startposition vom oberen Rand des Bildes */
+    top: 2px; /* Startposition vom oberen Rand des Bildes */
     left: 51.5%; /* Horizontale Mitte des Bildes */
     transform: translateX(-50%);
     animation-duration: 2.5s; /* Schnellere Animation */
@@ -623,6 +650,7 @@ ul li a:hover {
 .text3 {
     animation: fadeIn 1s forwards;
     animation-delay: 15s;
+    margin-bottom: 150px;
 }
 
 @keyframes fadeIn {
@@ -737,11 +765,7 @@ ul li a:hover {
   }
   
   /* Social Icons anpassen */
-  ul.social-icons {
-    left: 72vw !important;
-    margin-top: 150px;
-  }
-  
+ 
   ul li a span {
     width: 50px;
     height: 50px;
@@ -813,6 +837,7 @@ ul li a:hover {
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 50px;
+  row-gap: 50px;
 }
 
 .skills .box {
@@ -832,7 +857,7 @@ ul li a:hover {
   height: 100px;
   font-size: 4em;
   font-weight: 700;
-  border: 0.2vh ridge rgb(255, 255, 255);
+  border: 0.1vh ridge rgb(255, 255, 255);
   border-radius: 15px;
   background-color: #050505;
   transform-origin: bottom center;
@@ -841,6 +866,7 @@ ul li a:hover {
 
 .skills .box span:hover {
   background-color: rgba(0, 0, 0, 0.5);
+  z-index: 1001;
 }
 
 /* Korrekte Selektoren und symmetrische Transformationen */
