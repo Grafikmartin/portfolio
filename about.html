@@ -326,7 +326,37 @@
             
         </div>
     </div>
+    <section class="skills-section">
 
+
+
+        <h3 class="skills-text">Core Skills</h3>
+    <div class="skills">
+        
+        <div class="box" id="Logo1"><span><img src="./assets/techniken/InDesign.png" alt="InDesign"></span></div>
+        <div class="box" id="Logo2"><span><img src="./assets/techniken/PhotoShop.png " alt="PhotoShop"></span></div>
+        <div class="box" id="Logo3"><span><img src="./assets/techniken/Illustrator.png" alt="Illustrator"></span></div>
+        <div class="box" id="Logo4"><span><img src="./assets/techniken/acrobatPro.png" alt="AcrobatPro"></span></div>
+        <div class="box" id="Logo5"><span><img src="./assets/techniken/html.png" alt="html"></span></div>
+        <div class="box" id="Logo6"><span><img src="./assets/techniken/css.png" alt="css"></span></div>
+        <div class="box" id="Logo7"><span><img src="./assets/techniken/Javascript.png" alt="javascript"></span></div>
+    </div>
+    
+    <h3 class="skills-text">Additional Skills</h3>
+    <div class="skills">
+        <div class="box" id="Logo8"><span><img src="./assets/techniken/react.png" alt="react"></span></div>
+        <div class="box" id="Logo9"><span><img src="./assets/techniken/vite.png " alt="css"></span></div>
+        <div class="box" id="Logo10"><span><img src="./assets/techniken/typerscript.png" alt="typerscript"></span></div>
+        <div class="box" id="Logo11"><span><img src="./assets/techniken/tailwind.png" alt="tailwind"></span></div>
+        <div class="box" id="Logo12"><span><img src="./assets/techniken/bootstrap.png" alt="bootstrap"></span></div>
+        <div class="box" id="Logo13"><span><img src="./assets/techniken/figma.png" alt="Figma"></span></div>
+        <div class="box" id="Logo14"><span><img src="./assets/techniken/QuarkXPress.png" alt="QuarkXPress"></span></div>
+    </div>
+    <div id="description-container" class="description-container"></div>
+
+    </section>
+    
+    
     <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
     <div class="bottom-gradient"></div>
 
@@ -383,6 +413,91 @@
             // Initial prüfen
             checkCards();
         });
+        document.querySelectorAll('.box').forEach((box, index, boxes) => {
+                box.addEventListener('mouseover', () => {
+                    boxes.forEach((b, i) => {
+                        const className = i < index ? 'prev' : i === index ? 'hovered' : 'next';
+                        b.classList.remove('prev', 'next', 'hovered');
+                        b.classList.add(className);
+                    });
+                });
+                box.addEventListener('mouseleave', () => {
+                    boxes.forEach((b) => b.classList.remove('prev', 'next', 'hovered'));
+                });
+            });
+            document.addEventListener('DOMContentLoaded', function() {
+    // Beschreibungstexte für jedes Logo mit fett formatierten Überschriften
+    const descriptions = {
+    // Core Skills
+    'Logo1': '<strong>Adobe InDesign</strong><br>Professionelle Desktop-Publishing-Software für die Erstellung von Printmedien und digitalen Publikationen. Bietet umfassende Layout-Funktionen für Magazine, Bücher, Broschüren und andere Drucksachen mit präziser Typografie-Kontrolle, Stilvorlagen und erweiterten Funktionen für mehrseitige Dokumente.',
+    
+    'Logo2': '<strong>Adobe Photoshop</strong><br>Branchenführende Bildbearbeitungssoftware für die professionelle Bearbeitung, Retusche und Komposition digitaler Bilder. Bietet leistungsstarke Tools für Fotobearbeitung, digitale Malerei, Grafikdesign und 3D-Modellierung mit umfangreichen Ebenen-Funktionen, Filtern und nicht-destruktiven Bearbeitungstechniken.',
+    
+    'Logo3': '<strong>Adobe Illustrator</strong><br>Vektorbasierte Grafiksoftware für die Erstellung von Logos, Icons, Typografie, Illustrationen und komplexen Designs. Ermöglicht die Erstellung skalierbarer Grafiken ohne Qualitätsverlust für Print- und Digitalmedien mit präzisen Zeichenwerkzeugen, umfangreichen Typografie-Optionen und fortschrittlichen Farbmanagement-Funktionen.',
+    
+    'Logo4': '<strong>Adobe Acrobat Pro</strong><br>Umfassende PDF-Lösung für die Erstellung, Bearbeitung und Verwaltung von PDF-Dokumenten. Bietet professionelle Tools zum Konvertieren, Bearbeiten, Kommentieren und Schützen von PDF-Dateien, sowie Funktionen für elektronische Unterschriften, Formularerstellung und die Optimierung von Dokumenten für digitale und gedruckte Ausgabe.',
+    
+    'Logo5': '<strong>HTML (HyperText Markup Language)</strong><br>Die Grundlage des Webs und wird verwendet, um die Struktur von Webseiten zu definieren. Es arbeitet mit Tags, die den Browser anweisen, wie Inhalte darzustellen sind.',
+    
+    'Logo6': '<strong>CSS (Cascading Style Sheets)</strong><br>Zuständig für das Styling von Webseiten. Es macht Webseiten optisch ansprechend durch Farben, Layouts, Schriftarten und Animationen.',
+    
+    'Logo7': '<strong>JavaScript</strong><br>Eine Programmiersprache, die Webseiten interaktiv macht. Es ermöglicht Funktionen wie dynamische Inhalte, Benutzereingaben und Animationen.',
+
+    // Additional Skills
+    'Logo8': '<strong>React</strong><br>Eine von Facebook entwickelte JavaScript-Bibliothek für den Aufbau von Benutzeroberflächen. React revolutioniert die Web-Entwicklung durch seinen komponentenbasierten Ansatz, der die Erstellung wiederverwendbarer UI-Elemente ermöglicht. Mit dem virtuellen DOM optimiert React die Rendering-Performance und fördert die Entwicklung reaktiver, zustandsgesteuerter Anwendungen bei gleichzeitiger Wartbarkeit des Codes.',
+    
+    'Logo9': '<strong>Vite</strong><br>Ein modernes Frontend-Build-Tool, das die Entwicklererfahrung durch blitzschnelle Startzeiten und sofortiges Hot Module Replacement transformiert. Vite nutzt native ES-Module, um die Entwicklungsumgebung zu beschleunigen, während es für die Produktion optimierte Builds mit Rollup generiert. Es unterstützt von Haus aus TypeScript, JSX, CSS und mehr, mit einem Plugin-System für erweiterte Anpassungen.',
+    
+    'Logo10': '<strong>TypeScript</strong><br>Eine von Microsoft entwickelte Erweiterung von JavaScript, die statische Typisierung hinzufügt. TypeScript verbessert die Code-Qualität und Wartbarkeit durch frühzeitige Fehlererkennung, bessere Entwicklerwerkzeuge und Intellisense-Unterstützung. Es kompiliert zu lesbarem JavaScript und integriert sich nahtlos in moderne Entwicklungs-Workflows, während es fortschrittliche Konzepte wie Interfaces, Generics und Enums bereitstellt.',
+    
+    'Logo11': '<strong>Tailwind CSS</strong><br>Ein Utility-first CSS-Framework, das die Webentwicklung durch einen komponentenbasierten Ansatz revolutioniert. Anstatt vordefinierte Komponenten zu bieten, stellt Tailwind Low-Level-Utility-Klassen bereit, die direkt im HTML angewendet werden können. Dies beschleunigt die Entwicklung, reduziert die CSS-Dateigröße durch PurgeCSS und ermöglicht hochgradig anpassbare Designs ohne das Schreiben von Custom CSS.',
+    
+    'Logo12': '<strong>Bootstrap</strong><br>Das weltweit beliebteste Framework für responsive, mobile-first Webentwicklung. Bootstrap bietet ein umfassendes Paket aus HTML, CSS und JavaScript-Komponenten, die sofort einsatzbereit sind. Mit seinem Grid-System, vorgefertigten UI-Komponenten und JavaScript-Plugins beschleunigt es die Entwicklung konsistenter, professioneller Websites, die auf allen Geräten gut funktionieren.',
+    
+    'Logo13': '<strong>Figma</strong><br>Eine cloud-basierte Design- und Prototyping-Plattform für UI/UX-Design. Figma revolutioniert die Zusammenarbeit im Designprozess durch Echtzeit-Kollaboration, browserbasierte Zugänglichkeit und plattformübergreifende Verfügbarkeit. Es bietet leistungsstarke Werkzeuge für Interface-Design, Prototyping, Design-Systeme und nahtlosen Übergang von Design zur Entwicklung durch Inspektionsfunktionen und Entwickler-Handoff.',
+    
+    'Logo14': '<strong>QuarkXPress</strong><br>Eine etablierte Desktop-Publishing-Software für die Erstellung hochwertiger Print- und Digitalmedien. QuarkXPress bietet professionelle Layoutwerkzeuge für Zeitungen, Magazine, Bücher und andere Publikationen. Mit seiner langen Geschichte in der Druckindustrie unterstützt es präzises Layout, umfangreiche Typografie-Kontrolle, Farb- und Bildverwaltung sowie die Erstellung digitaler Publikationen mit interaktiven Elementen.'
+
+
+    };
+
+    const boxes = document.querySelectorAll('.box');
+    const descriptionContainer = document.getElementById('description-container');
+    let hoverTimeout;
+
+    boxes.forEach(box => {
+        // Wenn die Maus über ein Logo fährt
+        box.addEventListener('mouseenter', function() {
+            const logoId = this.id;
+            const description = descriptions[logoId];
+            
+            // Vorherigen Timeout löschen, falls vorhanden
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            
+            // Nach 500ms den Text anzeigen
+            hoverTimeout = setTimeout(() => {
+                descriptionContainer.innerHTML = description; // Verwende innerHTML statt textContent für HTML-Tags
+                descriptionContainer.classList.add('visible');
+            }, 500);
+        });
+        
+        // Wenn die Maus das Logo verlässt
+        box.addEventListener('mouseleave', function() {
+            // Vorherigen Timeout löschen, falls vorhanden
+            if (hoverTimeout) clearTimeout(hoverTimeout);
+            
+            // Text ausblenden
+            descriptionContainer.classList.remove('visible');
+            
+            // Nach der Übergangszeit den Text leeren
+            setTimeout(() => {
+                if (!descriptionContainer.classList.contains('visible')) {
+                    descriptionContainer.innerHTML = '';
+                }
+            }, 500);
+        });
+    });
+});
     </script>
 </body>
 
