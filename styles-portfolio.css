@@ -112,7 +112,9 @@ footer {
   overflow: hidden;
   perspective: 1000px; /* 3D-Perspektive für das Karussell */
   z-index: 1;
-
+  opacity: 0; /* Startet unsichtbar */
+  animation: wrapperFadeIn 3s ease-in forwards;
+  animation-delay: 5s; 
 }
 
 /* Inneres Element für die Karten-Rotation */
@@ -266,26 +268,23 @@ footer {
     transform: translateY(0);
   }
 }
-
+@keyframes wrapperFadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
 /* WICHTIGE ÄNDERUNG: Zwei-Phasen Rotation mit konstantem Tempo nach dem Start */
 @keyframes startRotating {
   0% {
     transform: translateX(-50%) rotateY(0deg);
   }
-  /* Langsame Beschleunigung in den ersten 15% der Animation */
-  15% {
-    transform: translateX(-50%) rotateY(36deg);
-  }
-  /* Danach sofort zur vollen Geschwindigkeit springen (interpoliert) */
-  15.001% {
-    transform: translateX(-50%) rotateY(36deg);
-  }
-  /* Von hier an bis zum Ende konstante Geschwindigkeit */
   100% {
     transform: translateX(-50%) rotateY(360deg);
   }
 }
-
 /* Wrapper für das Wort mit Perspektive */
 .portfolio-wrapper {
   perspective: 800px; /* Perspektive für die 3D-Rotation */
@@ -298,8 +297,9 @@ footer {
   z-index: 1001;
   
   /* Verzögerte Rotation des gesamten Wrappers mit spezieller Timing-Funktion */
-  animation: startRotating 30s cubic-bezier(0.33, 0, 0.67, 1) infinite;
-  animation-delay: 3s; /* Startet erst nach 3 Sekunden */
+  animation: startRotating 30s linear infinite;
+  animation-delay: 3s;
+  animation-fill-mode: both;
 }
 
 /* Portfolio-Text */
@@ -316,7 +316,7 @@ footer {
   transform-origin: center; /* Rotiert um die eigene Mitte */
   user-select: none;
   margin-left: 5px;
-  perspective: 1000;
+ 
   /* Nur Fall-Animation, keine eigene Rotation */
   animation: portfolioFall 3s ease-in-out forwards;
 }
