@@ -1,9 +1,17 @@
+/* ============= GLOBAL RESET ============= */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   max-width: 100%;
   user-select: none; 
+}
+
+/* ============= BASIS-EINSTELLUNGEN ============= */
+html,
+body {
+  overflow: hidden;
+  height: 100%;
 }
 
 body {
@@ -14,12 +22,7 @@ body {
   overflow-x: hidden;
 }
 
-html,
-body {
-  overflow: hidden;
-  height: 100%;
-}
-
+/* ============= HEADER / NAV ============= */
 .corner-button img {
   width: 100%;
   height: 100%;
@@ -41,27 +44,11 @@ body {
   border-radius: 10px;
 }
 
-@keyframes slide-in-top-left {
-  0% {
-    transform: rotate(-90deg) translateX(100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
-@keyframes slide-in-top-right {
-  0% {
-    transform: rotate(90deg) translateX(-100%);
-  }
-  100% {
-    transform: translateX(0);
-  }
-}
 /* Hover-Effekte für die Buttons */
 .corner-button:hover {
   transform: scale(1.7) rotate(90deg);
   box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
-    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+              5px -5px 15px -3px rgba(0, 0, 0, 0.6);
   cursor: pointer;
   opacity: 1;
   border-radius: 10px;
@@ -71,7 +58,6 @@ body {
 .top-left {
   top: 7vw;
   left: 7vw;
-  transform: rotate(0deg);
   transform-origin: center;
   animation: slide-in-top-left 2s ease;
   border-radius: 10px;
@@ -80,27 +66,64 @@ body {
 .top-right {
   top: 7vw;
   right: 7vw;
-  transform: rotate(0deg);
   transform-origin: center;
   line-height: 1;
   animation: slide-in-top-right 2s ease;
   border-radius: 10px;
 }
 
-footer {
+/* ============= PORTFOLIO-BEREICH ============= */
+.portfolio-wrapper {
+  perspective: 800px; 
+  perspective-origin: center center;
   position: absolute;
-  bottom: 3vh;
-  width: 100vw;
+  top: 30vh;
   left: 50%;
   transform: translateX(-50%);
-  text-align: center;
-  font-size: 1.5vh;
-  color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  margin-bottom: 2vh;
-  z-index: -1;
+  transform-style: preserve-3d;
+  z-index: 1001;
+  
+  /* Verzögerte Rotation des gesamten Wrappers */
+  animation: startRotating 30s linear infinite;
+  animation-delay: 3s;
+  animation-fill-mode: both;
 }
-/* Wrapper für die zentrale Platzierung */
+
+/* Hauptüberschrift */
+.portfolio-text {
+  font-size: 4vh;
+  font-weight: bold;
+  color: chocolate;
+  text-transform: uppercase;
+  text-align: center;
+  letter-spacing: 0.2rem;
+  display: inline-block;
+  position: relative;
+  transform-style: preserve-3d;
+  transform-origin: center;
+  user-select: none;
+  margin-left: 5px;
+  
+  /* Animationsstart (nur Fall-Animation) */
+  animation: portfolioFall 3s ease-in-out forwards;
+}
+
+/* Unterüberschrift */
+.portfolio-text-klein {
+  position: relative;
+  font-size: 1.1rem;
+  text-align: center;
+  color: white;
+  margin-bottom: 20px;
+  transform-style: preserve-3d;
+  perspective: 1000;
+  
+  /* Bounce-Animation */
+  animation: webseitenBounce 1s ease-out forwards;
+  animation-delay: 1.7s;
+}
+
+/* ============= WRAPPER / HAUPT-KARUSSELL ============= */
 .wrapper {
   width: 100%;
   height: 100%;
@@ -117,15 +140,13 @@ footer {
   animation-delay: 5s; 
 }
 
-/* Inneres Element für die Karten-Rotation */
 .inner {
-  --w: 12vh; /* Breite der Karten */
-  --h: 15vh; /* Höhe der Karten */
-  --translateZ: calc(
-    (var(--w) + var(--h)) * 0.95
-  ); /* Abstand der Karten von der Mitte */
-  --rotateX: -15deg; /* Schrägstellung der Ansicht */
+  --w: 12vh; 
+  --h: 15vh; 
+  --translateZ: calc((var(--w) + var(--h)) * 0.95);
+  --rotateX: -15deg; 
   --perspective: 1000px;
+
   position: absolute;
   width: var(--w);
   height: var(--h);
@@ -133,23 +154,9 @@ footer {
   transform-style: preserve-3d;
   transform: perspective(var(--perspective));
   animation: rotating 20s linear infinite;
-  border: 0vh ridge rgb(255, 255, 255);
   border-radius: 5px;
 }
 
-@keyframes rotating {
-  from {
-    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
-      rotateY(0);
-  }
-  to {
-    transform: perspective(var(--perspective)) rotateX(var(--rotateX))
-      rotateY(-1turn);
-  }
-}
-
-
-/* Karte für das Karussell */
 .card {
   position: absolute;
   width: 100%;
@@ -158,14 +165,13 @@ footer {
   border-bottom-right-radius: 10px;
   background-color: rgba(var(--color-card), 0.6);
   transform: rotateY(calc((360deg / var(--quantity)) * var(--index)))
-    translateZ(var(--translateZ));
+             translateZ(var(--translateZ));
   box-shadow: 0 0vh 0px rgba(255, 255, 255, 0.9);
   cursor: pointer;
   -webkit-box-reflect: below 1px
     linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
 }
 
-/* Inhalt der Karte */
 .img {
   width: 100%;
   height: 100%;
@@ -180,63 +186,238 @@ footer {
     rgba(var(--color-card), 0.9) 100%
   );
 }
+
 .img img {
   width: 100%;
   height: 100%;
-  object-fit: cover; /* Skaliert das Bild, ohne das Seitenverhältnis zu verändern */
+  object-fit: cover;
   border-bottom-left-radius: 10px;
-  border-bottom-right-radius: 10px; /* Abgerundete Ecken */
+  border-bottom-right-radius: 10px;
   transition: transform 0.5s ease;
-  border-top: 0.2vh ridge rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.5);
 }
 
 .img:hover img {
-  transform: scale(1.1); /* Vergrößert das Bild beim Hover */
+  transform: scale(1.1);
 }
 
 .card h2 {
-  position: absolute; /* Absolut positioniert relativ zur Karte */
-  width: 100%; /* Volle Breite */
+  position: absolute;
+  width: 100%;
   height: 17.3vh;
-  top: -2.3vh; /* Hebt die Überschrift leicht nach oben */
-  left: 50%; /* Zentriert horizontal */
-  transform: translateX(-50%); /* Korrekte Zentrierung */
-  font-size: 0.6rem; /* Schriftgröße anpassen */
-  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  top: -2.3vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: #ffffff;
   user-select: none;
-  padding: 5px 8px; /* Abstand innerhalb des H2 */
+  padding: 5px 8px;
   border-radius: 10px;
   text-align: center;
   white-space: nowrap;
-  z-index: -10; /* Sicherstellen, dass das H2 über dem Bild liegt */
+  z-index: -10;
   font-weight: 200;
   background-color: rgba(0, 0, 0, 0.8);
 }
-@media screen and (max-width: 400px) {
-  .card h2 {
-    font-size: 0.45rem; /* Kleinere Schriftgröße */
-    padding: 4px 8px;
-  }
-}
+
 .card h3 {
-  position: absolute; /* Absolut positioniert relativ zur Karte */
-  width: 100%; /* Volle Breite */
+  position: absolute;
+  width: 100%;
   height: 17.5vh;
-  top: -2.5vh; /* Hebt die Überschrift leicht nach oben */
-  left: 50%; /* Zentriert horizontal */
-  transform: translateX(-50%); /* Korrekte Zentrierung */
-  font-size: 0.6rem; /* Schriftgröße anpassen */
-  color: #ffffff; /* Weiß für bessere Lesbarkeit */
+  top: -2.5vh;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 0.6rem;
+  color: #ffffff;
   user-select: none;
-  padding: 4px 8px; /* Abstand innerhalb des H2 */
+  padding: 4px 8px;
   border-radius: 10px;
   text-align: center;
   white-space: nowrap;
-  z-index: 3000; /* Sicherstellen, dass das H2 über dem Bild liegt */
+  z-index: 3000;
   font-weight: 200;
   pointer-events: none;
-  border: 0.2vh ridge rgb(255, 255, 255);
+  border: 1px solid rgba(255, 255, 255, 0.5);
   margin-bottom: 1vh;
+}
+
+/* ============= BUTTON / SOCIAL ICONS ============= */
+.button-container {
+  position: fixed;        
+  bottom: 128px;
+  right: 10vw;
+  z-index: 1000;
+  transform: scale(0.5);
+  transform-origin: bottom right; 
+}
+
+ul.social-icons {
+  position: relative;
+  z-index: 1000;
+  display: flex;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+}
+
+ul li {
+  list-style: none;
+}
+
+ul li a {
+  position: relative;
+  display: block;
+  text-decoration: none;
+  transform: rotate(-30deg) skew(25deg) translate(0, 0);
+  transition: 0.5s;
+  box-shadow: -70px 70px 25px rgba(0, 0, 0, 0.2);
+}
+
+ul li a:hover {
+  transform: rotate(-30deg) skew(25deg) translate(0px, 0);
+  box-shadow: -90px 90px 30px rgba(0, 0, 0, 0.5);
+}
+
+ul li a span {
+  display: block;
+  width: 80px;
+  height: 80px;
+  background: #000000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s;
+}
+
+ul li a span:nth-child(2) {
+  position: absolute;
+  top: 39px;
+  left: -69px;
+  height: 60px;
+  width: 80px;
+  transform: rotate(0deg) skewY(-45deg) rotate(90deg);
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
+
+ul li a span:nth-child(2):before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(124, 37, 37, 0.1);
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
+}
+
+ul li a span:nth-child(3) {
+  position: absolute;
+  bottom: -59px;
+  left: -30px;
+  height: 60px;
+  width: 100%;
+  transform: rotate(0deg) skewX(-45deg);
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
+
+ul li a span:nth-child(3):before {
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.05);
+  -webkit-box-reflect: below 1px
+    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+}
+
+ul li a i {
+  font-size: 2.5em;
+  color: #999999;
+  line-height: 80px;
+  transition: 0.5s;
+}
+
+/* Hover-Stile mit unterschiedlichen Weißtönen */
+ul li a:hover span:nth-child(1) {
+  background: #cacaca;
+}
+
+ul li a:hover span:nth-child(2) {
+  background: #d1d1d1; 
+}
+
+ul li a:hover span:nth-child(3) {
+  background: #d3d3d3;
+}
+
+/* Überschreibt die ursprüngliche Hover-Regel */
+ul li a:hover span {
+  background: initial; 
+}
+
+ul li:hover i {
+  color: #000000;
+}
+
+/* Keine vertikale Verschiebung beim Hovern */
+ul li a:hover {
+  transform: rotate(-30deg) skew(25deg) translate(0px, 0); 
+  box-shadow: -90px 90px 30px rgba(0, 0, 0, 0.5);
+}
+
+/* ============= FOOTER ============= */
+footer {
+  position: absolute;
+  bottom: 3vh;
+  width: 100vw;
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  font-size: 1.5vh;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  margin-bottom: 2vh;
+  z-index: -1;
+}
+
+/* ============= MEDIA QUERIES ============= */
+@media screen and (max-width: 400px) {
+  .card h2 {
+    font-size: 0.45rem; 
+    padding: 4px 8px;
+  }
+}
+
+/* ============= KEYFRAMES ============= */
+
+/* Slide-In für die Eck-Buttons */
+@keyframes slide-in-top-left {
+  0% {
+    transform: rotate(-90deg) translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Karussell-Rotation */
+@keyframes rotating {
+  from {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+  }
+  to {
+    transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(-1turn);
+  }
 }
 
 /* NEUE ANIMATIONEN FÜR PORTFOLIO TEXTE */
@@ -268,6 +449,7 @@ footer {
     transform: translateY(0);
   }
 }
+
 @keyframes wrapperFadeIn {
   0% {
     opacity: 0;
@@ -276,6 +458,7 @@ footer {
     opacity: 1;
   }
 }
+
 /* WICHTIGE ÄNDERUNG: Zwei-Phasen Rotation mit konstantem Tempo nach dem Start */
 @keyframes startRotating {
   0% {
@@ -284,188 +467,4 @@ footer {
   100% {
     transform: translateX(-50%) rotateY(360deg);
   }
-}
-/* Wrapper für das Wort mit Perspektive */
-.portfolio-wrapper {
-  perspective: 800px; /* Perspektive für die 3D-Rotation */
-  perspective-origin: center center; /* Zentrierte Perspektive */
-  position: absolute;
-  top: 30vh; /* Verschiebt das Wort tiefer */
-  left: 50%; /* Zentriert horizontal */
-  transform: translateX(-50%); /* Korrigiert die Zentrierung */
-  transform-style: preserve-3d; /* Wichtig für 3D-Transformationen */
-  z-index: 1001;
-  
-  /* Verzögerte Rotation des gesamten Wrappers mit spezieller Timing-Funktion */
-  animation: startRotating 30s linear infinite;
-  animation-delay: 3s;
-  animation-fill-mode: both;
-}
-
-/* Portfolio-Text */
-.portfolio-text {
-  font-size: 4vh; /* Größe des Textes */
-  font-weight: bold;
-  color: chocolate;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 0.2rem;
-  display: inline-block;
-  position: relative;
-  transform-style: preserve-3d; /* Aktiviert 3D-Rendering */
-  transform-origin: center; /* Rotiert um die eigene Mitte */
-  user-select: none;
-  margin-left: 5px;
- 
-  /* Nur Fall-Animation, keine eigene Rotation */
-  animation: portfolioFall 3s ease-in-out forwards;
-}
-
-.portfolio-text-klein {
-  position: relative;
-  font-size: 1.1rem; /* Kleinere Schriftgröße als portfolio-text */
-  text-align: center;
-  color: white;
-  margin-bottom: 20px;
-  transform-style: preserve-3d;
-  perspective: 1000;
-  
-  /* Nur Bounce-Animation, keine eigene Rotation */
-  animation: webseitenBounce 1s ease-out forwards;
-  animation-delay: 1.7s; /* Startet später als der Haupttext */
-}
-
-/* --- Container für das Scaling --- */
-.button-container {
-  position: fixed;         /* Anstelle vom ul (so bleibt der Button fixiert) */
-  bottom: 128px;
-  right: 10vw;
-  z-index: 1000;
-  transform: scale(0.5);  /* Verkleinert auf 50% */
-  transform-origin: bottom right; /* Passt den Skalierungs-Ursprung an, 
-                                     damit der Button an der erwarteten 
-                                     Position bleibt */
-}
-
-/* Entferne fixe Positionierung vom ul, da es jetzt in .button-container liegt */
-ul.social-icons {
-  position: relative; 
-  /* bottom: 128px;  <- entfernen 
-     right: 10vw;    <- entfernen */
-  z-index: 1000;
-  display: flex;
-  gap: 100px;
-  margin: 0;         /* optional, falls du Abstände steuern willst */
-  padding: 0;        /* optional, falls du Abstände steuern willst */
-}
-
-/* Restliche Stile wie gehabt */
-ul li {
-  list-style: none;
-}
-
-ul li a {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  transform: rotate(-30deg) skew(25deg) translate(0,0);
-  transition: 0.5s;
-  box-shadow: -70px 70px 25px rgba(0,0,0,0.2);
-}
-
-/* Hover-Effekt: */
-ul li a:hover {
-  transform: rotate(-30deg) skew(25deg) translate(0px, 0);
-  box-shadow: -90px 90px 30px rgba(0,0,0,0.5);
-}
-
-ul li a span
-{
-    display: block;
-    width: 80px;
-    height: 80px;
-    background: #000000;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transition: 0.5s;
-}
-ul li a span:nth-child(2)
-{
-    position: absolute;
-    top: 39px;
-    left: -69px;
-    height: 60px;
-    width: 80px;
-    transform: rotate(0deg) skewY(-45deg) rotate(90deg);
-    -webkit-box-reflect: below 1px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-ul li a span:nth-child(2):before
-{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(124, 37, 37, 0.1);
-     -webkit-box-reflect: below 1px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
-}
-
-ul li a span:nth-child(3)
-{
-    position: absolute;
-    bottom: -59px;
-    left: -30px;
-    height: 60px;
-    width: 100%;
-    transform: rotate(0deg) skewX(-45deg);
-    -webkit-box-reflect: below 1px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-ul li a span:nth-child(3):before
-{
-    content: '';
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: rgba(255, 255, 255, 0.05);
-    -webkit-box-reflect: below 1px
-    linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-ul li a i
-{
-    font-size: 2.5em;
-    color: #999999;
-    line-height: 80px;
-    transition: 0.5s;
-}
-
-/* Hover-Stile mit unterschiedlichen Weißtönen für jede Seite */
-ul li a:hover span:nth-child(1) {
-  background: #cacaca; /* Reinweiß für die Hauptfläche */
-}
-
-ul li a:hover span:nth-child(2) {
-  background: #d1d1d1; /* Hellgrau für die Seitenfläche */
-}
-
-ul li a:hover span:nth-child(3) {
-  background: #d3d3d3; /* Mittelgrau für die untere Fläche */
-}
-
-/* Überschreibt die ursprüngliche Hover-Regel */
-ul li a:hover span {
-  background: initial; /* Die var(--clr) überschreiben */
-}
-
-/* Icon-Farbe beim Hovern */
-ul li:hover i {
-  color: #000000; /* Dunkle Farbe für das Icon beim Hovern */
-}
-
-/* Keine vertikale Verschiebung beim Hovern */
-ul li a:hover {
-  transform: rotate(-30deg) skew(25deg) translate(0px, 0); /* 0 statt -20px verhindert Anhebung */
-  box-shadow: -90px 90px 30px rgba(0,0,0,.5);
 }
