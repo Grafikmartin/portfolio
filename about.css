@@ -1,965 +1,961 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  max-width: 100%;
-  user-select: none; 
-}
-
-body {
-  background-color: rgb(5, 5, 5);
-  color: white;
-  font-family: Arial, sans-serif;
-  position: relative;
-  overflow-x: hidden;
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-}
-
-/* Versteckt den Scrollbalken für Chrome, Safari und Opera */
-body::-webkit-scrollbar {
-  display: none;
-}
-
-html {
-  scrollbar-width: none; /* Firefox */
-  -ms-overflow-style: none; /* IE and Edge */
-  scroll-behavior: smooth;
-}
-
-html::-webkit-scrollbar {
-  display: none;
-}
-
-/* --- 1. CORNER-BUTTON --- */
-.corner-button {
-  position: fixed;
-  width: 7vh;
-  height: 7vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
-  transition: background-color 0.6s ease, transform 0.9s ease;
-  opacity: 1;
-  z-index: 10;
-  border-radius: 10px;
-}
-
-.corner-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
-/* Hover-Effekte für die Buttons */
-.corner-button:hover {
-  transform: scale(1.7) rotate(90deg);
-  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
-    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  opacity: 1;
-  border-radius: 10px;
-}
-
-/* Ecken-Positionierung und Animationen */
-.top-left {
-  top: 7vw;
-  left: 7vw;
-  transform: rotate(0deg);
-  transform-origin: center;
-  animation: slide-in-top-left 2s ease;
-  border-radius: 10px;
-}
-
-.top-right {
-  top: 7vw;
-  right: 7vw;
-  transform: rotate(0deg);
-  transform-origin: center;
-  line-height: 1;
-  animation: slide-in-top-right 2s ease;
-  border-radius: 10px;
-}
-
-@keyframes slide-in-top-left {
-  0% {
-    transform: rotate(-90deg) translateX(100%);
+/* =========================================================
+   1. GLOBAL RESET & BASIS
+   ========================================================= */
+   * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    max-width: 100%;
+    user-select: none; 
   }
-  100% {
-    transform: translateX(0);
+  
+  html {
+    scrollbar-width: none; /* Firefox */
+    -ms-overflow-style: none; /* IE and Edge */
+    scroll-behavior: smooth;
   }
-}
-
-@keyframes slide-in-top-right {
-  0% {
-    transform: rotate(90deg) translateX(-100%);
+  
+  html::-webkit-scrollbar {
+    display: none;
   }
-  100% {
-    transform: translateX(0);
+  
+  body {
+    background-color: rgb(5, 5, 5);
+    color: white;
+    font-family: Arial, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+    /* Scrollbalken für Firefox, IE, Edge ausblenden */
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
-}
-
-/* --- 2. CREATIVE-ICONS --- */
-/* --- 2. CREATIVE-ICONS --- */
-
-/* --- 3. ABOUT-HEADER-IMG --- */
-.about-header {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  height: 40vh;
-  text-align: center;
-  padding: 20px;
-  margin-top: 15vh;
-}
-
-.about-header img {
-  width: 100px;
-  height: auto;
-  margin-bottom: 18px;
-  margin-top: 450px;
-}
-
-/* --- 4. ABOUT-HEADER-H2 UND ANDERE ÜBERSCHRIFTEN --- */
-.about-header h2 {
-  font-size: 2.5rem;
-  margin-bottom: -10px;
-  color: chocolate;
-}
-
-.head2 {
-  font-size: 1.6rem !important;
-  margin-bottom: -12px;
-  color: rgb(255, 255, 255) !important;
-  font-weight: 300;
-}
-
-.head3 {
-  margin-bottom: 60px !important;
-}
-
-.about-header h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
-}
-
-/* --- 5. P TEXT1 BIS 3 --- */
-.about-header p {
-  font-size: 1.2rem;
-  max-width: 600px;
-  color: white;
-  margin-top: 15px;
-  line-height: 1.6;
-}
-
-.text1, .text2, .text3 {
-  opacity: 0.2; /* Startposition: unsichtbar */
-}
-
-.text1 {
-  animation: fadeIn 2s forwards;
-  animation-delay: 3s;
-}
-
-.text2 {
-  animation: fadeIn 1s forwards;
-  animation-delay: 10s;
-}
-
-.text3 {
-  animation: fadeIn 1s forwards;
-  animation-delay: 15s;
-  margin-bottom: 150px;
-}
-
-@keyframes fadeIn {
-  to { opacity: 1; }
-}
-/* --- 2. CREATIVE-ICONS --- */
-.creative-icon {
-  position: absolute;
-  color: rgb(255, 106, 0);
-  font-size: 18px;
-  opacity: 0; /* Standardmäßig unsichtbar */
-  z-index: 5;
-  top: 2px;
-  left: 51.5%;
-  transform: translateX(-50%);
-  animation-duration: 2.5s;
-  animation-fill-mode: forwards;
-  pointer-events: none; /* Verhindert, dass die Icons selbst Hover-Events auslösen */
-}
-
-/* Kein Hover-Status: Animation anhalten */
-.about-header img:not(:hover) ~ .creative-icon,
-.about-header h2:not(:hover) ~ .creative-icon,
-.about-header .head2:not(:hover) ~ .creative-icon,
-.about-header .head3:not(:hover) ~ .creative-icon {
-  animation: none !important; /* Animation stoppen */
-  opacity: 0 !important; /* Unsichtbar machen */
-}
-
-/* Hover-Status: Animation nur starten, wenn diese Elemente gehovert werden */
-.about-header img:hover ~ .creative-icon,
-.about-header h2:hover ~ .creative-icon, 
-.about-header .head2:hover ~ .creative-icon,
-.about-header .head3:hover ~ .creative-icon {
-  animation-name: bubble-up-center; /* Eine der Animations-Arten zuweisen */
-}
-
-/* Verschiedene Icons können unterschiedliche Animationen haben */
-.about-header img:hover ~ .creative-icon:nth-of-type(1) { animation-name: bubble-up-right; }
-.about-header img:hover ~ .creative-icon:nth-of-type(2) { animation-name: bubble-up-left; }
-.about-header h2:hover ~ .creative-icon:nth-of-type(3) { animation-name: bubble-up-center; }
-.about-header .head2:hover ~ .creative-icon:nth-of-type(4) { animation-name: bubble-diagonal-right; }
-.about-header .head3:hover ~ .creative-icon:nth-of-type(5) { animation-name: bubble-diagonal-left; }
-
-/* Verschiedene Animationen für die Icons */
-@keyframes bubble-up-right {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
+  
+  /* Versteckt den Scrollbalken für Chrome, Safari und Opera */
+  body::-webkit-scrollbar {
+    display: none;
   }
-  15% {
+  
+  
+  /* =========================================================
+     2. CORNER BUTTONS (HEADER / NAV)
+     ========================================================= */
+  .corner-button {
+    position: fixed;
+    width: 7vh;
+    height: 7vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
+    transition: background-color 0.6s ease, transform 0.9s ease;
     opacity: 1;
+    z-index: 10;
+    border-radius: 10px;
   }
-  100% {
-    opacity: 0;
-    transform: translate(80px, -120px) rotate(45deg) scale(1.2);
+  
+  .corner-button img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
   }
-}
-
-@keyframes bubble-up-left {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  15% {
+  
+  /* Hover-Effekte für die Buttons */
+  .corner-button:hover {
+    transform: scale(1.7) rotate(90deg);
+    box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+                5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+    cursor: pointer;
     opacity: 1;
+    border-radius: 10px;
   }
-  100% {
-    opacity: 0;
-    transform: translate(-100px, -100px) rotate(-60deg) scale(1.3);
+  
+  /* Positionen & Animationen */
+  .top-left {
+    top: 7vw;
+    left: 7vw;
+    transform-origin: center;
+    animation: slide-in-top-left 2s ease;
   }
-}
-
-@keyframes bubble-up-center {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
+  
+  .top-right {
+    top: 7vw;
+    right: 7vw;
+    transform-origin: center;
+    line-height: 1;
+    animation: slide-in-top-right 2s ease;
   }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-50%, -150px) scale(1.4);
-  }
-}
-
-@keyframes bubble-up-far-right {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(120px, -80px) rotate(30deg) scale(1.1);
-  }
-}
-
-@keyframes bubble-up-far-left {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-130px, -70px) rotate(-30deg) scale(1.2);
-  }
-}
-
-@keyframes bubble-diagonal-right {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(100px, -130px) rotate(60deg) scale(1.3);
-  }
-}
-
-@keyframes bubble-diagonal-left {
-  0% {
-    opacity: 0;
-    transform: translate(-50%, 0);
-  }
-  15% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: translate(-110px, -140px) rotate(-50deg) scale(1.1);
-  }
-}
-
-/* --- 6. SKILLSBTN --- */
-#skillsbtn {
-  position: absolute;
-  bottom: -540px;
-  margin-bottom: 150px;
-  right: auto;
-  z-index: 2;
-  padding: 10px 20px;
-  font-size: 0.8em;
-  color: #fff;
-  background: rgb(5, 5, 5);
-  letter-spacing: 0.1em;
-  outline: none;
-  border: none;
-  border-radius: 55px;
-  text-transform: uppercase;
-  cursor: pointer;
-  transition: 0.25s;
-  overflow: hidden;
-  border: 0.2vh ridge rgb(255, 255, 255); 
-  transition: background-color 1s ease-in-out, color 1s ease-in-out;
-}
-
-#skillsbtn:hover {
-  background: chocolate;
-}
-
-/* --- 7. TIMELINE --- */
-.timeline-container {
-  position: relative;
-  width: 100%;
-  padding-top: 20px;
-  padding-bottom: 100px;
-  overflow: hidden;
-  margin-bottom: 200px;
-  margin-top: 100px;
-}
-
-.timeline {
-  position: relative;
-  width: 4px;
-  background-color: chocolate !important;
-  margin: 0 auto;
-  height: 2700px;
-  margin-top: 400px;
-  z-index: 1;
-}
-
-/* Pfeilspitze am oberen Ende der Timeline */
-.timeline::before {
-  content: "";
-  position: absolute;
-  top: -15px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 0;
-  height: 0;
-  border-left: 10px solid transparent;
-  border-right: 10px solid transparent;
-  border-bottom: 15px solid white;
-  z-index: 1;
-}
-
-/* Querstrich am unteren Ende der Timeline */
-.timeline::after {
-  content: "";
-  position: absolute;
-  bottom: 0;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 16px;
-  height: 4px;
-  background-color: white;
-  border-radius: 2px;
-  z-index: 1;
-}
-
-.year-marker {
-  position: absolute;
-  color: white;
-  font-weight: bold;
-  font-size: 1rem;
-  text-align: left;
-  left: 52%;
-  margin-left: 20px;
-}
-
-.year-2025 {
-  top: 0;
-}
-
-.year-1977 {
-  bottom: 0;
-}
-
-.timeline-card {
-  position: absolute;
-  width: 280px !important;
-  max-width: 280px !important;
-  background-color: black;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.8s ease, opacity 1.8s ease;
-  opacity: 0;
-  z-index: 10;
-}
-
-.timeline-card-fixed {
-  width: 280px !important;
-  max-width: 280px !important;
-}
-
-.timeline-card:hover {
-  transform: scale(1.05);
-}
-
-.timeline-card h2 {
-  color: chocolate;
-  margin-bottom: 10px;
-  font-size: 1.3rem;
-}
-
-.timeline-card p {
-  color: white;
-  font-size: 1rem;
-  line-height: 1.2;
-}
-
-/* Positionierung der Karten */
-.card-left {
-  right: 52%;
-  margin-right: 20px;
-  text-align: right !important;
-}
-
-.card-right {
-  left: 52%;
-  margin-left: 20px;
-  text-align: left !important;
-}
-
-/* Karten-Positionen */
-.card-1 { top: -2%; }
-.card-2 { top: 10%; }
-.card-3 { top: 20%; }
-.card-4 { top: 35%; }
-.card-5 { top: 45%; }
-.card-6 { top: 55%; }
-.card-7 { top: 65%; }
-.card-8 { top: 75%; }
-.card-9 { top: 83%; }
-.card-10 { top: 91%; }
-
-
-/* Basis-Styling für alle Timeline-Karten (bestehender Code) */
-.timeline-card {
-  position: absolute;
-  width: 280px !important;
-  max-width: 280px !important;
-  background-color: black;
-  border: 2px solid white;
-  border-radius: 10px;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
-  transition: transform 0.8s ease, opacity 1.8s ease;
-  opacity: 0;
-  z-index: 10;
-}
-
-/* Animation für Karten von links */
-@keyframes slide-in-left {
-  0% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out-left {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(-100px);
-  }
-}
-
-/* Animation für Karten von rechts */
-@keyframes slide-in-right {
-  0% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-  100% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-out-right {
-  0% {
-    opacity: 1;
-    transform: translateX(0);
-  }
-  100% {
-    opacity: 0;
-    transform: translateX(100px);
-  }
-}
-
-/* Anwenden der Animationen */
-.card-left.visible {
-  animation: slide-in-left 1.2s forwards;
-}
-
-.card-left.hidden {
-  animation: slide-out-left 1.2s forwards;
-}
-
-.card-right.visible {
-  animation: slide-in-right 1.2s forwards;
-}
-
-.card-right.hidden {
-  animation: slide-out-right 1.2s forwards;
-}
-
-
-/* --- 8. SKILLS --- */
-.skills-text {
-  width: 100%;
-  text-align: center;
-  font-size: 1.2rem;
-  color: chocolate;
-  margin: 60px auto 30px auto;
-  line-height: 1.6;
-  display: block;
-  position: relative;
-  left: 0;
-  right: 0;
-}
-
-.skills {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform-style: preserve-3d;
-  margin-top: 50px;
-  margin-bottom: 50px;
-  flex-wrap: wrap;
-  gap: 10px;
-  row-gap: 50px;
-}
-
-.skills .box {
-  position: relative;
-  width: 82px;
-  height: 60px;
-  background-image: radial-gradient(at 88% 40%, hsla(240, 15%, 9%, 0.1) 0px, transparent 50%),
-    radial-gradient(at 0% 4%, hsla(189, 99%, 26%, 0.2) 0px, transparent 50%);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition: transform 0.5s, filter 0.5s;
-}
-
-.skills .box span {
-  height: 100px;
-  font-size: 4em;
-  font-weight: 700;
-  border: 0.1vh ridge rgb(255, 255, 255);
-  border-radius: 15px;
-  background-color: #050505;
-  transform-origin: bottom center;
-  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
-}
-
-.skills .box span:hover {
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-}
-
-.skills .box.prev,
-.skills .box.next {
-  filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
-  z-index: -1;
-  transition: 0.5s;
-  border: 0.2vh ridge rgba(255, 255, 255, 0.3);
-}
-
-.skills .box.prev {
-  transform: perspective(500px) rotateY(45deg) scale(0.8);
-}
-
-.skills .box.next {
-  transform: perspective(500px) rotateY(-45deg) scale(0.8);
-}
-
-.skills .box.hovered {
-  transform: perspective(500px) rotateY(0deg) scale(1.4);
-  z-index: 1000;
-  color: #000000;
-  -webkit-text-stroke: 1px #333;
-  box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
-}
-
-.description-container {
-  margin-top: 40px;
-  margin-bottom: 350px;
-  text-align: center;
-  min-height: 100px;
-  opacity: 0;
-  transition: opacity 0.5s ease;
-  padding: 10px;
-  max-width: 800px;
-  margin-left: auto;
-  margin-right: auto;
-  color: white;
-  font-size: .9rem;
-  width: 65vw;
-  margin-bottom: 200px;
-  line-height: 1.4;
-}
-
-.description-container.visible {
-  opacity: 1;
-}
-
-.description-container strong {
-  display: block;
-  font-size: 1.3rem;
-  color: chocolate;
-  margin-bottom: -15px;
-}
-
-/* --- SOCIAL ICONS --- */
-/* --- Container für das Scaling --- */
-.button-container {
-  position: fixed;         /* Anstelle vom ul (so bleibt der Button fixiert) */
-  bottom: 128px;
-  right: 10vw;
-  z-index: 1000;
-  transform: scale(0.5);  /* Verkleinert auf 50% */
-  transform-origin: bottom right; /* Passt den Skalierungs-Ursprung an, 
-                                     damit der Button an der erwarteten 
-                                     Position bleibt */
-}
-
-/* Entferne fixe Positionierung vom ul, da es jetzt in .button-container liegt */
-ul.social-icons {
-  position: relative; 
-  /* bottom: 128px;  <- entfernen 
-     right: 10vw;    <- entfernen */
-  z-index: 1000;
-  display: flex;
-  gap: 100px;
-  margin: 0;         /* optional, falls du Abstände steuern willst */
-  padding: 0;        /* optional, falls du Abstände steuern willst */
-}
-
-/* Restliche Stile wie gehabt */
-ul li {
-  list-style: none;
-}
-
-ul li a {
-  position: relative;
-  display: block;
-  text-decoration: none;
-  transform: rotate(-30deg) skew(25deg) translate(0,0);
-  transition: 0.5s;
-  box-shadow: -70px 70px 25px rgba(0,0,0,0.2);
-}
-
-/* Hover-Effekt: */
-ul li a:hover {
-  transform: rotate(-30deg) skew(25deg) translate(0px, 0);
-  box-shadow: -90px 90px 30px rgba(0,0,0,0.5);
-}
-
-/* ... (deine weiteren Stile für span, i, Farben usw.) */
-
-
-ul li a span {
-  display: block;
-  width: 80px;
-  height: 80px;
-  background: #000000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: 0.5s;
-}
-
-ul li a span:nth-child(2) {
-  position: absolute;
-  top: 39px;
-  left: -69px;
-  height: 60px;
-  width: 80px;
-  transform: rotate(0deg) skewY(-45deg) rotate(90deg);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-
-ul li a span:nth-child(2):before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(95, 95, 95, 0.1);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
-}
-
-ul li a span:nth-child(3) {
-  position: absolute;
-  bottom: -59px;
-  left: -30px;
-  height: 60px;
-  width: 100%;
-  transform: rotate(0deg) skewX(-45deg);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-
-ul li a span:nth-child(3):before {
-  content: '';
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  background: rgba(255, 255, 255, 0.05);
-  -webkit-box-reflect: below 1px linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
-}
-
-ul li a i {
-  font-size: 2.5em;
-  color: #9e9e9e;
-  line-height: 80px;
-  transition: 0.5s;
-}
-
-/* Hover-Stile mit unterschiedlichen Weißtönen für jede Seite */
-ul li a:hover span:nth-child(1) {
-  background: #cacaca;
-}
-
-ul li a:hover span:nth-child(2) {
-  background: #d1d1d1;
-}
-
-ul li a:hover span:nth-child(3) {
-  background: #d3d3d3;
-}
-
-/* Überschreibt die ursprüngliche Hover-Regel */
-ul li a:hover span {
-  background: initial;
-}
-
-/* Icon-Farbe beim Hovern */
-ul li:hover i {
-  color: #000000;
-}
-
-/* --- 9. BOTTOM GRADIENT --- */
-.bottom-gradient {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 150px;
-  background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
-  pointer-events: none;
-  z-index: 50;
-}
-
-/* --- FOOTER --- */
-footer {
-  position: fixed;
-  bottom: 3vh;
-  width: 100%;
-  text-align: center;
-  font-size: 1.5vh;
-  color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  z-index: 100;
-}
-
-/* --- MEDIA QUERIES --- */
-@media screen and (max-width: 380px) {
-  /* Kopfbereich verkleinern */
+  
+  
+  /* =========================================================
+     3. ABOUT-HEADER (Silhouette / Icons / Überschriften / Texte)
+     ========================================================= */
   .about-header {
-    height: 30vh;
-    margin-top: 10vh;
-    padding: 10px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 40vh;
+    text-align: center;
+    padding: 20px;
+    margin-top: 15vh;
   }
   
   .about-header img {
-    width: 80px;
-    margin-top: 180px;
-    margin-bottom: 10px;
+    width: 100px;
+    height: auto;
+    margin-bottom: 18px;
+    margin-top: 450px; /* ggf. anpassen */
   }
   
+  /* Hauptüberschriften */
   .about-header h2 {
-    font-size: 1.8rem;
+    font-size: 2.5rem;
+    margin-bottom: -10px;
+    color: chocolate;
   }
   
   .head2 {
-    font-size: 1.2rem !important;
-    color: rgba(255, 255, 255, 0.25)!important;
+    font-size: 1.6rem !important;
+    margin-bottom: -12px;
+    color: rgb(255, 255, 255) !important;
+    font-weight: 300;
   }
   
   .head3 {
-    margin-bottom: 30px !important;
-    font-size: 1.2rem;
+    margin-bottom: 60px !important;
   }
   
-  /* Text kleiner machen */
-  .text1, .text2, .text3 {
-    font-size: 0.9rem;
-    line-height: 1.4;
+  .about-header h3 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
   }
   
+  /* Fließtext */
   .about-header p {
-    font-size: 0.9rem;
-    max-width: 95%;
-    line-height: 1.4;
+    font-size: 1.2rem;
+    max-width: 600px;
+    color: white;
+    margin-top: 15px;
+    line-height: 1.6;
   }
   
-  /* Timeline anpassen */
-  .timeline-container {
-    margin-top: 50px;
+  /* Text1-3 mit Fade-In-Animationen (nacheinander) */
+  .text1, .text2, .text3 {
+    opacity: 0.2; /* Start: unsichtbar */
+  }
+  
+  .text1 {
+    animation: fadeIn 2s forwards;
+    animation-delay: 3s;
+  }
+  
+  .text2 {
+    animation: fadeIn 1s forwards;
+    animation-delay: 10s;
+  }
+  
+  .text3 {
+    animation: fadeIn 1s forwards;
+    animation-delay: 15s;
     margin-bottom: 150px;
   }
   
+  /* =========================================================
+     3a. CREATIVE ICONS (um die Silhouette)
+     ========================================================= */
+  .creative-icon {
+    position: absolute;
+    color: rgb(255, 106, 0);
+    font-size: 18px;
+    opacity: 0; /* Standard unsichtbar */
+    z-index: 5;
+    top: 2px;
+    left: 51.5%;
+    transform: translateX(-50%);
+    animation-duration: 2.5s;
+    animation-fill-mode: forwards;
+    pointer-events: none; /* Icons selbst keine Hover-Effekte */
+  }
+  
+  /* Standard: Animation anhalten, Icons verschwinden */
+  .about-header img:not(:hover) ~ .creative-icon,
+  .about-header h2:not(:hover) ~ .creative-icon,
+  .about-header .head2:not(:hover) ~ .creative-icon,
+  .about-header .head3:not(:hover) ~ .creative-icon {
+    animation: none !important;
+    opacity: 0 !important;
+  }
+  
+  /* Nur wenn das Bild oder die Überschriften gehovern, darf sich was bewegen */
+  .about-header img:hover ~ .creative-icon,
+  .about-header h2:hover ~ .creative-icon, 
+  .about-header .head2:hover ~ .creative-icon,
+  .about-header .head3:hover ~ .creative-icon {
+    animation-name: bubble-up-center;
+  }
+  
+  /* =========================================================
+     4. BUTTON (z. B. Skills anzeigen)
+     ========================================================= */
+  #skillsbtn {
+    position: absolute;
+    bottom: -540px;
+    margin-bottom: 150px;
+    right: auto;
+    z-index: 2;
+    padding: 10px 20px;
+    font-size: 0.8em;
+    color: #fff;
+    background: rgb(5, 5, 5);
+    letter-spacing: 0.1em;
+    outline: none;
+    border: none;
+    border-radius: 55px;
+    text-transform: uppercase;
+    cursor: pointer;
+    overflow: hidden;
+    border: 0.2vh ridge rgb(255, 255, 255); 
+    transition: background-color 1s ease-in-out, color 1s ease-in-out;
+  }
+  
+  #skillsbtn:hover {
+    background: chocolate;
+  }
+  
+  
+  /* =========================================================
+     5. TIMELINE (Container, Cards, Marker)
+     ========================================================= */
+  .timeline-container {
+    position: relative;
+    width: 100%;
+    padding-top: 20px;
+    padding-bottom: 100px;
+    overflow: hidden;
+    margin-bottom: 200px;
+    margin-top: 100px;
+  }
+  
   .timeline {
-    height: 2000px;
-    margin-top: 200px;
+    position: relative;
+    width: 1px;
+    background-color: chocolate;
+    margin: 0 auto;
+    height: 2700px;
+    margin-top: 400px;
+    z-index: 1;
   }
   
-  /* Timeline-Cards auf genau 250px setzen */
+  /* Pfeilspitze oben */
+  .timeline::before {
+    content: "";
+    position: absolute;
+    top: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 15px solid chocolate;
+    z-index: 1;
+  }
+  
+  /* Querstrich unten */
+  .timeline::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 16px;
+    height: 1px;
+    background-color: chocolate;
+    border-radius: 2px;
+    z-index: 1;
+  }
+  
+  /* Jahr-Markierungen */
+  .year-marker {
+    position: absolute;
+    color: rgba(255, 255, 255, 0.5);
+    font-weight: bold;
+    font-size: 1rem;
+    text-align: left;
+    left: 52%;
+    margin-left: 20px; /* Abstand zur Timeline */
+  }
+  
+  .year-2025 {
+    top: 0;
+  }
+  
+  .year-1977 {
+    bottom: 0;
+  }
+  
+  /* =========== TIMELINE-CARDS (zusammengeführt) =========== */
   .timeline-card {
-    width: 250px !important;
-    max-width: 250px !important;
-    padding: 10px;
+    position: absolute;
+    width: 280px !important;
+    max-width: 280px !important;
+    background-color: rgb(5, 5, 5);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+    padding: 15px;
+    
+    transition: transform 0.8s ease, opacity 1.8s ease;
+    opacity: 0;
+    z-index: 10;
   }
   
-  /* Bilder in Timeline-Cards kleiner machen */
-  .timeline-card img {
-    max-width: 230px;
-    height: auto;
+  .timeline-card:hover { 
+    transform: scale(1.05);
   }
   
-  .timeline-card h2 {
-    font-size: 1.1rem;
-    margin-bottom: 5px;
-  }
-  
-  .timeline-card p {
-    font-size: 0.8rem;
-    line-height: 1.2;
-  }
-  
-  /* Kartenpositionierung anpassen */
+  /* Left/Right-Positionierung und Standard-Textausrichtung */
   .card-left {
     right: 52%;
-    margin-right: 15px;
+    margin-right: 20px;
+    text-align: right !important;
   }
   
   .card-right {
     left: 52%;
-    margin-left: 15px;
+    margin-left: 20px;
+    text-align: left !important;
   }
   
-  /* Button positionierung anpassen */
-  .corner-button {
-    width: 5vh;
-    height: 5vh;
+  /* Einzelne Positionen (Top-Werte) */
+  .card-1  { top: -2%; }
+  .card-2  { top: 10%; }
+  .card-3  { top: 20%; }
+  .card-4  { top: 35%; }
+  .card-5  { top: 45%; }
+  .card-6  { top: 55%; }
+  .card-7  { top: 65%; }
+  .card-8  { top: 75%; }
+  .card-9  { top: 83%; }
+  .card-10 { top: 91%; }
+  
+  .timeline-card h2 {
+    color: chocolate;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
   }
   
-  .top-left {
-    top: 5vw;
-    left: 5vw;
+  .timeline-card p {
+    color: white;
+    font-size: 1rem;
+    line-height: 1.2;
   }
   
-  .top-right {
-    top: 5vw;
-    right: 5vw;
+  /* --- Falls .timeline-card-fixed weiterhin verwendet wird: leer lassen / optional entfernen --- */
+  /*.timeline-card-fixed {}*/
+  
+  
+  /* Status-Klassen für Ein-/Ausblendung (per JS) */
+  .card-left.visible {
+    animation: slide-in-left 1.2s forwards;
+  }
+  .card-left.hidden {
+    animation: slide-out-left 1.2s forwards;
   }
   
-  /* Social Icons anpassen */
-  ul li a span {
-    width: 50px;
-    height: 50px;
+  .card-right.visible {
+    animation: slide-in-right 1.2s forwards;
+  }
+  .card-right.hidden {
+    animation: slide-out-right 1.2s forwards;
   }
   
-  ul li a span:nth-child(2) {
-    top: 24px;
-    left: -43px;
-    height: 38px;
-    width: 50px;
+  
+  /* =========================================================
+     6. SKILLS-BEREICH
+     ========================================================= */
+  .skills-section {
+    /* Falls noch eine eigene Formatierung gewünscht ist */
   }
   
-  ul li a span:nth-child(3) {
-    bottom: -37px;
-    left: -19px;
-    height: 38px;
+  .skills-text {
+    width: 100%;
+    text-align: center;
+    font-size: 1.2rem;
+    color: rgb(255, 255, 255);
+    margin: 60px auto 30px auto;
+    line-height: 1.6;
   }
   
-  ul li a i {
-    font-size: 1.5em;
-    line-height: 50px;
-  }
-}
-
-/* Extra-kleine Geräte (unter 320px) */
-@media screen and (max-width: 320px) {
-  .timeline-card {
-    width: 220px !important;
-    max-width: 220px !important;
-    padding: 8px;
-  }
-  
-  .timeline-card img {
-    max-width: 200px;
+  .skills {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    flex-wrap: wrap;
+    gap: 10px;
+    row-gap: 50px;
   }
   
-  .timeline {
-    height: 1800px;
+  .skills .box {
+    position: relative;
+    width: 82px;
+    height: 60px;
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+    transition: transform 0.5s, filter 0.5s;
   }
   
-  .about-header img {
-    margin-top: 150px;
+  .skills .box span {
+    height: 100px;
+    font-size: 4em;
+    font-weight: 700;
+    
+    border-radius: 15px;
+   
+    transform-origin: bottom center;
+    -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
+  }
+  
+  .skills .box span:hover {
+    
+    z-index: 1001;
+  }
+  
+  .skills .box.prev,
+  .skills .box.next {
+    filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
+    z-index: -1;
+    border: 1px rgba(255, 255, 255, 0.5);
+    transition: 0.5s;
+  }
+  
+  /* Links/ Rechts "weggedreht" */
+  .skills .box.prev {
+    transform: perspective(500px) rotateY(45deg) scale(0.8);
+  }
+  .skills .box.next {
+    transform: perspective(500px) rotateY(-45deg) scale(0.8);
+  }
+  
+  /* Hover-Klasse */
+  .skills .box.hovered {
+    transform: perspective(500px) rotateY(0deg) scale(1.4);
+    z-index: 1000;
+    color: #000000;
+    -webkit-text-stroke: 1px #333;
+    box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+  }
+  
+  .description-container {
+    margin-top: 40px;
+    margin-bottom: 200px;
+    text-align: center;
+    min-height: 100px;
+    opacity: 0;
+    transition: opacity 0.5s ease;
+    padding: 10px;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    color: white;
+    font-size: 0.9rem;
+    width: 65vw;
+    line-height: 1.4;
+  }
+  
+  .description-container.visible {
+    opacity: 1;
+  }
+  
+  .description-container strong {
+    display: block;
+    font-size: 1.3rem;
+    color: chocolate;
+    margin-bottom: -15px;
+  }
+  
+  
+  /* =========================================================
+     7. SOCIAL ICONS
+     ========================================================= */
+  .button-container {
+    position: fixed;        
+    bottom: 128px;
+    right: 10vw;
+    z-index: 1000;
+    transform: scale(0.5);
+    transform-origin: bottom right; 
   }
   
   ul.social-icons {
-    left: 68vw !important;
+    position: relative; 
+    z-index: 1000;
+    display: flex;
+    gap: 100px;
+    margin: 0;
+    padding: 0;
   }
-}
+  
+  ul li {
+    list-style: none;
+  }
+  
+  ul li a {
+    position: relative;
+    display: block;
+    text-decoration: none;
+    transform: rotate(-30deg) skew(25deg) translate(0,0);
+    transition: 0.5s;
+    box-shadow: -70px 70px 25px rgba(0,0,0,0.2);
+  }
+  
+  ul li a:hover {
+    transform: rotate(-30deg) skew(25deg) translate(0px, 0);
+    box-shadow: -90px 90px 30px rgba(0,0,0,0.5);
+  }
+  
+  ul li a span {
+    display: block;
+    width: 80px;
+    height: 80px;
+    background: #000000;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+  }
+  
+  /* Zweite Ebene (Seitenfläche) */
+  ul li a span:nth-child(2) {
+    position: absolute;
+    top: 39px;
+    left: -69px;
+    height: 60px;
+    width: 80px;
+    transform: rotate(0deg) skewY(-45deg) rotate(90deg);
+    -webkit-box-reflect: below 1px 
+      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+  }
+  
+  ul li a span:nth-child(2):before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(95, 95, 95, 0.1);
+    -webkit-box-reflect: below 1px 
+      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
+  }
+  
+  /* Dritte Ebene (untere Fläche) */
+  ul li a span:nth-child(3) {
+    position: absolute;
+    bottom: -59px;
+    left: -30px;
+    height: 60px;
+    width: 100%;
+    transform: rotate(0deg) skewX(-45deg);
+    -webkit-box-reflect: below 1px 
+      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+  }
+  
+  ul li a span:nth-child(3):before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255, 255, 255, 0.05);
+    -webkit-box-reflect: below 1px 
+      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+  }
+  
+  ul li a i {
+    font-size: 2.5em;
+    color: #9e9e9e;
+    line-height: 80px;
+    transition: 0.5s;
+  }
+  
+  /* Hover-Farben */
+  ul li a:hover span:nth-child(1) {
+    background: #cacaca;
+  }
+  ul li a:hover span:nth-child(2) {
+    background: #d1d1d1;
+  }
+  ul li a:hover span:nth-child(3) {
+    background: #d3d3d3;
+  }
+  
+  /* Überschreibt Hover-Regel */
+  ul li a:hover span {
+    background: initial;
+  }
+  
+  /* Icon-Farbe beim Hovern */
+  ul li:hover i {
+    color: #000000;
+  }
+  
+  
+  /* =========================================================
+     8. BOTTOM GRADIENT
+     ========================================================= */
+  .bottom-gradient {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,1) 100%);
+    pointer-events: none;
+    z-index: 50;
+  }
+  
+  
+  /* =========================================================
+     9. FOOTER
+     ========================================================= */
+  footer {
+    position: fixed;
+    bottom: 3vh;
+    width: 100%;
+    text-align: center;
+    font-size: 1.5vh;
+    color: rgba(255, 255, 255, 0.2);
+    padding: 5px 10px;
+    z-index: 100;
+  }
+  
+  
+  /* =========================================================
+     10. MEDIA QUERIES
+     ========================================================= */
+  /* --- Kleinere Bildschirme (max-width: 380px) --- */
+  @media screen and (max-width: 380px) {
+    .about-header {
+      height: 30vh;
+      margin-top: 10vh;
+      padding: 10px;
+    }
+    
+    .about-header img {
+      width: 80px;
+      margin-top: 180px;
+      margin-bottom: 10px;
+    }
+    
+    .about-header h2 {
+      font-size: 1.8rem;
+    }
+    
+    .head2 {
+      font-size: 1.2rem !important;
+      color: rgba(255, 255, 255, 0.25)!important;
+    }
+    
+    .head3 {
+      margin-bottom: 30px !important;
+      font-size: 1.2rem;
+    }
+    
+    .text1, .text2, .text3 {
+      font-size: 0.9rem;
+      line-height: 1.4;
+    }
+    
+    .about-header p {
+      font-size: 0.9rem;
+      max-width: 95%;
+      line-height: 1.4;
+    }
+    
+    /* Timeline anpassen */
+    .timeline-container {
+      margin-top: 50px;
+      margin-bottom: 150px;
+    }
+    
+    .timeline {
+      height: 2000px;
+      margin-top: 200px;
+    }
+    
+    .timeline-card {
+      width: 250px !important;
+      max-width: 250px !important;
+      padding: 10px;
+    }
+    
+    .timeline-card img {
+      max-width: 230px;
+      height: auto;
+    }
+    
+    .timeline-card h2 {
+      font-size: 1.1rem;
+      margin-bottom: 5px;
+    }
+    
+    .timeline-card p {
+      font-size: 0.8rem;
+      line-height: 1.2;
+    }
+    
+    .card-left {
+      right: 52%;
+      margin-right: 15px;
+    }
+    
+    .card-right {
+      left: 52%;
+      margin-left: 15px;
+    }
+    
+    /* Corner-Buttons anpassen */
+    .corner-button {
+      width: 5vh;
+      height: 5vh;
+    }
+    
+    .top-left {
+      top: 5vw;
+      left: 5vw;
+    }
+    
+    .top-right {
+      top: 5vw;
+      right: 5vw;
+    }
+    
+    /* Social Icons verkleinern */
+    ul li a span {
+      width: 50px;
+      height: 50px;
+    }
+    
+    ul li a span:nth-child(2) {
+      top: 24px;
+      left: -43px;
+      height: 38px;
+      width: 50px;
+    }
+    
+    ul li a span:nth-child(3) {
+      bottom: -37px;
+      left: -19px;
+      height: 38px;
+    }
+    
+    ul li a i {
+      font-size: 1.5em;
+      line-height: 50px;
+    }
+  }
+  
+  /* Extra-kleine Geräte (unter 320px) */
+  @media screen and (max-width: 320px) {
+    .timeline-card {
+      width: 220px !important;
+      max-width: 220px !important;
+      padding: 8px;
+    }
+    
+    .timeline-card img {
+      max-width: 200px;
+    }
+    
+    .timeline {
+      height: 1800px;
+    }
+    
+    .about-header img {
+      margin-top: 150px;
+    }
+    
+    /* Falls du noch weitere Anpassungen brauchst */
+  }
+  
+  
+  /* =========================================================
+     11. KEYFRAMES
+     ========================================================= */
+  /* --- Corner-Buttons --- */
+  @keyframes slide-in-top-left {
+    0% {
+      transform: rotate(-90deg) translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-in-top-right {
+    0% {
+      transform: rotate(90deg) translateX(-100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  /* --- Fade-In für Texte (Text1, Text2, Text3) --- */
+  @keyframes fadeIn {
+    to {
+      opacity: 1;
+    }
+  }
+  
+  /* --- Creative Icons (Bubble-Animation) --- */
+  @keyframes bubble-up-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(80px, -120px) rotate(45deg) scale(1.2);
+    }
+  }
+  
+  @keyframes bubble-up-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-100px, -100px) rotate(-60deg) scale(1.3);
+    }
+  }
+  
+  @keyframes bubble-up-center {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-50%, -150px) scale(1.4);
+    }
+  }
+  
+  @keyframes bubble-up-far-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(120px, -80px) rotate(30deg) scale(1.1);
+    }
+  }
+  
+  @keyframes bubble-up-far-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-130px, -70px) rotate(-30deg) scale(1.2);
+    }
+  }
+  
+  @keyframes bubble-diagonal-right {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(100px, -130px) rotate(60deg) scale(1.3);
+    }
+  }
+  
+  @keyframes bubble-diagonal-left {
+    0% {
+      opacity: 0;
+      transform: translate(-50%, 0);
+    }
+    15% {
+      opacity: 1;
+    }
+    100% {
+      opacity: 0;
+      transform: translate(-110px, -140px) rotate(-50deg) scale(1.1);
+    }
+  }
+  
+  /* --- Timeline Card-Ein-/Ausblenden --- */
+  @keyframes slide-in-left {
+    0% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-out-left {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(-100px);
+    }
+  }
+  
+  @keyframes slide-in-right {
+    0% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  @keyframes slide-out-right {
+    0% {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    100% {
+      opacity: 0;
+      transform: translateX(100px);
+    }
+  }
+  
