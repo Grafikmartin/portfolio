@@ -382,6 +382,44 @@
     <div class="bottom-gradient"></div>
 
     <script>
+        document.addEventListener('DOMContentLoaded', function() {
+  const cards = document.querySelectorAll('.timeline-card');
+  
+  function checkScroll() {
+    cards.forEach(card => {
+      const cardTop = card.getBoundingClientRect().top;
+      const cardBottom = card.getBoundingClientRect().bottom;
+      const windowHeight = window.innerHeight;
+      
+      // Karte wird sichtbar, wenn sie im sichtbaren Bereich ist
+      if (cardTop < windowHeight * 0.85 && cardBottom > 0) {
+        if (card.classList.contains('card-left')) {
+          card.classList.remove('hidden');
+          card.classList.add('visible');
+        } else if (card.classList.contains('card-right')) {
+          card.classList.remove('hidden');
+          card.classList.add('visible');
+        }
+      } else {
+        // Karte wird ausgeblendet, wenn sie außerhalb des sichtbaren Bereichs ist
+        if (card.classList.contains('visible')) {
+          if (card.classList.contains('card-left')) {
+            card.classList.remove('visible');
+            card.classList.add('hidden');
+          } else if (card.classList.contains('card-right')) {
+            card.classList.remove('visible');
+            card.classList.add('hidden');
+          }
+        }
+      }
+    });
+  }
+  
+  // Initial check und bei jedem Scroll-Event
+  checkScroll();
+  window.addEventListener('scroll', checkScroll);
+});
+
         document.addEventListener('DOMContentLoaded', function () {
             const skillsButton = document.getElementById('skillsbtn');
 

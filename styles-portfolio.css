@@ -236,6 +236,56 @@ footer {
   border: 0.2vh ridge rgb(255, 255, 255);
   margin-bottom: 1vh;
 }
+
+/* NEUE ANIMATIONEN FÜR PORTFOLIO TEXTE */
+@keyframes portfolioFall {
+  0% {
+    transform: translateY(-100vh);
+    opacity: 0;
+  }
+  60% {
+    transform: translateY(20px);
+    opacity: 1;
+  }
+  80% {
+    transform: translateY(-10px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes webseitenBounce {
+  0% {
+    transform: translateY(0);
+  }
+  30% {
+    transform: translateY(15px);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+/* WICHTIGE ÄNDERUNG: Zwei-Phasen Rotation mit konstantem Tempo nach dem Start */
+@keyframes startRotating {
+  0% {
+    transform: translateX(-50%) rotateY(0deg);
+  }
+  /* Langsame Beschleunigung in den ersten 15% der Animation */
+  15% {
+    transform: translateX(-50%) rotateY(36deg);
+  }
+  /* Danach sofort zur vollen Geschwindigkeit springen (interpoliert) */
+  15.001% {
+    transform: translateX(-50%) rotateY(36deg);
+  }
+  /* Von hier an bis zum Ende konstante Geschwindigkeit */
+  100% {
+    transform: translateX(-50%) rotateY(360deg);
+  }
+}
+
 /* Wrapper für das Wort mit Perspektive */
 .portfolio-wrapper {
   perspective: 800px; /* Perspektive für die 3D-Rotation */
@@ -244,7 +294,12 @@ footer {
   top: 30vh; /* Verschiebt das Wort tiefer */
   left: 50%; /* Zentriert horizontal */
   transform: translateX(-50%); /* Korrigiert die Zentrierung */
+  transform-style: preserve-3d; /* Wichtig für 3D-Transformationen */
   z-index: 1001;
+  
+  /* Verzögerte Rotation des gesamten Wrappers mit spezieller Timing-Funktion */
+  animation: startRotating 30s cubic-bezier(0.33, 0, 0.67, 1) infinite;
+  animation-delay: 3s; /* Startet erst nach 3 Sekunden */
 }
 
 /* Portfolio-Text */
@@ -258,31 +313,28 @@ footer {
   display: inline-block;
   position: relative;
   transform-style: preserve-3d; /* Aktiviert 3D-Rendering */
-  animation: rotateY 20s linear infinite; /* Langsame Y-Achsen-Rotation */
   transform-origin: center; /* Rotiert um die eigene Mitte */
   user-select: none;
   margin-left: 5px;
+  perspective: 1000;
+  /* Nur Fall-Animation, keine eigene Rotation */
+  animation: portfolioFall 3s ease-in-out forwards;
 }
 
 .portfolio-text-klein {
   position: relative;
   font-size: 1.1rem; /* Kleinere Schriftgröße als portfolio-text */
-  animation: rotateY 20s linear infinite; 
   text-align: center;
- 
   color: white;
   margin-bottom: 20px;
+  transform-style: preserve-3d;
+  perspective: 1000;
+  
+  /* Nur Bounce-Animation, keine eigene Rotation */
+  animation: webseitenBounce 1s ease-out forwards;
+  animation-delay: 1.7s; /* Startet später als der Haupttext */
 }
 
-/* Keyframes für die Rotation */
-@keyframes rotateY {
-  0% {
-    transform: rotateY(360deg);
-  }
-  100% {
-    transform: rotateY(0deg);
-  }
-}
 /* --- Container für das Scaling --- */
 .button-container {
   position: fixed;         /* Anstelle vom ul (so bleibt der Button fixiert) */
@@ -326,8 +378,6 @@ ul li a:hover {
   transform: rotate(-30deg) skew(25deg) translate(0px, 0);
   box-shadow: -90px 90px 30px rgba(0,0,0,0.5);
 }
-
-/* ... (deine weiteren Stile für span, i, Farben usw.) */
 
 ul li a span
 {

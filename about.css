@@ -472,6 +472,86 @@ html::-webkit-scrollbar {
 .card-9 { top: 83%; }
 .card-10 { top: 91%; }
 
+
+/* Basis-Styling für alle Timeline-Karten (bestehender Code) */
+.timeline-card {
+  position: absolute;
+  width: 280px !important;
+  max-width: 280px !important;
+  background-color: black;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
+  transition: transform 0.8s ease, opacity 1.8s ease;
+  opacity: 0;
+  z-index: 10;
+}
+
+/* Animation für Karten von links */
+@keyframes slide-in-left {
+  0% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-left {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100px);
+  }
+}
+
+/* Animation für Karten von rechts */
+@keyframes slide-in-right {
+  0% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-out-right {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100px);
+  }
+}
+
+/* Anwenden der Animationen */
+.card-left.visible {
+  animation: slide-in-left 1.2s forwards;
+}
+
+.card-left.hidden {
+  animation: slide-out-left 1.2s forwards;
+}
+
+.card-right.visible {
+  animation: slide-in-right 1.2s forwards;
+}
+
+.card-right.hidden {
+  animation: slide-out-right 1.2s forwards;
+}
+
+
 /* --- 8. SKILLS --- */
 .skills-text {
   width: 100%;
