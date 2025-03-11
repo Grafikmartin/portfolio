@@ -110,22 +110,36 @@
   }
   
   /* Hauptüberschriften */
-  .about-header h2 {
-    font-size: 2.5rem;
-    margin-bottom: -10px;
-    color: chocolate;
-  }
-  
-  .head2 {
-    font-size: 1.6rem !important;
-    margin-bottom: -12px;
-    color: rgb(255, 255, 255) !important;
-    font-weight: 300;
-  }
-  
-  .head3 {
-    margin-bottom: 60px !important;
-  }
+/* Diese Regel überschreibt alle speziellen Animationen für head1, head2, head3 */
+/* Allgemeine Stilregeln für alle h2 (ohne Animation) */
+.about-header h2 {
+  font-size: 2.5rem;
+  margin-bottom: -10px;
+  color: chocolate;
+  position: relative;
+}
+
+/* KREATIVITÄT - fällt von oben */
+.head1 {
+  animation: fallFromTop 1.5s ease-out forwards;
+}
+
+/* TRIFFT - wird zusammengedrückt wenn die anderen sich treffen */
+.head2 {
+  font-size: 1.6rem !important;
+  margin-bottom: -12px;
+  color: rgb(255, 255, 255) !important;
+  font-weight: 300;
+  animation: squash 0.3s ease-in-out;
+  animation-delay: 0.7s;
+}
+
+/* CODE - kommt von unten */
+.head3 {
+  margin-bottom: 60px !important;
+  animation: riseFromBottom 1.5s ease-out forwards;
+}
+
   
   .about-header h3 {
     font-size: 1.5rem;
@@ -636,155 +650,7 @@
     z-index: 100;
   }
   
-  
-  /* =========================================================
-     10. MEDIA QUERIES
-     ========================================================= */
-  /* --- Kleinere Bildschirme (max-width: 380px) --- */
-  @media screen and (max-width: 380px) {
-    .about-header {
-      height: 30vh;
-      margin-top: 10vh;
-      padding: 10px;
-    }
-    
-    .about-header img {
-      width: 80px;
-      margin-top: 180px;
-      margin-bottom: 10px;
-    }
-    
-    .about-header h2 {
-      font-size: 1.8rem;
-    }
-    
-    .head2 {
-      font-size: 1.2rem !important;
-      color: rgba(255, 255, 255, 0.25)!important;
-    }
-    
-    .head3 {
-      margin-bottom: 30px !important;
-      font-size: 1.2rem;
-    }
-    
-    .text1, .text2, .text3 {
-      font-size: 0.9rem;
-      line-height: 1.4;
-    }
-    
-    .about-header p {
-      font-size: 0.9rem;
-      max-width: 95%;
-      line-height: 1.4;
-    }
-    
-    /* Timeline anpassen */
-    .timeline-container {
-      margin-top: 50px;
-      margin-bottom: 150px;
-    }
-    
-    .timeline {
-      height: 2000px;
-      margin-top: 200px;
-    }
-    
-    .timeline-card {
-      width: 250px !important;
-      max-width: 250px !important;
-      padding: 10px;
-    }
-    
-    .timeline-card img {
-      max-width: 230px;
-      height: auto;
-    }
-    
-    .timeline-card h2 {
-      font-size: 1.1rem;
-      margin-bottom: 5px;
-    }
-    
-    .timeline-card p {
-      font-size: 0.8rem;
-      line-height: 1.2;
-    }
-    
-    .card-left {
-      right: 52%;
-      margin-right: 15px;
-    }
-    
-    .card-right {
-      left: 52%;
-      margin-left: 15px;
-    }
-    
-    /* Corner-Buttons anpassen */
-    .corner-button {
-      width: 5vh;
-      height: 5vh;
-    }
-    
-    .top-left {
-      top: 5vw;
-      left: 5vw;
-    }
-    
-    .top-right {
-      top: 5vw;
-      right: 5vw;
-    }
-    
-    /* Social Icons verkleinern */
-    ul li a span {
-      width: 50px;
-      height: 50px;
-    }
-    
-    ul li a span:nth-child(2) {
-      top: 24px;
-      left: -43px;
-      height: 38px;
-      width: 50px;
-    }
-    
-    ul li a span:nth-child(3) {
-      bottom: -37px;
-      left: -19px;
-      height: 38px;
-    }
-    
-    ul li a i {
-      font-size: 1.5em;
-      line-height: 50px;
-    }
-  }
-  
-  /* Extra-kleine Geräte (unter 320px) */
-  @media screen and (max-width: 320px) {
-    .timeline-card {
-      width: 220px !important;
-      max-width: 220px !important;
-      padding: 8px;
-    }
-    
-    .timeline-card img {
-      max-width: 200px;
-    }
-    
-    .timeline {
-      height: 1800px;
-    }
-    
-    .about-header img {
-      margin-top: 150px;
-    }
-    
-    /* Falls du noch weitere Anpassungen brauchst */
-  }
-  
+
   
   /* =========================================================
      11. KEYFRAMES
@@ -956,6 +822,57 @@
     100% {
       opacity: 0;
       transform: translateX(100px);
+    }
+  }
+  @keyframes fallFromTop {
+    0% {
+      transform: translateY(-100px);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(10px); /* Überschießt das Ziel */
+      opacity: 1;
+    }
+    85% {
+      transform: translateY(-5px); /* Kleiner Rückprall */
+    }
+    100% {
+      transform: translateY(0); /* Endposition */
+    }
+  }
+  
+  @keyframes riseFromBottom {
+    0% {
+      transform: translateY(100px);
+      opacity: 0;
+    }
+    70% {
+      transform: translateY(-10px); /* Überschießt das Ziel */
+      opacity: 1;
+    }
+    85% {
+      transform: translateY(5px); /* Kleiner Rückprall */
+    }
+    100% {
+      transform: translateY(0); /* Endposition */
+    }
+  }
+  
+  @keyframes squash {
+    0% {
+      transform: scaleY(1);
+    }
+    25% {
+      transform: scaleY(0.4); /* Stark zusammengedrückt */
+    }
+    50% {
+      transform: scaleY(0.15); /* Stark zusammengedrückt */
+    }
+    75% {
+      transform: scaleY(0.4); /* Leicht nachfedern */
+    }
+    100% {
+      transform: scaleY(1); /* Zurück zur normalen Höhe */
     }
   }
   
