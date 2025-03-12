@@ -362,8 +362,8 @@
   
   .timeline-card p {
     color: white;
-    font-size: 1rem;
-    line-height: 1.2;
+    font-size: 0.8rem;
+    line-height: 1.5;
   }
   
   /* --- Falls .timeline-card-fixed weiterhin verwendet wird: leer lassen / optional entfernen --- */
