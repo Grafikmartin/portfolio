@@ -579,7 +579,7 @@
     width: 80px;
     transform: rotate(0deg) skewY(-45deg) rotate(90deg);
     -webkit-box-reflect: below 1px 
-      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+    linear-gradient(transparent,  rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   }
   
   ul li a span:nth-child(2):before {
@@ -589,7 +589,7 @@
     height: 100%;
     background: rgba(95, 95, 95, 0.1);
     -webkit-box-reflect: below 1px 
-      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.9));
+    linear-gradient(transparent,  rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   }
   
   /* Dritte Ebene (untere Fläche) */
@@ -601,7 +601,7 @@
     width: 100%;
     transform: rotate(0deg) skewX(-45deg);
     -webkit-box-reflect: below 1px 
-      linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.4));
+    linear-gradient(transparent,  rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.2));
   }
   
   ul li a span:nth-child(3):before {
