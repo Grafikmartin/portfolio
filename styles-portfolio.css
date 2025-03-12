@@ -250,7 +250,35 @@ body {
   transform: scale(0.5);
   transform-origin: bottom right; 
 }
+.email-tooltip {
+  position: fixed;
+  bottom: 180px;  /* Position über dem button-container */
+  right: 9vw;    /* Gleiche horizontale Ausrichtung wie button-container */
 
+  color: rgba(255, 255, 255, 0.3);
+  padding: 5px 10px;
+  border-radius: 15px;
+  font-size: 14px;
+  white-space: nowrap;
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
+  z-index: 1001;
+  opacity: 0;
+  transition: opacity 1.8s ease;
+  pointer-events: none; /* Verhindert, dass der Tooltip Mausevents blockiert */
+}
+
+/* Tooltip anzeigen wenn über button-container gehovert wird */
+.button-container:hover + .email-tooltip {
+  opacity: 1;
+}
+ul.social-icons {
+  position: relative; 
+  z-index: 1000;
+  display: flex;
+  gap: 100px;
+  margin: 0;
+  padding: 0;
+}
 ul.social-icons {
   position: relative;
   z-index: 1000;
