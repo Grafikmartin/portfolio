@@ -1,3 +1,6 @@
+/* -----------------------------------------------------
+   1. Global Reset & Basiseinstellungen
+------------------------------------------------------ */
 * {
   margin: 0;
   padding: 0;
@@ -6,42 +9,38 @@
   user-select: none; 
 }
 
+html {
+  /* Scrollbalken ausblenden (alle Browser) */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE und Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}
+
 body {
   background-color: rgb(5, 5, 5);
   color: white;
   font-family: Arial, sans-serif;
   position: relative;
-  overflow-x: hidden;
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
 }
 
-/* Versteckt den Scrollbalken für Chrome, Safari und Opera */
-body::-webkit-scrollbar {
-  display: none;
+/* -----------------------------------------------------
+   2. Header, Navigation
+------------------------------------------------------ */
+header {
+  /* ggf. eigene Stile ergänzen */
 }
 
-html {
-  scrollbar-width: none;
-  /* Firefox */
-  -ms-overflow-style: none;
-  /* IE and Edge */
-
+nav {
+  /* ggf. eigene Stile ergänzen */
 }
 
-html::-webkit-scrollbar {
-  display: none;
-}
-
-.corner-button img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 10px;
-}
-
+/* -----------------------------------------------------
+   3. Corner Buttons (Home / Portfolio)
+------------------------------------------------------ */
 .corner-button {
   position: fixed;
   width: 7vh;
@@ -56,33 +55,10 @@ html::-webkit-scrollbar {
   border-radius: 10px;
 }
 
-@keyframes slide-in-top-left {
-  0% {
-    transform: rotate(-90deg) translateX(100%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-@keyframes slide-in-top-right {
-  0% {
-    transform: rotate(90deg) translateX(-100%);
-  }
-
-  100% {
-    transform: translateX(0);
-  }
-}
-
-/* Hover-Effekte für die Buttons */
-.corner-button:hover {
-  transform: scale(1.7) rotate(90deg);
-  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
-    5px -5px 15px -3px rgba(0, 0, 0, 0.6);
-  cursor: pointer;
-  opacity: 1;
+.corner-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
   border-radius: 10px;
 }
 
@@ -93,7 +69,6 @@ html::-webkit-scrollbar {
   transform: rotate(0deg);
   transform-origin: center;
   animation: slide-in-top-left 2s ease;
-  border-radius: 10px;
 }
 
 .top-right {
@@ -103,10 +78,38 @@ html::-webkit-scrollbar {
   transform-origin: center;
   line-height: 1;
   animation: slide-in-top-right 2s ease;
-  border-radius: 10px;
 }
 
-/* Über mich Bereich */
+/* Hover-Effekte für die Corner-Buttons */
+.corner-button:hover {
+  transform: scale(1.7) rotate(90deg);
+  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+              5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* Keyframes für Corner-Buttons */
+@keyframes slide-in-top-left {
+  0% {
+    transform: rotate(-90deg) translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* -----------------------------------------------------
+   4. Wetter-Header (Titel, Beschreibung, Video)
+------------------------------------------------------ */
 .wetter-header {
   display: flex;
   flex-direction: column;
@@ -126,26 +129,29 @@ html::-webkit-scrollbar {
   margin-top: 100px;
   margin-bottom: 30px;
 }
+
 .beschreibung {
   color: white;
-  font-size: .9rem;
+  font-size: 0.9rem;
   width: 65vw;
   margin-bottom: 30px;
   line-height: 1.4;
-
 }
+
+/* -----------------------------------------------------
+   5. Video-Container & Button
+------------------------------------------------------ */
 .video-container {
   width: 100%;
   max-width: 800px;
   aspect-ratio: 16/9;
   margin: 0 auto;
-  margin-top: 0px;
   position: relative;
   transform-origin: bottom center;
-  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
   border: 1px solid rgba(255, 255, 255, 0.5);
   border-radius: 15px;
-  overflow: hidden; /* Wichtig: wieder auf hidden setzen */
+  overflow: hidden;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
 }
 
 .video-container video {
@@ -156,11 +162,11 @@ html::-webkit-scrollbar {
   height: 100%;
   object-fit: contain;
   display: block;
-  border: none; /* Kein Rahmen mehr am Video */
+  border: none;
   opacity: 0;
   animation: videoFadeIn 1s forwards;
   animation-delay: 1.5s;
-  transform: scale(1.1); /* 10% größer */
+  transform: scale(1.1);
   transform-origin: center center;
 }
 
@@ -168,16 +174,16 @@ html::-webkit-scrollbar {
   from {
     opacity: 0;
   }
-
   to {
     opacity: 1;
   }
 }
-#livedemo 
-{  position: absolute;
+
+#livedemo {
+  position: absolute;
   bottom: 20px;
   right: 17px;
-  z-index: 2; /* Stellt sicher, dass der Button über dem Video erscheint */
+  z-index: 2;
   padding: 10px 20px;
   font-size: 0.8em;
   color: #fff;
@@ -188,62 +194,51 @@ html::-webkit-scrollbar {
   border-radius: 55px;
   text-transform: uppercase;
   cursor: pointer;
-  transition: 0.25s;
-  overflow: hidden;
   border: 1px solid rgba(255, 255, 255, 0.5);
   transition: background-color 1s ease-in-out, color 1s ease-in-out;
 }
-#livedemo:hover 
-{
-    background: chocolate;
-}
-.particle
-{
-    position: absolute;
-    width: 8px;
-    height: 8px;
-    background: rgba(255,255,255,0.8);
-    border-radius: 50%;
-    pointer-events: none;
-    opacity: 1;
-    transform: translate(0,0);
-    animation: animate 1s ease-out forwards;
-}
-@keyframes animate 
-{
-    to 
-    {
-        opacity: 0;
-        transform: translate(var(--tx), var(--ty));
-    }
-}
-.about-header h3 {
-  font-size: 1.5rem;
-  margin-bottom: 15px;
+
+#livedemo:hover {
+  background: chocolate;
 }
 
+/* Partikel-Effekt bei Klick auf Button */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  transform: translate(0, 0);
+  animation: animateParticle 1s ease-out forwards;
+}
+
+@keyframes animateParticle {
+  to {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty));
+  }
+}
+
+/* -----------------------------------------------------
+   6. Überschrift "Technologien & Frameworks"
+------------------------------------------------------ */
 .text1 {
-  font-size: 1.2rem;
-  max-width: 600px;
-  color: chocolate;
-  margin-top: 25px;
-  margin-bottom: -10px;
-  line-height: 1.6;
-  margin-top: 50px;
-}
-
-footer {
-  position: fixed;
-  bottom: 3vh;
-  width: 100%;
+  width: 300px;
   text-align: center;
-  font-size: 1.5vh;
-  color: rgba(255, 255, 255, 0.2);
-  padding: 5px 10px;
-  z-index: 100;
-
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 60px auto 0 auto;
+  padding-bottom: 20px;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
 }
 
+/* -----------------------------------------------------
+   7. Technologie-Bereich (Logos)
+------------------------------------------------------ */
 .Technologie {
   position: relative;
   display: flex;
@@ -251,7 +246,7 @@ footer {
   align-items: center;
   transform-style: preserve-3d;
   margin-top: 50px;
-  margin-bottom: 20px;
+  margin-bottom: 0px;
   flex-wrap: wrap;
   gap: 10px;
   row-gap: 50px;
@@ -261,7 +256,6 @@ footer {
   position: relative;
   width: 82px;
   height: 60px;
-
   display: flex;
   justify-content: center;
   align-items: center;
@@ -273,26 +267,21 @@ footer {
   height: 100px;
   font-size: 4em;
   font-weight: 700;
-
   border-radius: 15px;
- 
   transform-origin: bottom center;
   -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
 }
 
 .Technologie .box span:hover {
-  
   z-index: 1001;
 }
 
-/* Korrekte Selektoren und symmetrische Transformationen */
+/* Vorheriges / Nächstes Logo - 3D-Rotation */
 .Technologie .box.prev,
 .Technologie .box.next {
- 
   filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
   z-index: -1;
   transition: 0.5s;
- 
 }
 
 .Technologie .box.prev {
@@ -303,17 +292,22 @@ footer {
   transform: perspective(500px) rotateY(-45deg) scale(0.8);
 }
 
+/* Hover-Effekt auf dem aktiven Logo */
 .Technologie .box.hovered {
   transform: perspective(500px) rotateY(0deg) scale(1.4);
   z-index: 1000;
-  color: #000000;
+  color: #000;
   -webkit-text-stroke: 1px #333;
   box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
 }
 
+/* -----------------------------------------------------
+   8. Description-Container
+      (Beschreibungstexte zu den Logos)
+------------------------------------------------------ */
 .description-container {
   margin-top: 40px;
-  margin-bottom: 150px;
+  margin-bottom: 200px; /* Hier bekommst du deinen Abstand von 200px */
   text-align: center;
   min-height: 100px;
   opacity: 0;
@@ -323,20 +317,39 @@ footer {
   margin-left: auto;
   margin-right: auto;
   color: white;
-  font-size: .9rem;
+  font-size: 0.9rem;
   width: 65vw;
-  margin-bottom: 30px;
   line-height: 1.4;
 }
 
 .description-container.visible {
   opacity: 1;
 }
+
 .description-container strong {
   display: block;
   font-size: 1.3rem;
-
   color: chocolate;
   margin-bottom: -15px;
 }
 
+/* -----------------------------------------------------
+   9. Footer
+------------------------------------------------------ */
+footer {
+  
+  bottom: 3vh;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5vh;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  z-index: 100;
+}
+
+/* -----------------------------------------------------
+   10. Sonstiges (z.B. unterer Farbverlauf, falls benötigt)
+------------------------------------------------------ */
+.bottom-gradient {
+  /* Falls du diesen Verlauf nutzen willst, kannst du ihn anpassen */
+}

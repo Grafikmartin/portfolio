@@ -394,12 +394,14 @@
   }
   
   .skills-text {
-    width: 100%;
+    width: 200px;
     text-align: center;
     font-size: 1.2rem;
     color: rgb(255, 255, 255);
     margin: 60px auto 30px auto;
+    padding-bottom: 20px;
     line-height: 1.6;
+    border-bottom:  1px solid rgba(255, 255, 255, 0.5);
   }
   
   .skills {
