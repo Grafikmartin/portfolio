@@ -257,7 +257,7 @@
     width: 1px;
     background-color: chocolate;
     margin: 0 auto;
-    height: 2700px;
+    height: 3200px;
     margin-top: 400px;
     z-index: 1;
   }
@@ -343,16 +343,16 @@
   }
   
   /* Einzelne Positionen (Top-Werte) */
-  .card-1  { top: -2%; }
+  .card-1  { top: -1%; }
   .card-2  { top: 8%; }
   .card-3  { top: 15%; }
-  .card-4  { top: 35%; }
+  .card-4  { top: 34%; }
   .card-5  { top: 45%; }
   .card-6  { top: 55%; }
-  .card-7  { top: 65%; }
+  .card-7  { top: 71%; }
   .card-8  { top: 75%; }
-  .card-9  { top: 83%; }
-  .card-10 { top: 91%; }
+  .card-9  { top: 85%; }
+  .card-10 { top: 93%; }
   
   .timeline-card h2 {
     color: chocolate;
