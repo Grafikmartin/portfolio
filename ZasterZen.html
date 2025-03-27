@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="de">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>WetterFrosch 2.0</title>
+    <link rel="stylesheet" href="ZasterZen.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/favicon.png" sizes="64x64">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script src="," defer></script>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <a href="index.html">
+                <div class="corner-button top-left">
+                    <img src="./assets/home-button.png" alt="Home" />
+                </div>
+            </a>
+            <a href="portfolio.html">
+                <div class="corner-button top-right">
+                    <img src="./assets/portfolio-button.png" alt="Portfolio" />
+                </div>
+            </a>
+        </nav>
+    </header>
+    <div class="wetter-header">
+        <h2 class="wetter-h2">ZasterZen</h2>
+        <p class="beschreibung">ZasterZen ist eine moderne Web-App zur persönlichen Finanzverwaltung, entwickelt mit
+            React und Material-UI. Sie bietet eine intuitive, responsive Benutzeroberfläche zur effektiven Verwaltung
+            und Visualisierung von Finanzen. Hauptfunktionen sind ein Dashboard zur Finanzübersicht, Budgetverwaltung,
+            Transaktionsverfolgung, Sparziele mit Fortschrittsanzeige, interaktive Berichte mit Chart.js, ein
+            anpassbarer Dunkelmodus sowie Benutzerverwaltung mit Registrierung und Gastzugang. Die App nutzt Reacts
+            Context API für das State Management und speichert Daten lokal via LocalStorage, wodurch keine externe
+            Datenbank benötigt wird. Entwickelt mit Vite für schnelle Builds, setzt ZasterZen auf komponentenbasierte
+            Architektur, reaktives UI-Design und die Integration von Drittanbieter-Bibliotheken zur Datenvisualisierung
+            – mit Fokus auf Benutzerfreundlichkeit, Performance und Wartbarkeit.</p>
+        <div class="video-container">
+            <video src="./videos/WetterFrosch.mkv" autoplay loop muted></video>
+            <button id="livedemo">Zur Webseite</button>
+        </div>
+
+
+
+        <h3 class="text1">Technologien & Framworks</h3>
+        <div class="Technologie">
+            <div class="box" id="Logo1"><span><img src="./assets/techniken/html.png" alt="html"></span></div>
+            <div class="box" id="Logo2"><span><img src="./assets/techniken/css.png" alt="css"></span></div>
+            <div class="box" id="Logo3"><span><img src="./assets/techniken/Javascript.png" alt="javascript"></span>
+            </div>
+            <div class="box" id="Logo4"><span><img src="./assets/techniken/react.png" alt="Pirate Weather"></span></div>
+            <div class="box" id="Logo5"><span><img src="./assets/techniken/vite.png" alt="Leaflet"></span></div>
+            <div class="box" id="Logo6"><span><img src="./assets/techniken/Material-UI.png" alt="Nominatim"></span>
+            </div>
+            <div class="box" id="Logo7"><span><img src="./assets/techniken/chart-js.png" alt="chart.js"></span></div>
+        </div>
+
+        <!-- Container für die Beschreibungstexte -->
+        <div id="description-container" class="description-container"></div>
+
+        <footer>
+            <p>&copy; 2025 Martin Borth (Webseite ohne HTTP-Cookies!)</p>
+        </footer>
+        <script>
+            document.querySelectorAll('.box').forEach((box, index, boxes) => {
+                box.addEventListener('mouseover', () => {
+                    boxes.forEach((b, i) => {
+                        const className = i < index ? 'prev' : i === index ? 'hovered' : 'next';
+                        b.classList.remove('prev', 'next', 'hovered');
+                        b.classList.add(className);
+                    });
+                });
+                box.addEventListener('mouseleave', () => {
+                    boxes.forEach((b) => b.classList.remove('prev', 'next', 'hovered'));
+                });
+            });
+            document.addEventListener('DOMContentLoaded', function () {
+                // Beschreibungstexte für jedes Logo mit fett formatierten Überschriften
+                const descriptions = {
+                    'Logo1': '<strong>HTML (HyperText Markup Language)</strong><br>Die Grundlage des Webs und wird verwendet, um die Struktur von Webseiten zu definieren. Es arbeitet mit Tags, die den Browser anweisen, wie Inhalte darzustellen sind.',
+                    'Logo2': '<strong>CSS (Cascading Style Sheets)</strong><br>Zuständig für das Styling von Webseiten. Es macht Webseiten optisch ansprechend durch Farben, Layouts, Schriftarten und Animationen.',
+                    'Logo3': '<strong>JavaScript</strong><br>Eine Programmiersprache, die Webseiten interaktiv macht. Es ermöglicht Funktionen wie dynamische Inhalte, Benutzereingaben und Animationen.',
+                    'Logo4': '<strong>React</strong><br>Eine von Facebook entwickelte JavaScript-Bibliothek für den Aufbau von Benutzeroberflächen. React revolutioniert die Web-Entwicklung durch seinen komponentenbasierten Ansatz, der die Erstellung wiederverwendbarer UI-Elemente ermöglicht. Mit dem virtuellen DOM optimiert React die Rendering-Performance und fördert die Entwicklung reaktiver, zustandsgesteuerter Anwendungen bei gleichzeitiger Wartbarkeit des Codes.',
+                    'Logo5': '<strong>Vite</strong><br>Ein modernes Frontend-Build-Tool, das die Entwicklererfahrung durch blitzschnelle Startzeiten und sofortiges Hot Module Replacement transformiert. Vite nutzt native ES-Module, um die Entwicklungsumgebung zu beschleunigen, während es für die Produktion optimierte Builds mit Rollup generiert. Es unterstützt von Haus aus TypeScript, JSX, CSS und mehr, mit einem Plugin-System für erweiterte Anpassungen.',
+                    'Logo6': '<strong>Material-UI</strong><br> MUI ist eine beliebte React-Komponenten-Bibliothek für modernes UI-Design, basierend auf Googles Material Design. Sie bietet vorgefertigte, anpassbare Komponenten wie Buttons, Karten und Formulare mit responsivem Styling. MUI erleichtert die Entwicklung ästhetischer und funktionaler Benutzeroberflächen durch ein flexibles Designsystem, Themes und leistungsstarke Styling-APIs.',
+                    'Logo7': '<strong>Chart.js</strong><br>Eine JavaScript-Bibliothek zur Erstellung interaktiver Diagramme. Sie unterstützt verschiedene Diagrammtypen wie Balken-, Linien- und Kreisdiagramme und ermöglicht ansprechende Visualisierungen.',
+
+
+                };
+
+                const boxes = document.querySelectorAll('.box');
+                const descriptionContainer = document.getElementById('description-container');
+                let hoverTimeout;
+
+                boxes.forEach(box => {
+                    // Wenn die Maus über ein Logo fährt
+                    box.addEventListener('mouseenter', function () {
+                        const logoId = this.id;
+                        const description = descriptions[logoId];
+
+                        // Vorherigen Timeout löschen, falls vorhanden
+                        if (hoverTimeout) clearTimeout(hoverTimeout);
+
+                        // Nach 500ms den Text anzeigen
+                        hoverTimeout = setTimeout(() => {
+                            descriptionContainer.innerHTML = description; // Verwende innerHTML statt textContent für HTML-Tags
+                            descriptionContainer.classList.add('visible');
+                        }, 500);
+                    });
+
+                    // Wenn die Maus das Logo verlässt
+                    box.addEventListener('mouseleave', function () {
+                        // Vorherigen Timeout löschen, falls vorhanden
+                        if (hoverTimeout) clearTimeout(hoverTimeout);
+
+                        // Text ausblenden
+                        descriptionContainer.classList.remove('visible');
+
+                        // Nach der Übergangszeit den Text leeren
+                        setTimeout(() => {
+                            if (!descriptionContainer.classList.contains('visible')) {
+                                descriptionContainer.innerHTML = '';
+                            }
+                        }, 500);
+                    });
+                });
+            });
+            let btn = document.getElementById('livedemo');
+            btn.addEventListener('click', function (e) {
+                // Bestehender Partikel-Code
+                let rect = btn.getBoundingClientRect();
+                let x = e.clientX - rect.left;
+                let y = e.clientY - rect.top;
+
+                let numParticles = 20;
+                for (let i = 0; i < numParticles; i++) {
+                    createParticle(x, y);
+                }
+
+                // Nach einer kurzen Verzögerung zur Website weiterleiten
+                setTimeout(function () {
+                    window.open('https://grafikmartin.github.io/wetter/', '_blank');
+                }, 800); // 800ms Verzögerung, damit der Nutzer die Animation sieht
+            });
+
+            function createParticle(x, y) {
+                let particle = document.createElement('div');
+                particle.classList.add('particle');
+
+                particle.style.left = x + 'px';
+                particle.style.top = y + 'px';
+
+                let angle = Math.random() * 2 * Math.PI;
+                let distance = Math.random() * 80 + 20;
+                let tx = Math.cos(angle) * distance;
+                let ty = Math.sin(angle) * distance;
+
+                particle.style.setProperty('--tx', tx + 'px');
+                particle.style.setProperty('--ty', ty + 'px');
+
+                btn.appendChild(particle);
+
+                setTimeout(() => {
+                    particle.remove()
+                }, 1000);
+            }
+        </script>
+
+
+        <!-- Farbverlauf am unteren Rand (außerhalb des Timeline-Containers) -->
+        <div class="bottom-gradient"></div>
+
+
+</body>
+
+</html>
