@@ -144,7 +144,7 @@ nav {
 .video-container {
   width: 100%;
   max-width: 800px;
-  aspect-ratio: 16/9;
+  aspect-ratio: 16/8.2;
   margin: 0 auto;
   position: relative;
   transform-origin: bottom center;
