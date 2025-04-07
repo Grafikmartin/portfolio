@@ -1,0 +1,355 @@
+/* -----------------------------------------------------
+   1. Global Reset & Basiseinstellungen
+------------------------------------------------------ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  max-width: 100%;
+  user-select: none; 
+}
+
+html {
+  /* Scrollbalken ausblenden (alle Browser) */
+  scrollbar-width: none;       /* Firefox */
+  -ms-overflow-style: none;    /* IE und Edge */
+}
+
+html::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari, Opera */
+}
+
+body {
+  background-color: rgb(5, 5, 5);
+  color: white;
+  font-family: Arial, sans-serif;
+  position: relative;
+  overflow-x: hidden; /* verhindert horizontales Scrollen */
+}
+
+/* -----------------------------------------------------
+   2. Header, Navigation
+------------------------------------------------------ */
+header {
+  /* ggf. eigene Stile ergänzen */
+}
+
+nav {
+  /* ggf. eigene Stile ergänzen */
+}
+
+/* -----------------------------------------------------
+   3. Corner Buttons (Home / Portfolio)
+------------------------------------------------------ */
+.corner-button {
+  position: fixed;
+  width: 7vh;
+  height: 7vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 1px 3px 15px -3px rgba(0, 0, 0, 0.5);
+  transition: background-color 0.6s ease, transform 0.9s ease;
+  opacity: 1;
+  z-index: 10;
+  border-radius: 10px;
+}
+
+.corner-button img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* Ecken-Positionierung und Animationen */
+.top-left {
+  top: 7vw;
+  left: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  animation: slide-in-top-left 2s ease;
+}
+
+.top-right {
+  top: 7vw;
+  right: 7vw;
+  transform: rotate(0deg);
+  transform-origin: center;
+  line-height: 1;
+  animation: slide-in-top-right 2s ease;
+}
+
+/* Hover-Effekte für die Corner-Buttons */
+.corner-button:hover {
+  transform: scale(1.7) rotate(90deg);
+  box-shadow: 3px 5px 15px -3px rgba(0, 0, 0, 0.6),
+              5px -5px 15px -3px rgba(0, 0, 0, 0.6);
+  cursor: pointer;
+}
+
+/* Keyframes für Corner-Buttons */
+@keyframes slide-in-top-left {
+  0% {
+    transform: rotate(-90deg) translateX(100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+@keyframes slide-in-top-right {
+  0% {
+    transform: rotate(90deg) translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* -----------------------------------------------------
+   4. Wetter-Header (Titel, Beschreibung, Video)
+------------------------------------------------------ */
+.wetter-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: auto;
+  text-align: center;
+  padding: 20px;
+  margin-top: 50px;
+  color: chocolate !important;
+}
+
+.wetter-h2 {
+  text-align: center;
+  color: chocolate;
+  font-size: 2rem;
+  margin-top: 100px;
+  margin-bottom: 30px;
+}
+
+.beschreibung {
+  color: white;
+  font-size: 0.9rem;
+  width: 65vw;
+  margin-bottom: 30px;
+  line-height: 1.5;
+}
+
+/* -----------------------------------------------------
+   5. Video-Container & Button
+------------------------------------------------------ */
+.video-container {
+  width: 100%;
+  max-width: 800px;
+  aspect-ratio: 12/7.22;
+  margin: 0 auto;
+  position: relative;
+  transform-origin: bottom center;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  border-radius: 15px;
+  overflow: hidden;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
+}
+
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+  border: none;
+  opacity: 0;
+  animation: videoFadeIn 1s forwards;
+  animation-delay: 1.5s;
+  transform: scale(1.1);
+  transform-origin: center center;
+}
+
+@keyframes videoFadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+#livedemo {
+  position: absolute;
+  bottom: 20px;
+  right: 17px;
+  z-index: 2;
+  padding: 10px 20px;
+  font-size: 0.8em;
+  color: #fff;
+  background: rgb(5, 5, 5);
+  letter-spacing: 0.1em;
+  outline: none;
+  border: none;
+  border-radius: 55px;
+  text-transform: uppercase;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  transition: background-color 1s ease-in-out, color 1s ease-in-out;
+}
+
+#livedemo:hover {
+  background: chocolate;
+}
+
+/* Partikel-Effekt bei Klick auf Button */
+.particle {
+  position: absolute;
+  width: 8px;
+  height: 8px;
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 50%;
+  pointer-events: none;
+  opacity: 1;
+  transform: translate(0, 0);
+  animation: animateParticle 1s ease-out forwards;
+}
+
+@keyframes animateParticle {
+  to {
+    opacity: 0;
+    transform: translate(var(--tx), var(--ty));
+  }
+}
+
+/* -----------------------------------------------------
+   6. Überschrift "Technologien & Frameworks"
+------------------------------------------------------ */
+.text1 {
+  width: 300px;
+  text-align: center;
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 60px auto 0 auto;
+  padding-bottom: 20px;
+  line-height: 1.6;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.5);
+}
+
+/* -----------------------------------------------------
+   7. Technologie-Bereich (Logos)
+------------------------------------------------------ */
+.Technologie {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform-style: preserve-3d;
+  margin-top: 50px;
+  margin-bottom: 0px;
+  flex-wrap: wrap;
+  gap: 10px;
+  row-gap: 50px;
+}
+
+.Technologie .box {
+  position: relative;
+  width: 82px;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: transform 0.5s, filter 0.5s;
+}
+
+.Technologie .box span {
+  height: 100px;
+  font-size: 4em;
+  font-weight: 700;
+  border-radius: 15px;
+  transform-origin: bottom center;
+  -webkit-box-reflect: below 0px linear-gradient(transparent, #0002);
+}
+
+.Technologie .box span:hover {
+  z-index: 1001;
+}
+
+/* Vorheriges / Nächstes Logo - 3D-Rotation */
+.Technologie .box.prev,
+.Technologie .box.next {
+  filter: drop-shadow(0 0 25px #0005) drop-shadow(0 0 45px #0005);
+  z-index: -1;
+  transition: 0.5s;
+}
+
+.Technologie .box.prev {
+  transform: perspective(500px) rotateY(45deg) scale(0.8);
+}
+
+.Technologie .box.next {
+  transform: perspective(500px) rotateY(-45deg) scale(0.8);
+}
+
+/* Hover-Effekt auf dem aktiven Logo */
+.Technologie .box.hovered {
+  transform: perspective(500px) rotateY(0deg) scale(1.4);
+  z-index: 1000;
+  color: #000;
+  -webkit-text-stroke: 1px #333;
+  box-shadow: 0 0 50px rgba(0, 0, 0, 0.25);
+}
+
+/* -----------------------------------------------------
+   8. Description-Container
+      (Beschreibungstexte zu den Logos)
+------------------------------------------------------ */
+.description-container {
+  margin-top: 40px;
+  margin-bottom: 200px; /* Hier bekommst du deinen Abstand von 200px */
+  text-align: center;
+  min-height: 100px;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+  padding: 10px;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  color: white;
+  font-size: 0.9rem;
+  width: 65vw;
+  line-height: 1.4;
+}
+
+.description-container.visible {
+  opacity: 1;
+}
+
+.description-container strong {
+  display: block;
+  font-size: 1.3rem;
+  color: chocolate;
+  margin-bottom: -15px;
+}
+
+/* -----------------------------------------------------
+   9. Footer
+------------------------------------------------------ */
+footer {
+  
+  bottom: 3vh;
+  width: 100%;
+  text-align: center;
+  font-size: 1.5vh;
+  color: rgba(255, 255, 255, 0.2);
+  padding: 5px 10px;
+  z-index: 100;
+}
+
+/* -----------------------------------------------------
+   10. Sonstiges (z.B. unterer Farbverlauf, falls benötigt)
+------------------------------------------------------ */
+.bottom-gradient {
+  /* Falls du diesen Verlauf nutzen willst, kannst du ihn anpassen */
+}
