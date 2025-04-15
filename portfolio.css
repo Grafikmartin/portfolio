@@ -106,6 +106,8 @@ body {
   
   /* Animationsstart (nur Fall-Animation) */
   animation: portfolioFall 3s ease-in-out forwards;
+  -webkit-box-reflect: below 200px
+  linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2));
 }
 
 /* Unterüberschrift */
@@ -121,6 +123,8 @@ body {
   /* Bounce-Animation */
   animation: webseitenBounce 1s ease-out forwards;
   animation-delay: 1.7s;
+  -webkit-box-reflect: below 170px
+  linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2));
 }
 
 /* ============= WRAPPER / HAUPT-KARUSSELL ============= */
