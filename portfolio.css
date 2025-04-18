@@ -106,8 +106,7 @@ body {
   
   /* Animationsstart (nur Fall-Animation) */
   animation: portfolioFall 3s ease-in-out forwards;
-  -webkit-box-reflect: below 200px
-  linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2));
+
 }
 
 /* Unterüberschrift */
@@ -123,8 +122,7 @@ body {
   /* Bounce-Animation */
   animation: webseitenBounce 1s ease-out forwards;
   animation-delay: 1.7s;
-  -webkit-box-reflect: below 170px
-  linear-gradient(transparent, transparent, rgba(0, 0, 0, 0.2));
+ 
 }
 
 /* ============= WRAPPER / HAUPT-KARUSSELL ============= */
@@ -244,6 +242,17 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin-bottom: 1vh;
 }
+.img video {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; /* Statt 'cover' verwenden wir 'contain' */
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  transition: transform 0.5s ease;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  background-color: rgba(0, 0, 0, 0.2); /* Optionaler Hintergrund für leere Bereiche */
+}
+
 
 /* ============= BUTTON / SOCIAL ICONS ============= */
 .button-container {
