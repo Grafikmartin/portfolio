@@ -84,7 +84,7 @@ body {
   z-index: 1001;
   
   /* Verzögerte Rotation des gesamten Wrappers */
-  animation: startRotating 30s linear infinite;
+  animation: startRotating 40s linear infinite;
   animation-delay: 3s;
   animation-fill-mode: both;
 }
@@ -155,7 +155,7 @@ body {
   z-index: 2;
   transform-style: preserve-3d;
   transform: perspective(var(--perspective));
-  animation: rotating 20s linear infinite;
+  animation: rotating 40s linear infinite;
   border-radius: 5px;
 }
 
@@ -196,12 +196,10 @@ body {
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
   transition: transform 0.5s ease;
-  border: 1px solid rgba(255, 255, 255, 0.5);
+  border: none; /* Entfernt alle Borders */
+  border-top: 1px solid rgba(255, 255, 255, 0.5); /* Fügt nur oben eine Border hinzu */
 }
 
-.img:hover img {
-  transform: scale(1.1);
-}
 
 .card h2 {
   position: absolute;
@@ -220,6 +218,12 @@ body {
   z-index: -10;
   font-weight: 200;
   background-color: rgba(0, 0, 0, 0.8);
+
+}
+.card h2:hover {
+  background-color: rgba(0, 0, 0, 0.95);
+  color: chocolate;
+ 
 }
 
 .card h3 {
@@ -242,6 +246,7 @@ body {
   border: 1px solid rgba(255, 255, 255, 0.5);
   margin-bottom: 1vh;
 }
+
 .img video {
   width: 100%;
   height: 100%;
