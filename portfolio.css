@@ -217,8 +217,6 @@ body {
   white-space: nowrap;
   z-index: -10;
   font-weight: 200;
- 
-
 }
 .card h2:hover {
   background-color: rgba(0, 0, 0, 0.95);
