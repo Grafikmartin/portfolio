@@ -910,8 +910,142 @@
       transform: scaleY(1); /* Zurück zur normalen Höhe */
     }
   }
-    /* Mobile-Anpassungen für kleine Displays */
 
+/* Mittlere mobile Geräte (größer als iPhone SE, kleiner als Tablets) */
+@media screen and (min-width: 376px) and (max-width: 767px) {
+  /* Silhouette anpassen - Optimiertes Positioning */
+  .silhouette-container {
+    position: relative;
+    margin-top: 30px;
+    height: 200px;
+    overflow: visible;
+    z-index: 10;
+  }
+  
+  .silhouette-container img {
+    width: 30% !important;
+    position: relative;
+    top: 0;
+    margin-top: 20px !important;
+    display: block;
+    margin: 0 auto;
+    z-index: 11;
+  }
+  
+  /* Text-Größe und Abstände anpassen */
+  .about-header h2 {
+    font-size: 2rem;
+  }
+  
+  .head2 {
+    font-size: 1.3rem !important;
+  }
+  
+  .text1, .text2, .text3 {
+    font-size: 0.9rem;
+    padding: 0 20px;
+    margin-bottom: 12px;
+    line-height: 1.4;
+    max-width: 100%;
+  }
+  
+  /* Timeline-Karten mit korrekten Dimensionen */
+  .timeline-card {
+    width: 170px !important;
+    max-width: 170px !important;
+    padding: 12px;
+  }
+  
+  /* Card-Inhalte anpassen */
+  .timeline-card h2 {
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+  }
+  
+  .timeline-card p {
+    font-size: 0.75rem;
+    line-height: 1.4;
+  }
+  
+  /* Bilder in Cards richtig dimensionieren */
+  .timeline-card img {
+    max-width: 100%; /* Volle Breite im Container */
+    height: auto;
+    display: block;
+    margin: 0 0 12px 0; /* Kein horizontaler Abstand, nur Abstand nach unten */
+    padding: 0;
+  }
+  
+  /* Timeline-Karten mit besserem Abstand zur Mittellinie */
+  .card-left {
+    right: 52%;
+    margin-right: 10px;
+  }
+  
+  .card-right {
+    left: 52%;
+    margin-left: 10px;
+  }
+  
+  /* Card-Positionen neu definieren für Mobilgeräte */
+  .card-1  { top: 0.5%; }
+  .card-2  { top: 8%; }
+  .card-3  { top: 18%; }
+  .card-4  { top: 38%; }
+  .card-5  { top: 45%; }
+  .card-6  { top: 60%; }
+  .card-7  { top: 68%; }
+  .card-8  { top: 74%; }
+  .card-9  { top: 86%; }
+  .card-10 { top: 95%; }
+  
+  /* Geänderte Timeline-Höhe für bessere Verteilung */
+  .timeline {
+    height: 6200px;
+    margin-top: 40px;
+  }
+  
+  /* Erhöhter Abstand zwischen Header und Timeline-Beginn */
+  .HeadlineTimeline {
+    margin-top: 90px;
+    margin-bottom: 30px;
+    font-size: 1.8rem;
+  }
+  
+  /* About-Header mit besserer Struktur */
+  .about-header {
+    position: relative;
+    height: auto;
+    padding-bottom: 100px;
+  }
+  
+  /* Button-Position optimieren */
+  #skillsbtn {
+    position: relative;
+    bottom: auto;
+    margin-top: 20px;
+    margin-bottom: 40px;
+    font-size: 0.9em;
+  }
+  
+  /* Creative Icons reduziert anzeigen */
+  .creative-icon {
+    opacity: 0.7;
+    font-size: 14px;
+  }
+  
+  /* Weniger Icons anzeigen durch CSS-Selektion */
+  .creative-icon:nth-child(n+10) {
+    display: none;
+  }
+  
+  /* Jahr-Marker positionieren */
+  .year-marker {
+    font-size: 0.9rem;
+    left: 53%;
+    margin-left: 15px;
+  }
+}
   
   /* Noch kleinere Displays (iPhone SE etc.) */
 @media screen and (max-width: 375px) {
