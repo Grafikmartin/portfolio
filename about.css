@@ -1048,7 +1048,7 @@
 }
   
   /* Noch kleinere Displays (iPhone SE etc.) */
-@media screen and (max-width: 375px) {
+@media screen and (max-width: 420px) {
   /* Silhouette anpassen - Optimiertes Positioning */
   .silhouette-container {
     position: relative;
