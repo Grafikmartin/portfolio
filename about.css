@@ -1168,3 +1168,33 @@
     display: none;
   }
 }
+
+/* Spezielle Anpassung für Motorola Z Play und ähnliche Geräte (360px) */
+@media screen and (min-width: 350px) and (max-width: 375px) {
+  .timeline-card {
+    width: 130px !important;
+    max-width: 130px !important;
+    padding: 6px;
+  }
+  
+  /* Noch mehr Abstand zur Timeline */
+  .card-left {
+    right: 54%;
+    margin-right: 4px;
+  }
+  
+  .card-right {
+    left: 54%;
+    margin-left: 4px;
+  }
+  
+  /* Kleinere Schriftgrößen */
+  .timeline-card h2 {
+    font-size: 0.9rem;
+  }
+  
+  .timeline-card p {
+    font-size: 0.65rem;
+    line-height: 1.2;
+  }
+}
