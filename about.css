@@ -1223,3 +1223,52 @@
     height: auto !important;
   }
 }
+/* Spezielle Anpassung für echte mobile Geräte (Motorola Z Play etc.) */
+@media screen and (min-width: 350px) and (max-width: 420px) {
+  /* Breite berechnen basierend auf verfügbarem Platz */
+  .timeline-card {
+    width: 125px !important; 
+    max-width: 125px !important;
+    padding: 8px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Bilder in Cards richtig dimensionieren */
+  .timeline-card img {
+    max-width: 100% !important; /* Volle Breite im Container */
+    height: auto !important;
+    display: block !important;
+  }
+  
+  /* Ausrichtung der Bilder verbessern */
+  .card-left img {
+    float: right !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+    width: 95% !important;
+  }
+  
+  .card-right img {
+    float: left !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-bottom: 8px !important;
+    width: 95% !important;
+  }
+  
+  /* Kleinere Schriftgrößen für schmalere Cards */
+  .timeline-card h2 {
+    font-size: 0.85rem !important;
+    margin-top: 2px !important;
+    margin-bottom: 5px !important;
+    clear: both !important;
+    line-height: 1.2 !important;
+  }
+  
+  .timeline-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
+    clear: both !important;
+  }
+}
