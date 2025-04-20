@@ -1168,61 +1168,108 @@
     display: none;
   }
 }
-
-/* Spezielle Anpassung für Motorola Z Play und ähnliche Geräte (360px) */
-@media screen and (min-width: 350px) and (max-width: 375px) {
-  /* Verbesserte Anpassung für Motorola Z Play und ähnliche Geräte (360px) */
-  @media screen and (min-width: 350px) and (max-width: 375px) {
-    .timeline-card {
-      width: 110px !important; /* 20% schmaler als vorher (130px) */
-      max-width: 110px !important;
-      padding: 6px;
-    }
-    
-    /* Noch mehr Abstand zur Timeline */
-    .card-left {
-      right: 55%;
-      margin-right: 4px;
-    }
-    
-    .card-right {
-      left: 55%;
-      margin-left: 4px;
-    }
-    
-    /* Bilder in linken Cards rechtsbündig ausrichten */
-    .card-left img {
-      float: right;
-      margin-left: auto;
-      margin-right: 0;
-      margin-bottom: 8px;
-      clear: both;
-    }
-    
-    /* Sicherstellen, dass Bilder in rechten Cards linksbündig bleiben */
-    .card-right img {
-      float: left;
-      margin-right: auto;
-      margin-left: 0;
-      margin-bottom: 8px;
-      clear: both;
-    }
-    
-    /* Kleinere Schriftgrößen für schmalere Cards */
-    .timeline-card h2 {
-      font-size: 0.8rem;
-      clear: both;
-    }
-    
-    .timeline-card p {
-      font-size: 0.6rem;
-      line-height: 1.2;
-      clear: both;
-    }
-    
-    /* Bilder etwas kleiner machen bei schmaler Card */
-    .timeline-card img {
-      max-width: 90%;
-      height: auto;
-    }
+/* Spezielle Anpassung für Motorola Z Play und ähnliche Geräte (360px bis 380px) */
+@media screen and (min-width: 350px) and (max-width: 380px) {
+  .timeline-card {
+    width: 110px !important; 
+    max-width: 110px !important;
+    padding: 6px !important;
   }
+  
+  /* Noch mehr Abstand zur Timeline */
+  .card-left {
+    right: 55% !important;
+    margin-right: 4px !important;
+  }
+  
+  .card-right {
+    left: 55% !important;
+    margin-left: 4px !important;
+  }
+  
+  /* Bilder in linken Cards rechtsbündig ausrichten */
+  .card-left img {
+    float: right !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+    clear: both !important;
+  }
+  
+  /* Sicherstellen, dass Bilder in rechten Cards linksbündig bleiben */
+  .card-right img {
+    float: left !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-bottom: 8px !important;
+    clear: both !important;
+  }
+  
+  /* Kleinere Schriftgrößen für schmalere Cards */
+  .timeline-card h2 {
+    font-size: 0.8rem !important;
+    clear: both !important;
+  }
+  
+  .timeline-card p {
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+    clear: both !important;
+  }
+  
+  /* Bilder etwas kleiner machen bei schmaler Card */
+  .timeline-card img {
+    max-width: 90% !important;
+    height: auto !important;
+  }
+}
+/* Spezielle Anpassung für Geräte mit etwa 393px Breite (Motorola Z Play) */
+@media screen and (min-width: 376px) and (max-width: 420px) {
+  /* Schmalere Cards */
+  .timeline-card {
+    width: 130px !important;
+    max-width: 130px !important;
+    padding: 7px !important;
+  }
+  
+  /* Mehr Abstand zur Timeline */
+  .card-left {
+    right: 54% !important;
+    margin-right: 6px !important;
+  }
+  
+  .card-right {
+    left: 54% !important;
+    margin-left: 6px !important;
+  }
+  
+  /* Bilder in linken Cards rechtsbündig ausrichten */
+  .card-left img {
+    float: right !important;
+    margin-left: auto !important;
+    margin-right: 0 !important;
+    margin-bottom: 8px !important;
+    clear: both !important;
+  }
+  
+  /* Bilder in rechten Cards linksbündig ausrichten */
+  .card-right img {
+    float: left !important;
+    margin-right: auto !important;
+    margin-left: 0 !important;
+    margin-bottom: 8px !important;
+    clear: both !important;
+  }
+  
+  /* Angepasste Schriftgrößen */
+  .timeline-card h2 {
+    font-size: 0.9rem !important;
+    clear: both !important;
+  }
+  
+  .timeline-card p {
+    font-size: 0.65rem !important;
+    line-height: 1.2 !important;
+    clear: both !important;
+  }
+}
