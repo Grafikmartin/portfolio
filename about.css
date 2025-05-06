@@ -1304,4 +1304,8 @@
     height: auto !important;
     max-width: 100% !important;
   }
+  .timeline::before {
+    border-bottom-color: red !important; /* Ändert die Pfeilspitze auf rot */
+  }
+  
 }
