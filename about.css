@@ -1299,9 +1299,9 @@
   }
  }
  @media screen and (min-width: 320px) and (max-width: 420px) {
-  .timeline-card img.dci-logo,
-  .timeline-card img.go\!-presse-logo {
+  .timeline-card img {
     width: 90px !important;
     height: auto !important;
+    max-width: 100% !important;
   }
 }
