@@ -1065,4 +1065,7 @@ footer {
     font-size: 10px;
     z-index: 9999;
   }
+  .timeline::before {
+    border-bottom-color: red !important; /* Ändert die Pfeilspitze auf rot */
+  }
 }
