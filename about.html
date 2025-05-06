@@ -203,17 +203,22 @@
         <h2 class="head2">TRIFFT</h2>
         <h2 class="head3">CODE</h2>
         <p class="text1">
-            Moin, ich bin Martin Borth – Grafikdesigner mit Schwerpunkt Printmedien und leidenschaftlicher Gestalter. Nach vielen Jahren als Art Director in einem Verlag sowie Erfahrungen im Marketing und in klassischen Werbeagenturen erweitere ich aktuell mein Profil durch eine Weiterbildung zum Web Developer an der DCI.
-          </p>
-          
-          <p class="text2">
-            Besonders die Frontend-Entwicklung fasziniert mich: Mein Ziel ist es, Gestaltung und Technologie sinnvoll zu verbinden – mit einem geschulten Blick für Ästhetik, Typografie und Markenkommunikation sowie wachsendem technischen Know-how für interaktive, digitale Anwendungen.
-          </p>
-          
-          <p class="text3">
-            Mehr über mich findest du in meinem Werdegang weiter unten – als kompakte Timeline mit den wichtigsten beruflichen Stationen.
-          </p>
-          
+            Moin, ich bin Martin Borth – Grafikdesigner mit Schwerpunkt Printmedien und leidenschaftlicher Gestalter.
+            Nach vielen Jahren als Art Director in einem Verlag sowie Erfahrungen im Marketing und in klassischen
+            Werbeagenturen erweitere ich aktuell mein Profil durch eine Weiterbildung zum Web Developer an der DCI.
+        </p>
+
+        <p class="text2">
+            Besonders die Frontend-Entwicklung fasziniert mich: Mein Ziel ist es, Gestaltung und Technologie sinnvoll zu
+            verbinden – mit einem geschulten Blick für Ästhetik, Typografie und Markenkommunikation sowie wachsendem
+            technischen Know-how für interaktive, digitale Anwendungen.
+        </p>
+
+        <p class="text3">
+            Mehr über mich findest du in meinem Werdegang weiter unten – als kompakte Timeline mit den wichtigsten
+            beruflichen Stationen.
+        </p>
+
         <button id="skillsbtn" class="nav-button">Skills anzeigen</button>
     </div>
     <div class="button-container">
@@ -239,7 +244,7 @@
 
             <!-- Karten auf der linken Seite -->
 
-            <div class="timeline-card timeline-card-fixed card-left card-1" style="width: 280px;">
+            <div class="timeline-card timeline-card-fixed card-left card-1">
                 <h2>2024-2025</h2>
                 <img src="assets/about/fill_200x200_bp1636363104_DCI__logo_wordmark_blue.png" style="width: 150px;"
                     class="dci-logo">
@@ -262,7 +267,8 @@
                         go! pressebüro & verlag gmbh <br> (vereinfacht
                         go! presse) <br>Rothenbaumchaussee 27, 20148 Hamburg<br>
                     </span><br>
-                    2004 begann ich als Grafikdesigner bei go!&nbsp;presse, einem Verlag, der sich auf hochwertige Kundenmagazine im Luxussegment spezialisiert hat.
+                    2004 begann ich als Grafikdesigner bei go!&nbsp;presse, einem Verlag, der sich auf hochwertige
+                    Kundenmagazine im Luxussegment spezialisiert hat.
                     später zum Art Director auf und übernahm die Leitung der Grafikabteilung. Während meiner 17 Jahre
                     dort war ich verantwortlich für die Gestaltung und Umsetzung unterschiedlichster Printprodukte – von
                     redaktionellen Magazinen bis zu eigenständigen Produktlinien. Zu meinen Aufgaben gehörten: <br>
@@ -423,7 +429,8 @@
                     style="width: 150px; border-radius: 5px;  border: 1px solid rgb(255, 255, 255, 0.5);"
                     class="ddr-fahne"><br>
                 <span>
-                    <p style="color: rgba(255, 255, 255, 0.5); margin-top: 10px; display: inline-block;">Guben (Brandenburg), <br>Wohnort war bis 1984 Cottbus </p>
+                    <p style="color: rgba(255, 255, 255, 0.5); margin-top: 10px; display: inline-block;">Guben
+                        (Brandenburg), <br>Wohnort war bis 1984 Cottbus </p>
                 </span><br><br>
 
                 <p>Geboren in eine spannende Zeit.</p>
@@ -538,7 +545,11 @@
 
             // Erzwinge die Breite für alle Karten
             cards.forEach(card => {
-                card.style.width = '280px';
+                // Breite nur auf Desktop-Geräten setzen
+                if (window.innerWidth > 767) {
+                    card.style.width = '280px';
+                }
+                // Text-Ausrichtung beibehalten
                 if (card.classList.contains('card-left')) {
                     card.style.textAlign = 'right';
                 } else {

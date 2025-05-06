@@ -379,9 +379,13 @@
     line-height: 1.5;
   }
   
-  /* --- Falls .timeline-card-fixed weiterhin verwendet wird: leer lassen / optional entfernen --- */
-  /*.timeline-card-fixed {}*/
-  
+
+
+  .timeline-card-fixed {
+    width: 280px;
+    max-width: 280px;
+}
+
   
   /* Status-Klassen für Ein-/Ausblendung (per JS) */
   .card-left.visible {
@@ -1270,5 +1274,11 @@
     font-size: 0.65rem !important;
     line-height: 1.2 !important;
     clear: both !important;
+  }
+}
+@media screen and (max-width: 375px) {
+  .timeline-card-fixed {
+      width: 110px !important;
+      max-width: 110px !important;
   }
 }
