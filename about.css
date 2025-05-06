@@ -1228,7 +1228,7 @@
   }
 }
 /* Spezielle Anpassung für echte mobile Geräte (Motorola Z Play etc.) */
-@media screen and (min-width: 350px) and (max-width: 420px) {
+@media screen and (min-width: 320px) and (max-width: 420px) {
   /* Breite berechnen basierend auf verfügbarem Platz */
   .timeline-card {
     width: 125px !important; 
@@ -1276,9 +1276,8 @@
     clear: both !important;
   }
 }
-@media screen and (max-width: 375px) {
+
   .timeline-card-fixed {
       width: 110px !important;
       max-width: 110px !important;
   }
-}
