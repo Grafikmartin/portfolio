@@ -1305,7 +1305,7 @@
     max-width: 100% !important;
   }
   .timeline::before {
-    border-bottom-color: red !important; /* Ändert die Pfeilspitze auf rot */
+    border-bottom-color: rgb(255, 255, 255) !important; /* Ändert die Pfeilspitze auf rot */
   }
   
 }
