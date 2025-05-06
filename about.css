@@ -1237,9 +1237,20 @@
     box-sizing: border-box !important;
   }
   
+  /* Cards näher zur Mitte rücken */
+  .card-left {
+    right: 55% !important; /* Weiter nach rechts (zur Mitte) */
+    margin-right: 2px !important; /* Geringerer Abstand */
+  }
+  
+  .card-right {
+    left: 55% !important; /* Weiter nach links (zur Mitte) */
+    margin-left: 2px !important; /* Geringerer Abstand */
+  }
+  
   /* Bilder in Cards richtig dimensionieren */
   .timeline-card img {
-    max-width: 100% !important; /* Volle Breite im Container */
+    max-width: 100% !important;
     height: auto !important;
     display: block !important;
   }
@@ -1275,9 +1286,15 @@
     line-height: 1.2 !important;
     clear: both !important;
   }
-}
-
+  
+  /* Sicherstellen, dass keine inline-Styles die Breite überschreiben */
   .timeline-card-fixed {
-      width: 110px !important;
-      max-width: 110px !important;
+    width: 125px !important;
+    max-width: 125px !important;
   }
+  
+  /* Timeline-Breite etwas verringern für mehr Abstand zu den Cards */
+  .timeline {
+    width: 1px !important;
+  }
+}
