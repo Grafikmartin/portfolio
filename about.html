@@ -686,6 +686,50 @@
                 });
             });
         });
+
+
+
+
+
+
+                // Mobile Card-Breite anpassen
+        document.addEventListener('DOMContentLoaded', function() {
+            // Prüfen ob Mobilgerät (unter 450px)
+            function adjustMobileCards() {
+                const cards = document.querySelectorAll('.timeline-card, .timeline-card-fixed');
+                
+                if (window.innerWidth <= 450) {
+                    // Für Motorola Z Play und ähnliche Geräte
+                    cards.forEach(card => {
+                        card.style.width = '100px';
+                        card.style.maxWidth = '100px';
+                        card.style.padding = '5px';
+                    });
+                    
+                    // Test-Indikator
+                    const timeline = document.querySelector('.timeline');
+                    if (timeline && timeline.before) {
+                        timeline.style.setProperty('--before-color', 'red');
+                    }
+                    
+                    console.log('Mobile Card-Breite angepasst auf 100px');
+                } else if (window.innerWidth <= 360) {
+                    // Noch kleinere Geräte
+                    cards.forEach(card => {
+                        card.style.width = '90px';
+                        card.style.maxWidth = '90px';
+                        card.style.padding = '4px';
+                    });
+                    console.log('Mobile Card-Breite angepasst auf 90px');
+                }
+            }
+            
+            // Initial ausführen
+            adjustMobileCards();
+            
+            // Bei Größenänderung ausführen
+            window.addEventListener('resize', adjustMobileCards);
+        });
     </script>
 </body>
 
