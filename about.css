@@ -1394,3 +1394,84 @@ footer {
     z-index: 9999;
   }
 }
+
+/* Spezielle Anpassung für Smartphones und Motorola Z Play (320px-450px) */
+@media screen and (min-width: 320px) and (max-width: 450px) {
+  /* Viel schmälere Timeline-Cards */
+  .timeline-card, 
+  .timeline-card-fixed {
+    width: 100px !important;
+    max-width: 100px !important;
+    padding: 5px !important;
+    box-sizing: border-box !important;
+  }
+  
+  /* Näher zur Timeline rücken */
+  .card-left {
+    right: 51% !important;
+    margin-right: 2px !important;
+  }
+  
+  .card-right {
+    left: 51% !important;
+    margin-left: 2px !important;
+  }
+  
+  /* Kleinere Bilder */
+  .timeline-card img,
+  .timeline-card-fixed img {
+    width: 80px !important;
+    max-width: 90% !important;
+    margin-bottom: 5px !important;
+  }
+  
+  /* Kleinere Schrift */
+  .timeline-card h2 {
+    font-size: 0.8rem !important;
+    margin-bottom: 3px !important;
+    margin-top: 0 !important;
+  }
+  
+  .timeline-card p {
+    font-size: 0.6rem !important;
+    line-height: 1.2 !important;
+    margin-top: 3px !important;
+  }
+  
+  /* Timeline schmaler */
+  .timeline {
+    width: 1px !important;
+  }
+  
+  /* Test-Indikator als rote Pfeilspitze */
+  .timeline::before {
+    border-bottom-color: red !important;
+  }
+}
+
+/* Extrem schmale Geräte */
+@media screen and (max-width: 360px) {
+  .timeline-card, 
+  .timeline-card-fixed {
+    width: 90px !important;
+    max-width: 90px !important;
+    padding: 4px !important;
+  }
+  
+  /* Noch näher zur Timeline */
+  .card-left {
+    right: 51% !important;
+    margin-right: 1px !important;
+  }
+  
+  .card-right {
+    left: 51% !important;
+    margin-left: 1px !important;
+  }
+  
+  /* Noch kleinere Bilder */
+  .timeline-card img,
+  .timeline-card-fixed img {
+    width: 70px !important;
+  }
+}
