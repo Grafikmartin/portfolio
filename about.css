@@ -1003,6 +1003,52 @@ footer {
     /* Zurück zur normalen Höhe */
   }
 }
+
+/* Bilder in Timeline-Cards auf eigener Zeile */
+.timeline-card img,
+.timeline-card-fixed img {
+  display: block !important;
+  width: 120px !important;
+  height: auto !important;
+  max-width: 95% !important;
+  margin-bottom: 15px !important; /* Abstand zum Text darunter */
+  float: none !important; /* Float aufheben */
+  clear: both !important;
+  
+  /* Zentrieren der Bilder */
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+/* Spezifisches Styling für linke/rechte Karten */
+.card-left img {
+  margin-left: auto !important;
+  margin-right: 0 !important;
+}
+
+.card-right img {
+  margin-right: auto !important;
+  margin-left: 0 !important;
+}
+
+/* Mobile-Anpassungen */
+@media screen and (max-width: 767px) {
+  .timeline-card img,
+  .timeline-card-fixed img {
+    width: 100px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+  
+  /* Bei kleinen Geräten alle Bilder zentrieren */
+  .card-left img,
+  .card-right img {
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+
 /* Mittlere mobile Geräte (größer als iPhone SE, kleiner als Tablets) */
 @media screen and (min-width: 376px) and (max-width: 767px) {
   /* Silhouette anpassen - Optimiertes Positioning */
