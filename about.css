@@ -1334,76 +1334,17 @@ footer {
   }
 }
 
-/* Spezielle Anpassung für mittelgroße Mobile-Geräte (376px-420px, z.B. Motorola Z Play) */
-@media screen and (min-width: 376px) and (max-width: 420px) {
-  /* Kleinere Timeline-Cards für diese Bildschirmgrößen */
-  .timeline-card, .timeline-card-fixed {
-    width: 130px !important;
-    max-width: 130px !important;
-    padding: 7px !important;
-  }
-  
-  /* Mehr Abstand zur Timeline */
-  .card-left {
-    right: 54% !important;
-    margin-right: 3px !important;
-  }
-  
-  .card-right {
-    left: 54% !important;
-    margin-left: 3px !important;
-  }
-  
-  /* Optimierte Bildausrichtung für besseres Layout */
-  .card-left img {
-    float: right !important;
-    margin-left: auto !important;
-    margin-right: 0 !important;
-    margin-bottom: 6px !important;
-    width: 90px !important;
-  }
-  
-  .card-right img {
-    float: left !important;
-    margin-right: auto !important;
-    margin-left: 0 !important;
-    margin-bottom: 6px !important;
-    width: 90px !important;
-  }
-  
-  /* Angepasste Schriftgrößen */
-  .timeline-card h2 {
-    font-size: 0.9rem !important;
-    clear: both !important;
-  }
-  
-  .timeline-card p {
-    font-size: 0.7rem !important;
-    line-height: 1.3 !important;
-    clear: both !important;
-  }
-  
-  /* Test-Indikator für diese Media Query */
-  body::after {
-    content: "•";
-    position: fixed;
-    top: 5px;
-    left: 5px;
-    color: white;
-    font-size: 10px;
-    z-index: 9999;
-  }
-}
-
-/* Spezielle Anpassung für Smartphones und Motorola Z Play (320px-450px) */
-@media screen and (min-width: 320px) and (max-width: 450px) {
-  /* Viel schmälere Timeline-Cards */
+/* Verbesserte Mobile-Unterstützung (speziell für Motorola Z Play und ähnliche Geräte) */
+@media screen and (max-width: 450px) {
+  /* Grundlegende Card-Struktur und -Größe */
   .timeline-card, 
   .timeline-card-fixed {
     width: 100px !important;
     max-width: 100px !important;
     padding: 5px !important;
     box-sizing: border-box !important;
+    border: 1px solid rgba(255, 255, 255, 0.5) !important;
+    border-radius: 8px !important;
   }
   
   /* Näher zur Timeline rücken */
@@ -1417,19 +1358,12 @@ footer {
     margin-left: 2px !important;
   }
   
-  /* Kleinere Bilder */
-  .timeline-card img,
-  .timeline-card-fixed img {
-    width: 80px !important;
-    max-width: 90% !important;
-    margin-bottom: 5px !important;
-  }
-  
-  /* Kleinere Schrift */
+  /* Typografie-Anpassungen */
   .timeline-card h2 {
     font-size: 0.8rem !important;
     margin-bottom: 3px !important;
-    margin-top: 0 !important;
+    margin-top: 2px !important;
+    line-height: 1.1 !important;
   }
   
   .timeline-card p {
@@ -1438,40 +1372,58 @@ footer {
     margin-top: 3px !important;
   }
   
-  /* Timeline schmaler */
+  .timeline-card strong {
+    font-size: 0.65rem !important;
+  }
+  
+  /* Bilder in Cards optimieren */
+  .timeline-card img,
+  .timeline-card-fixed img {
+    width: 80px !important;
+    max-width: 90% !important;
+    margin-bottom: 5px !important;
+    margin-top: 2px !important;
+    clear: both !important;
+  }
+  
+  /* Timeline selbst schmaler machen */
   .timeline {
     width: 1px !important;
   }
   
-  /* Test-Indikator als rote Pfeilspitze */
-  .timeline::before {
-    border-bottom-color: red !important;
+  /* Year-Marker besser positionieren */
+  .year-marker {
+    font-size: 0.7rem !important;
+    margin-left: 5px !important;
+  }
+  
+  /* Überschrift kleiner */
+  .HeadlineTimeline {
+    font-size: 1.5rem !important;
+    margin-top: 40px !important;
+    margin-bottom: 15px !important;
   }
 }
 
-/* Extrem schmale Geräte */
+/* Extrem kleine Geräte (unter 360px) */
 @media screen and (max-width: 360px) {
   .timeline-card, 
   .timeline-card-fixed {
-    width: 90px !important;
-    max-width: 90px !important;
+    width: 85px !important;
+    max-width: 85px !important;
     padding: 4px !important;
   }
   
-  /* Noch näher zur Timeline */
-  .card-left {
-    right: 51% !important;
-    margin-right: 1px !important;
+  .timeline-card h2 {
+    font-size: 0.7rem !important;
   }
   
-  .card-right {
-    left: 51% !important;
-    margin-left: 1px !important;
+  .timeline-card p {
+    font-size: 0.55rem !important;
   }
   
-  /* Noch kleinere Bilder */
   .timeline-card img,
   .timeline-card-fixed img {
-    width: 70px !important;
+    width: 65px !important;
   }
 }
