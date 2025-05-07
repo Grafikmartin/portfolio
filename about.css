@@ -1087,7 +1087,10 @@ footer {
     line-height: 1.4;
     max-width: 100%;
   }
-
+  .timeline {
+    height: 5000px; /* Passende Höhe für kleine Mobilgeräte */
+    margin-top: 30px;
+  }
   /* Timeline-Karten mit korrekten Dimensionen */
   .timeline-card,
   .timeline-card-fixed {
