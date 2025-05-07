@@ -1300,7 +1300,7 @@ footer {
   /* Ausrichtung der Bilder verbessern */
   .card-left img {
     float: right !important;
-    margin-left: auto !important;
+  
     margin-right: 0 !important;
     margin-bottom: 8px !important;
     width: 95% !important;
@@ -1308,7 +1308,7 @@ footer {
 
   .card-right img {
     float: left !important;
-    margin-right: auto !important;
+   
     margin-left: 0 !important;
     margin-bottom: 8px !important;
     width: 95% !important;
