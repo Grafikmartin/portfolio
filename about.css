@@ -1121,14 +1121,7 @@ footer {
 }
 
 
-/* Für Mobilgeräte explizit überschreiben */
-@media (max-width: 450px) {
-  .timeline-card-fixed {
-      width: 150px !important;
-      max-width: 150px !important;
-      padding: 5px !important;
-  }
-}
+
 
 /* Mittlere mobile Geräte (größer als iPhone SE, kleiner als Tablets) */
 @media screen and (min-width: 320px) and (max-width: 767px) {
@@ -1164,14 +1157,14 @@ footer {
   .text1,
   .text2,
   .text3 {
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     padding: 0 20px;
     margin-bottom: 12px;
     line-height: 1.4;
     max-width: 100%;
   }
   .timeline {
-    height: 5000px; /* Passende Höhe für kleine Mobilgeräte */
+    height: 5500px; /* Passende Höhe für kleine Mobilgeräte */
     margin-top: 30px;
   }
   /* Timeline-Karten mit korrekten Dimensionen */
@@ -1180,6 +1173,7 @@ footer {
     width: 170px !important;
     max-width: 170px !important;
     padding: 12px;
+    padding: 5px
   }
 
   /* Card-Inhalte anpassen */
